@@ -36,3 +36,4 @@ My game is a simplified version of Pokemon. It will allow the player to choose t
 - I want to include a basic animation for when either your, or your opponent's Pokemon attacks
 - I want to include background music for when you're battling a wild Pokemon or a Gym Leader 
 - I want to add multiple Gym Leaders
+-Adding local storage to save the player's progress
