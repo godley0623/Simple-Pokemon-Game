@@ -64,6 +64,7 @@ export const starterPkmn = genOneStarters;
 export const lowLvlPkmn = genOneLowLvl;
 export const midLvlPkmn = genOneMidLvl;
 export const highLvlPkmn = genOneHighLvl;
+export const allPkmn = genOnePkmn;
 export function capFirstLetter(str) {
     const firstLetter = str.charAt(0)
 
@@ -79,25 +80,31 @@ export function choose (arr) {
     
 }
 
-export function addMoves(pkmn) {
-    const types = ["Fire", "Water", "Grass", "Electric", "Normal", "Flying", "Bug", "Poison", "Rock", "Ground", "Fighting", "Psychic", "Ghost", "Dark", "Steel", "Fairy", "Ice", "Dragon"];
-    let amount = 2
-    let dupe = true;
-    let moveTypes = pkmn.moves.join(' ');
-    let randType;
+export function addMoves(pkmn, types = []) {
+    if (types === []) {
+        const types = ["Fire", "Water", "Grass", "Electric", "Normal", "Flying", "Bug", "Poison", "Rock", "Ground", "Fighting", "Psychic", "Ghost", "Dark", "Steel", "Fairy", "Ice", "Dragon"];
+        let amount = 2
+        let dupe = true;
+        let moveTypes = pkmn.moves.join(' ');
+        let randType;
 
-    while (amount > 0) {
-        dupe = true
-        while (dupe) {
-            //get the array of types and weakness from the weakness script
-            randType = choose(types);
-            if (!moveTypes.includes(randType)) {
-                pkmn.moves.push(randType);
-                dupe = false;
-                moveTypes = moveTypes + ' ' + randType;
-                amount--;
+        while (amount > 0) {
+            dupe = true
+            while (dupe) {
+                //get the array of types and weakness from the weakness script
+                randType = choose(types);
+                if (!moveTypes.includes(randType)) {
+                    pkmn.moves.push(randType);
+                    dupe = false;
+                    moveTypes = moveTypes + ' ' + randType;
+                    amount--;
+                }
+
             }
-
+        }
+    } else {
+        for (let i = 0; i < types.length; i++) {
+            pkmn.moves.push(types[i]);
         }
     }
 }

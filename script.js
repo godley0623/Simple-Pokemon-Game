@@ -1,5 +1,5 @@
 //--imports--
-import { starterPkmn, lowLvlPkmn, midLvlPkmn, highLvlPkmn, capFirstLetter, addMoves, choose } from "./pokemonObj.js";
+import { starterPkmn, lowLvlPkmn, midLvlPkmn, highLvlPkmn, allPkmn, capFirstLetter, addMoves, choose } from "./pokemonObj.js";
 import {damageCalc, speedCheck} from "./battle-mechanic.js";
 
 
@@ -58,19 +58,35 @@ class GymLeader {
         this.name = name;
         this.sprite = sprite;
         this.team = team;
+        this.fullTeam = [];
+        
+        this.formatTeam();
+    }
+
+    formatTeam () {
+        for (let i = 0; i < this.team.length; i++) {
+            for (let [key, value] of Object.entries(allPkmn)) {
+                //console.log(this.team[i][0], key)
+                if (this.team[i][0] === key) {
+                    this.fullTeam.push(value)
+                    addMoves(this.fullTeam[i], [this.team[i][1], this.team[i][2]]);
+                    break;
+                }
+            }
+        }
+        console.log(this.fullTeam);
     }
 }
 
 //Gym Leaders
 const brockTeam = [
-    ['geodude', ''],
-    ['onix', ''],
-    ['ryhorn', ''],
-    ['graveler', ''],
-    ['rydon', ''],
-    ['golem', '']
+    ['geodude', 'Ice', 'Steel'],
+    ['onix', 'Electric', 'Ghost'],
+    ['rhyhorn', 'Fire', 'Fighting'],
+    ['graveler', 'Electric', 'Poison'],
+    ['rhydon', 'Grass', 'Ice'],
+    ['golem', 'Grass', 'Flying']
 ];
-
 const gymBrock = new GymLeader ('Brock', "", brockTeam);
 
 //--functions--
@@ -373,6 +389,29 @@ function renderWildBattle () {
 }
 
 
+function renderGymLeaderSelection () {
+    //GymLeader Selection Div Container
+    const gymLeaderSDiv = document.createElement('div');
+    gymLeaderSDiv.classList.add('gymleader-selection-container');
+    gymLeaderSDiv.innerHTML = `
+    <img class="gymleader" src="${gymBrock.sprite}">
+    `;
+    gameContainer.append(gymLeaderSDiv);
+
+    //Show Pokemon in Party
+    let pkmnPartyDivs = [];
+    for (let i = 0; i < pkmnParty.length; i++) {
+        pkmnPartyDivs.push(document.createElement('div'));
+        pkmnPartyDivs[i].setAttribute('class', `main-menu-party party-${i}`);
+        pkmnPartyDivs[i].innerHTML = `
+        <img id="${i}" class='main-menu-icon' src=${pkmnParty[i].icon}>
+
+        <p class='main-menu-text-party'>Pokemon in Party</p>
+        `;
+        gymLeaderSDiv.append(pkmnPartyDivs[i]);
+    }
+}
+
 /*----- Catch wild pokemon -----*/
 addGlobalEventListener('click', '.catch', e => {
     addPkmnToParty(oppPkmn);
@@ -502,6 +541,13 @@ addGlobalEventListener('click', '.text0', e => {
     removeElement(".main-menu");
     renderWildBattle();
     gameState = 'wild battle';
+});
+
+// Main Menu > Gym Leader Selection
+addGlobalEventListener('click', '.text2', e => {
+    removeElement(".main-menu");
+    renderGymLeaderSelection();
+    gameState = 'gym leader selection';
 });
 
 //Wild Battle > Main Menu
