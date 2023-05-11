@@ -24,6 +24,9 @@ let playerHp;
 let oppHp;
 let oppPkmn;
 let battleText;
+let gymTeam;
+let allPkmnCopy = structuredClone(allPkmn)
+let lowLvlCopy = structuredClone(lowLvlPkmn);
 
 //--cached elements--
 const gameContainer = document.querySelector('.game-container');
@@ -66,9 +69,8 @@ class GymLeader {
     formatTeam () {
         for (let i = 0; i < this.team.length; i++) {
             for (let [key, value] of Object.entries(allPkmn)) {
-                //console.log(this.team[i][0], key)
                 if (this.team[i][0] === key) {
-                    this.fullTeam.push(value)
+                    this.fullTeam.push(structuredClone(value));
                     addMoves(this.fullTeam[i], [this.team[i][1], this.team[i][2]]);
                     break;
                 }
@@ -87,7 +89,7 @@ const brockTeam = [
     ['rhydon', 'Grass', 'Ice'],
     ['golem', 'Grass', 'Flying']
 ];
-const gymBrock = new GymLeader ('Brock', "", brockTeam);
+const gymBrock = new GymLeader ('Brock', "brock.png", brockTeam);
 
 //--functions--
 //Event Delegation
@@ -101,7 +103,7 @@ function addPkmnToParty(pkmn) {
     if (pkmnParty.length < 6) {
         pkmnParty.push(pkmn);
         let partySize = pkmnParty.length;
-        addMoves(pkmnParty[partySize-1]);
+        if (gameState === 'choose starter') addMoves(pkmnParty[partySize-1]);
         
         if (gameState === 'wild battle') {
             showBattleText(`${capFirstLetter(pkmn.name)} was added to your party`);
@@ -152,7 +154,7 @@ function switchPkmn (gameState, targetIdx, trainer) {
                 }
 
                 //updating the pokemon moves
-                removeElement('moves-button');
+                removeElement('.moves-button');
                 movesDiv = [];
                 for (let i = 0; i < pkmnParty[0].moves.length; i++) {
                     movesDiv.push(document.createElement('button'));
@@ -343,7 +345,9 @@ let pkmnPartyDivs;
 let movesDiv;
 function renderWildBattle () {
     //Getting the wild pokemon to battle
-    oppPkmn = getRandomPkmn(lowLvlPkmn);
+    oppPkmn = getRandomPkmn(structuredClone(lowLvlPkmn));
+    addMoves(oppPkmn);
+    console.log(oppPkmn);
 
     //Wild Battle Div Container
     const wildDiv = document.createElement('div');
@@ -368,7 +372,6 @@ function renderWildBattle () {
         `;
         wildDiv.append(pkmnPartyDivs[i]);
     }
-    console.log(pkmnPartyDivs);
 
     movesDiv = [];
     battleText = [];
@@ -394,27 +397,50 @@ function renderGymLeaderSelection () {
     const gymLeaderSDiv = document.createElement('div');
     gymLeaderSDiv.classList.add('gymleader-selection-container');
     gymLeaderSDiv.innerHTML = `
-    <img class="gymleader" src="${gymBrock.sprite}">
+    <img class="gymleader brock" src="assets/gymleaders/${gymBrock.sprite}">
     `;
     gameContainer.append(gymLeaderSDiv);
 
     //Show Pokemon in Party
-    let pkmnPartyDivs = [];
+    /*let pkmnPartyDivs = [];
     for (let i = 0; i < pkmnParty.length; i++) {
         pkmnPartyDivs.push(document.createElement('div'));
         pkmnPartyDivs[i].setAttribute('class', `main-menu-party party-${i}`);
         pkmnPartyDivs[i].innerHTML = `
         <img id="${i}" class='main-menu-icon' src=${pkmnParty[i].icon}>
-
-        <p class='main-menu-text-party'>Pokemon in Party</p>
         `;
         gymLeaderSDiv.append(pkmnPartyDivs[i]);
-    }
+    }*/
 }
+
+function renderGymLeaderBattle () {
+
+}
+
+/*----- Releasing Pokemon -----*/
+addGlobalEventListener('click', '.stat-release', e => {
+    if (pkmnParty.length === 1) {
+        let newGameInput = prompt("Are you sure you want to release your last pokemon? This will restart the game. (y / n)", "n")
+        if (newGameInput.toLocaleLowerCase() === 'y') {
+            pkmnParty.splice(statPlace, 1);
+            removeElement(".stat-container");
+            renderStarterChoice();
+            gameState = 'choose starter';
+            return;
+        } else {
+            return;
+        }
+    }
+    
+    pkmnParty.splice(statPlace, 1);
+    removeElement(".stat-container");
+    renderMainMenu();
+    gameState = 'main menu';
+})
 
 /*----- Catch wild pokemon -----*/
 addGlobalEventListener('click', '.catch', e => {
-    addPkmnToParty(oppPkmn);
+    addPkmnToParty(structuredClone(oppPkmn));
     e.target.classList.add('hidden');
 })
 
@@ -509,23 +535,26 @@ addGlobalEventListener('click', '.moves-button', e => {
 /*----- Move between screens -----*/
 // Starter > Main Menu
 addGlobalEventListener('click', '.starter', e => {
-    addPkmnToParty(starterPkmn[Number(e.target.getAttribute('id'))]);
+    addPkmnToParty(structuredClone(starterPkmn[Number(e.target.getAttribute('id'))]));
     removeElement('.starter-pkmn-container');
     renderMainMenu();
     gameState = 'main menu';
 });
 
+let statPlace;
 // Main Menu > Stat
 addGlobalEventListener('click', '.main-menu-icon', e => {
+    statPlace = Number(e.target.getAttribute('id'));
     removeElement(".main-menu");
-    renderPokemonStats(pkmnParty[Number(e.target.getAttribute('id'))]);
+    renderPokemonStats(pkmnParty[statPlace]);
     gameState = 'show pkmn stats';
 });
 
 // Stat > Stat
 addGlobalEventListener('click', '.stat-menu-icon', e => {
+    statPlace = Number(e.target.getAttribute('id'));
     removeElement(".stat-container");
-    renderPokemonStats(pkmnParty[Number(e.target.getAttribute('id'))]);
+    renderPokemonStats(pkmnParty[statPlace]);
     gameState = 'show pkmn stats';
 });
 
@@ -552,6 +581,7 @@ addGlobalEventListener('click', '.text2', e => {
 
 //Wild Battle > Main Menu
 addGlobalEventListener('click', '.run', e => {
+    canAttack = true;
     removeElement(".wild-pkmn-container");
     renderMainMenu();
     gameState = 'main menu';
@@ -561,6 +591,19 @@ addGlobalEventListener('click', '.run', e => {
 
     //Save Team to the local Storage
     //localStorage.setItem('pkmnParty', pkmnParty);
+});
+
+//Gym Leader Selection > Gym Leader Battle
+addGlobalEventListener('click', '.gymleader', e => {
+    removeElement(".gymleader-selection-container");
+    //renderGymLeaderBattle();
+    gameState = 'gym leader battle';
+
+    switch (e.target.getAttribute('id')) {
+        case 'brock':
+            gymTeam = gymBrock.fullTeam;
+            break;
+    }
 });
 
 //--Game State--

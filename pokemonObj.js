@@ -81,7 +81,7 @@ export function choose (arr) {
 }
 
 export function addMoves(pkmn, types = []) {
-    if (types === []) {
+    if (types.length === 0) {
         const types = ["Fire", "Water", "Grass", "Electric", "Normal", "Flying", "Bug", "Poison", "Rock", "Ground", "Fighting", "Psychic", "Ghost", "Dark", "Steel", "Fairy", "Ice", "Dragon"];
         let amount = 2
         let dupe = true;
