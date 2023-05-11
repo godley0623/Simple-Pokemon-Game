@@ -423,7 +423,7 @@ let fourRes = .4;
 let twoRes = .75;
 let stab = 1.5;
 
-function weaknessCalc (pkmn, moveType) {
+export function weaknessCalc (pkmn, moveType) {
     const typeMatchup = weaknessCheck(setTypeMatchup([cap(pkmn.type[0]), cap(pkmn.type[1])]));
     let arr = Object.entries(typeMatchup);
 

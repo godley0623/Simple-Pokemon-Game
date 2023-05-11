@@ -1,6 +1,6 @@
 //--imports--
 import { starterPkmn, lowLvlPkmn, midLvlPkmn, highLvlPkmn, allPkmn, capFirstLetter, addMoves, choose } from "./pokemonObj.js";
-import {damageCalc, speedCheck} from "./battle-mechanic.js";
+import {damageCalc, speedCheck, weaknessCalc} from "./battle-mechanic.js";
 
 
 //--state variables--
@@ -25,8 +25,7 @@ let oppHp;
 let oppPkmn;
 let battleText;
 let gymTeam;
-let allPkmnCopy = structuredClone(allPkmn)
-let lowLvlCopy = structuredClone(lowLvlPkmn);
+let gymleaderName;
 
 //--cached elements--
 const gameContainer = document.querySelector('.game-container');
@@ -57,13 +56,17 @@ class HealthBar {
 }
 
 class GymLeader {
-    constructor (name, sprite, team) {
+    constructor (name, sprite, badge, team) {
         this.name = name;
         this.sprite = sprite;
+        this.badge = badge;
         this.team = team;
         this.fullTeam = [];
         
         this.formatTeam();
+        this.acePkmn = this.fullTeam[5];
+
+        this.badgeMessage = `You defeated Gym Leader ${this.name}. You've earned the ${this.badge} Badge.`
     }
 
     formatTeam () {
@@ -76,7 +79,6 @@ class GymLeader {
                 }
             }
         }
-        console.log(this.fullTeam);
     }
 }
 
@@ -89,7 +91,19 @@ const brockTeam = [
     ['rhydon', 'Grass', 'Ice'],
     ['golem', 'Grass', 'Flying']
 ];
-const gymBrock = new GymLeader ('Brock', "brock.png", brockTeam);
+const gymBrock = new GymLeader ('Brock', "brock.png", "Boulder", brockTeam);
+console.log(gymBrock);
+
+const mistyTeam = [
+    ['psyduck', 'Psychic', 'Ice'],
+    ['staryu', 'Ice', 'Dark'],
+    ['golduck', 'Psychic', 'Fire'],
+    ['lapras', 'Flying', 'Ground'],
+    ['starmie', 'Ghost', 'Ground'],
+    ['gyarados', 'Ground', 'Electric']
+]
+const gymMisty = new GymLeader ('Misty', 'misty.png', 'Cascade', mistyTeam);
+console.log(gymMisty);
 
 //--functions--
 //Event Delegation
@@ -125,14 +139,41 @@ function healParty () {
 
 let canSwitch = true;
 function switchPkmn (gameState, targetIdx, trainer) {
-    if (canSwitch || trainer === 'opp') {
+    let switchIn;
+    let gymDiv;
+    if (trainer === 'opp' && gymTeam.length >= 1) {
+        gymDiv = document.querySelector('.gym-container');
+        //remove the opp pokemon image;
+        removeElement('.enemy-pkmn');
+        //remove the top index of the gymTeam array
+        gymTeam.shift();
+        if (gymTeam.length === 0) {
+            showBattleText(gymleaderPlaceHolder.badgeMessage);
+            return;
+        }
+        //Make oppPkmn equal the new gymTeam[0]
+        oppPkmn = gymTeam[0];
+        let newPkmn = document.createElement('img');
+        newPkmn.setAttribute('class', 'enemy-pkmn');
+        newPkmn.setAttribute('src', `${oppPkmn.sprite[0]}`);
+        gymDiv.append(newPkmn);
+        //updating the pokemon hp
+        oppHp.setValue(Math.floor(gymTeam[0].currentHp / gymTeam[0].hp * 100))
+
+        showBattleText(`${gymleaderName} sent out ${capFirstLetter(gymTeam[0].name)}`)
+        return;
+    }
+    if (trainer === 'player' && pkmnParty[targetIdx].currentHp < 0) {
+        showBattleText("Can't switch to a fainted pokemon");
+        return;
+    }
+    if (canSwitch) {
         canSwitch = false;
         switch (gameState) {
             case "wild battle":
                 let wildDiv = document.querySelector('.wild-pkmn-container');
-                let switchIn;
+                switchIn;
                 [pkmnParty[0], pkmnParty[targetIdx]] = [pkmnParty[targetIdx], pkmnParty[0]]
-                console.log(pkmnParty[0], pkmnParty[targetIdx]);
 
                 //updating the pokemon battle sprite
                 removeElement('.your-pkmn');
@@ -164,7 +205,7 @@ function switchPkmn (gameState, targetIdx, trainer) {
                 }
 
                 //updating the pokemon hp
-                playerHp.setValue(pkmnParty[0].currentHp / pkmnParty[0].hp * 100)
+                playerHp.setValue(Math.floor(pkmnParty[0].currentHp / pkmnParty[0].hp * 100));
 
                 //updating the battle text
                 showBattleText(`${capFirstLetter(pkmnParty[0].name)} was sent out.`);
@@ -179,6 +220,57 @@ function switchPkmn (gameState, targetIdx, trainer) {
                     canSwitch = true;
                 }, "2000")
                 break;
+
+                case "gym leader battle":
+                    gymDiv = document.querySelector('.gym-container');
+                    switchIn;
+                    [pkmnParty[0], pkmnParty[targetIdx]] = [pkmnParty[targetIdx], pkmnParty[0]]
+    
+                    //updating the pokemon battle sprite
+                    removeElement('.your-pkmn');
+                    switchIn = document.createElement('img');
+                    switchIn.setAttribute('class', 'your-pkmn');
+                    switchIn.setAttribute('src', `${pkmnParty[0].sprite[1]}`)
+                    gymDiv.append(switchIn);
+    
+                    //updating the pokemon icon
+                    removeElement('.battle-party');
+                    pkmnPartyDivs = [];
+                    for (let i = 0; i < pkmnParty.length; i++) {
+                        pkmnPartyDivs.push(document.createElement('div'));
+                        pkmnPartyDivs[i].setAttribute('class', `battle-party battle-party-${i}`);
+                        pkmnPartyDivs[i].innerHTML = `
+                        <img id="${i}" class='battle-icon' src=${pkmnParty[i].icon}>
+                        `;
+                        gymDiv.append(pkmnPartyDivs[i]);
+                    }
+    
+                    //updating the pokemon moves
+                    removeElement('.moves-button');
+                    movesDiv = [];
+                    for (let i = 0; i < pkmnParty[0].moves.length; i++) {
+                        movesDiv.push(document.createElement('button'));
+                        movesDiv[i].innerText = pkmnParty[0].moves[i];
+                        movesDiv[i].setAttribute('class', `moves-button move-${i}`);
+                        gymDiv.append(movesDiv[i]);
+                    }
+    
+                    //updating the pokemon hp
+                    playerHp.setValue(Math.floor(pkmnParty[0].currentHp / pkmnParty[0].hp * 100))
+    
+                    //updating the battle text
+                    showBattleText(`${capFirstLetter(pkmnParty[0].name)} was sent out.`);
+                    showBattleText(`${capFirstLetter(pkmnParty[targetIdx].name)} was called back.`);
+    
+                    //making the opponent attack if your hp wasn't 0
+                    if (pkmnParty[targetIdx].currentHp > 0) {
+                        attacking(document.querySelector('.enemy-pkmn'), getOppAttack(oppPkmn), playerHp, oppPkmn, pkmnParty[targetIdx]);
+                    }
+    
+                    setTimeout (() => {
+                        canSwitch = true;
+                    }, "2000")
+                    break;                
         }
     }
 }
@@ -207,10 +299,31 @@ function attacking (img, attack, hp, attacker, defender) {
     }
 }
 
-function getOppAttack (oppPkmn, method = 'random') {
-    if (method === 'random') { 
+function getOppAttack (oppPkmn, defender = pkmnParty[0]) {
+    if (gameState === 'wild battle') { 
         return choose(oppPkmn.moves);
+    } else if (gameState === 'gym leader battle') {
+       return getBestAttack(defender);
     }
+}
+
+function getBestAttack (defender) {
+    let moveOptions = [];
+    let highest = 0
+    let highestIdx = 0;
+
+    for (let i = 0; i < oppPkmn.moves.length; i++) {
+        moveOptions.push(weaknessCalc(defender, oppPkmn.moves[i]));
+    }
+
+    for (let i = 0; i < moveOptions.length; i++) {
+        if (moveOptions[i] > highest) {
+            highest = moveOptions[i];
+            highestIdx = i;
+        }
+    }
+
+    return oppPkmn.moves[highestIdx];
 }
 
 function showBattleText (message) {
@@ -290,7 +403,7 @@ function renderMainMenu() {
     menuDiv.setAttribute('class', 'main-menu');
     menuDiv.innerHTML = `
     <p class='main-menu-text text0'>Battle Wild Pokemon</p>
-    <p class='main-menu-text text1'>Battle Trainer</p>
+    <p class='main-menu-text text1 hidden'>Battle Trainer</p>
     <p class='main-menu-text text2'>Battle Gym Leader</p>
 
     <p class='main-menu-text-party'>Pokemon in Party</p>
@@ -344,10 +457,18 @@ function renderPokemonStats(pkmn) {
 let pkmnPartyDivs;
 let movesDiv;
 function renderWildBattle () {
+    let lowWild = structuredClone(lowLvlPkmn);
+    let midWild = structuredClone(midLvlPkmn);
+    let highWild = structuredClone(highLvlPkmn);
     //Getting the wild pokemon to battle
-    oppPkmn = getRandomPkmn(structuredClone(lowLvlPkmn));
-    addMoves(oppPkmn);
-    console.log(oppPkmn);
+    if (pkmnParty.length <= 3) {
+        oppPkmn = getRandomPkmn(lowWild);     
+    } else if (pkmnParty.length >= 4 && pkmnParty.length <= 5) {
+        oppPkmn = getRandomPkmn(choose([lowWild, midWild]));
+    } else {
+        oppPkmn = getRandomPkmn(choose([lowWild, midWild, midWild, highWild]));
+    }
+    addMoves(oppPkmn); 
 
     //Wild Battle Div Container
     const wildDiv = document.createElement('div');
@@ -397,7 +518,8 @@ function renderGymLeaderSelection () {
     const gymLeaderSDiv = document.createElement('div');
     gymLeaderSDiv.classList.add('gymleader-selection-container');
     gymLeaderSDiv.innerHTML = `
-    <img class="gymleader brock" src="assets/gymleaders/${gymBrock.sprite}">
+    <img id="brock" class="gymleader" src="assets/gymleaders/${gymBrock.sprite}">
+    <img id="misty" class="gymleader" src="assets/gymleaders/${gymMisty.sprite}">
     `;
     gameContainer.append(gymLeaderSDiv);
 
@@ -414,7 +536,48 @@ function renderGymLeaderSelection () {
 }
 
 function renderGymLeaderBattle () {
+    oppPkmn = gymTeam[0];
 
+
+     //Gym Battle Div Container
+     const gymDiv = document.createElement('div');
+     gymDiv.classList.add('gym-container');
+     gymDiv.innerHTML = `
+     <img class="your-pkmn" src="${pkmnParty[0].sprite[1]}">
+     <img class="enemy-pkmn" src="${oppPkmn.sprite[0]}">
+     <img class="battle-bg" src="assets/battle_bgs/00.png">
+     <div class="battle-title">Gym Leader ${gymleaderName} wants to battle!</div>
+     <div class="battle-text"></div>
+     <button class="leave">Go Back</button>
+     `;
+     gameContainer.append(gymDiv);
+ 
+     pkmnPartyDivs = [];
+     for (let i = 0; i < pkmnParty.length; i++) {
+         pkmnPartyDivs.push(document.createElement('div'));
+         pkmnPartyDivs[i].setAttribute('class', `battle-party battle-party-${i}`);
+         pkmnPartyDivs[i].innerHTML = `
+         <img id="${i}" class='battle-icon' src=${pkmnParty[i].icon}>
+         `;
+         gymDiv.append(pkmnPartyDivs[i]);
+     }
+ 
+     movesDiv = [];
+     battleText = [];
+     for (let i = 0; i < pkmnParty[0].moves.length; i++) {
+         movesDiv.push(document.createElement('button'));
+         movesDiv[i].innerText = pkmnParty[0].moves[i];
+         movesDiv[i].setAttribute('class', `moves-button move-${i}`);
+         gymDiv.append(movesDiv[i]);
+     }
+ 
+     let playerHpDiv = createHealthBar('player');
+     gymDiv.append(playerHpDiv);
+     playerHp = new HealthBar(playerHpDiv, 100);
+ 
+     let oppHpDiv = createHealthBar('opp');
+     gymDiv.append(oppHpDiv);
+     oppHp = new HealthBar(oppHpDiv, 100);
 }
 
 /*----- Releasing Pokemon -----*/
@@ -484,6 +647,11 @@ addGlobalEventListener('click', '.moves-button', e => {
                 newHp = Math.floor(attackOrder[1].currentHp / attackOrder[1].hp * 100);
                 playerHp.setValue(newHp);
                 playerHp.update();
+
+                if (attackOrder[1].currentHp <= 0) {
+                    playerImg.classList.add('faint');
+                    showBattleText(`${capFirstLetter(attackOrder[1].name)} fainted!!!`);
+                }
             } else {
                 playerImg.classList.add('player-attacking');
 
@@ -492,6 +660,11 @@ addGlobalEventListener('click', '.moves-button', e => {
                 newHp = Math.floor(attackOrder[1].currentHp / attackOrder[1].hp * 100);
                 oppHp.setValue(newHp);
                 oppHp.update();
+
+                if (attackOrder[1].currentHp <= 0) {
+                    oppImg.classList.add('faint');
+                    showBattleText(`${capFirstLetter(attackOrder[1].name)} fainted!!!`);
+                }               
             }
         }
 
@@ -506,6 +679,11 @@ addGlobalEventListener('click', '.moves-button', e => {
                     newHp = Math.floor(attackOrder[0].currentHp / attackOrder[0].hp * 100);
                     playerHp.setValue(newHp);
                     playerHp.update();
+
+                    if (attackOrder[0].currentHp <= 0) {
+                        playerImg.classList.add('faint');
+                        showBattleText(`${capFirstLetter(attackOrder[0].name)} fainted!!!`);
+                    }
                 } else {
                     playerImg.classList.add('player-attacking');
 
@@ -514,12 +692,24 @@ addGlobalEventListener('click', '.moves-button', e => {
                     newHp = Math.floor(attackOrder[0].currentHp / attackOrder[0].hp * 100);
                     oppHp.setValue(newHp);
                     oppHp.update();
+
+                    if (attackOrder[0].currentHp <= 0) {
+                        oppImg.classList.add('faint');
+                        showBattleText(`${capFirstLetter(attackOrder[0].name)} fainted!!!`);
+                    }
                 }
             }
           }, "2000");      
     } else {
         return false;
     }
+
+    setTimeout(() =>{
+        if (oppPkmn.currentHp <= 0 && gameState === "gym leader battle") {
+            switchPkmn('gym leader battle', 0, 'opp');
+        }       
+    }, "2500");
+
     setTimeout(() => {
         canAttack = true;
         playerImg.classList.remove('player-attacking');
@@ -529,7 +719,12 @@ addGlobalEventListener('click', '.moves-button', e => {
             let catchButton = document.querySelector('.catch')
             catchButton.classList.remove('hidden');
         }
+        if (oppPkmn.currentHp <= 0 && gameState === "gym leader battle") {
+            switchPkmn('gym leader battle', 0, 'opp');
+        }
     }, "4000");
+
+
 });
 
 /*----- Move between screens -----*/
@@ -593,17 +788,41 @@ addGlobalEventListener('click', '.run', e => {
     //localStorage.setItem('pkmnParty', pkmnParty);
 });
 
+let gymleaderPlaceHolder;
 //Gym Leader Selection > Gym Leader Battle
 addGlobalEventListener('click', '.gymleader', e => {
     removeElement(".gymleader-selection-container");
-    //renderGymLeaderBattle();
     gameState = 'gym leader battle';
-
     switch (e.target.getAttribute('id')) {
         case 'brock':
-            gymTeam = gymBrock.fullTeam;
+            gymleaderPlaceHolder = gymBrock;
+            gymTeam = structuredClone(gymBrock.fullTeam);
+            gymleaderName = gymBrock.name;
             break;
+        case 'misty':
+            gymleaderPlaceHolder = gymMisty;
+            gymTeam = structuredClone(gymMisty.fullTeam);
+            gymleaderName = gymMisty.name;
+            break;            
     }
+
+    renderGymLeaderBattle();
+});
+
+//Gym Leader Battle > Main Menu
+addGlobalEventListener('click', '.leave', e => {
+    if (gymTeam.length > 0) {
+        for (let i = 0; i < pkmnParty.length; i++) {
+            if (pkmnParty[i].currentHp > 0) {
+                showBattleText("You Can't run from a Gym Battle!");
+                return;
+            }
+        }
+    }
+    removeElement(".gym-container");
+    gameState = 'main menu';
+    healParty();
+    renderMainMenu();
 });
 
 //--Game State--
