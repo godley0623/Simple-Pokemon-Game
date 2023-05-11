@@ -113,6 +113,23 @@ function addGlobalEventListener(type, selector, callback) {
     });
 }
 
+//Audio files
+function playAudio (mp3, volume = .25) {
+    let audio = new Audio(`assets/audio/${mp3}`);
+    audio.volume = volume;
+    
+    return audio
+}
+function stopAudio (audio) {
+    audio.pause();
+    audio.currentTime = 0;
+}
+let wildMp3 = playAudio('wild.mp3');
+let gymLeaderMp3 = playAudio('gymleader.mp3');
+let gymLeaderFinalMp3 = playAudio('gymleaderFinal.mp3');
+let criticalHitMp3 = playAudio('criticalHit.mp3');
+
+
 function addPkmnToParty(pkmn) {
     if (pkmnParty.length < 6) {
         pkmnParty.push(pkmn);
@@ -161,6 +178,11 @@ function switchPkmn (gameState, targetIdx, trainer) {
         oppHp.setValue(Math.floor(gymTeam[0].currentHp / gymTeam[0].hp * 100))
 
         showBattleText(`${gymleaderName} sent out ${capFirstLetter(gymTeam[0].name)}`)
+
+        if (gymTeam.length === 1) {
+            stopAudio(gymLeaderMp3);
+            gymLeaderFinalMp3.play();
+        }
         return;
     }
     if (trainer === 'player' && pkmnParty[targetIdx].currentHp < 0) {
@@ -510,6 +532,8 @@ function renderWildBattle () {
     let oppHpDiv = createHealthBar('opp');
     wildDiv.append(oppHpDiv);
     oppHp = new HealthBar(oppHpDiv, 100);
+
+    wildMp3.play();
 }
 
 
@@ -520,19 +544,16 @@ function renderGymLeaderSelection () {
     gymLeaderSDiv.innerHTML = `
     <img id="brock" class="gymleader" src="assets/gymleaders/${gymBrock.sprite}">
     <img id="misty" class="gymleader" src="assets/gymleaders/${gymMisty.sprite}">
+    <button class="leave">Go Back</button>
+
+    <div id="gym-details" class="brock-details hidden">
+        <h2>Brock</h2>
+        <h2>Rock Type Specialist</h2>
+        <h2>Badge: ${gymBrock.badge}</h2>
+        <h2>Ace Pokemon: <img src="${gymBrock.acePkmn.sprite[0]}"><h2>
+    </div>
     `;
     gameContainer.append(gymLeaderSDiv);
-
-    //Show Pokemon in Party
-    /*let pkmnPartyDivs = [];
-    for (let i = 0; i < pkmnParty.length; i++) {
-        pkmnPartyDivs.push(document.createElement('div'));
-        pkmnPartyDivs[i].setAttribute('class', `main-menu-party party-${i}`);
-        pkmnPartyDivs[i].innerHTML = `
-        <img id="${i}" class='main-menu-icon' src=${pkmnParty[i].icon}>
-        `;
-        gymLeaderSDiv.append(pkmnPartyDivs[i]);
-    }*/
 }
 
 function renderGymLeaderBattle () {
@@ -578,6 +599,8 @@ function renderGymLeaderBattle () {
      let oppHpDiv = createHealthBar('opp');
      gymDiv.append(oppHpDiv);
      oppHp = new HealthBar(oppHpDiv, 100);
+
+     gymLeaderMp3.play();
 }
 
 /*----- Releasing Pokemon -----*/
@@ -599,6 +622,14 @@ addGlobalEventListener('click', '.stat-release', e => {
     removeElement(".stat-container");
     renderMainMenu();
     gameState = 'main menu';
+})
+
+/*----- GymLeader Details -----*/
+addGlobalEventListener('mouseover', '.gymleader', e => {
+    e.target.classList.remove('hidden');
+})
+addGlobalEventListener('mouseout', '.gymleader', e => {
+    e.target.classList.add('hidden');
 })
 
 /*----- Catch wild pokemon -----*/
@@ -786,6 +817,9 @@ addGlobalEventListener('click', '.run', e => {
 
     //Save Team to the local Storage
     //localStorage.setItem('pkmnParty', pkmnParty);
+
+    //Stop Audio
+    stopAudio(wildMp3);
 });
 
 let gymleaderPlaceHolder;
@@ -823,6 +857,8 @@ addGlobalEventListener('click', '.leave', e => {
     gameState = 'main menu';
     healParty();
     renderMainMenu();
+    stopAudio(gymLeaderFinalMp3);
+    stopAudio(gymLeaderMp3);
 });
 
 //--Game State--

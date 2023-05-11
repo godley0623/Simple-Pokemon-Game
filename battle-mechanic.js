@@ -1,3 +1,5 @@
+let criticalHitMp3 = playAudio('criticalHit.mp3', 1);
+
 function cap(str) {
     const firstLetter = str.charAt(0)
 
@@ -486,6 +488,7 @@ export function damageCalc (attacker, defender, moveType, showBattleText) {
         if (crit !== 1) {
             console.log('Critical Hit!!!');
             showBattleText(`It's a Critical Hit!!!`);
+            criticalHitMp3.play();
         }
         if (weakness === twoEff || weakness === fourEff) {
             console.log("It's super effective!")
@@ -502,4 +505,11 @@ export function damageCalc (attacker, defender, moveType, showBattleText) {
 
     return Math.floor(((baseCalc * crit * stabCheck) + random) * weakness * miss);
 
+}
+
+function playAudio (mp3, volume = .25) {
+    let audio = new Audio(`assets/audio/${mp3}`);
+    audio.volume = volume;
+    
+    return audio
 }
