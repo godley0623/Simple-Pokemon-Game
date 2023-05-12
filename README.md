@@ -1,7 +1,12 @@
-# Simple-Pokemon-Game
+# Project 1 - Simple-Pokemon-Game
 
-# About
+# Project Description
 A simplified version of the Pokemon Games' battle system.
+
+# Technology USed
+-HTML  
+-CSS  
+-Javascript  
 
 # How to play
 -Choose a starter pokemon by clicking on one of the three options.

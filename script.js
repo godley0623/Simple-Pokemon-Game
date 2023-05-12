@@ -4,9 +4,6 @@ import {damageCalc, speedCheck, weaknessCalc} from "./battle-mechanic.js";
 
 
 //--state variables--
-let gameLoop = true;
-console.log(highLvlPkmn)
-
 let pkmnParty = localStorage.getItem('pkmnParty');
 pkmnParty = JSON.parse(pkmnParty);
 if (pkmnParty === null) {
@@ -34,6 +31,10 @@ let oppPkmn;
 let battleText;
 let gymTeam;
 let gymleaderName;
+let gymleaderPlaceHolder;
+let pkmnPartyDivs;
+let movesDiv;
+let statPlace;
 
 //--cached elements--
 const gameContainer = document.querySelector('.game-container');
@@ -107,7 +108,6 @@ const brockTeam = [
     ['golem', 'Grass', 'Flying']
 ];
 const gymBrock = new GymLeader ('Brock', "brock.png", "Boulder", brockTeam);
-console.log(gymBrock);
 
 const mistyTeam = [
     ['psyduck', 'Psychic', 'Ice'],
@@ -118,7 +118,6 @@ const mistyTeam = [
     ['gyarados', 'Ground', 'Electric']
 ];
 const gymMisty = new GymLeader ('Misty', 'misty.png', 'Cascade', mistyTeam);
-console.log(gymMisty);
 
 const surgeTeam = [
     ['pikachu', 'Water', 'Flying'],
@@ -129,7 +128,6 @@ const surgeTeam = [
     ['raichu', 'Grass', 'Ice']
 ];
 const gymSurge = new GymLeader ('Lt. Surge', 'surge.png', 'Thunder', surgeTeam)
-console.log(gymSurge);
 
 const erikaTeam = [
     ['weepinbell', 'Ground', 'Fire'],
@@ -140,7 +138,6 @@ const erikaTeam = [
     ['venusaur', 'Rock', 'Dark']
 ];
 const gymErika = new GymLeader ('Erika', 'erika.png', 'Rainbow', erikaTeam)
-console.log(gymErika);
 
 const janineTeam = [
     ['grimer', 'Water', 'Fire'],
@@ -151,7 +148,6 @@ const janineTeam = [
     ['weezing', 'Ice', 'Dark']
 ];
 const gymJanine = new GymLeader ('Janine', 'janine.png', 'Soul', janineTeam)
-console.log(gymJanine);
 
 const sabrinaTeam = [
     ['slowpoke', 'Ghost', 'Fire'],
@@ -162,7 +158,6 @@ const sabrinaTeam = [
     ['alakazam', 'Fire', 'Dark']
 ];
 const gymSabrina = new GymLeader ('Sabrina', 'sabrina.png', 'Marsh', sabrinaTeam)
-console.log(gymSabrina);
 
 const blaineTeam = [
     ['ninetales', 'Electric', 'Psychic'],
@@ -173,7 +168,6 @@ const blaineTeam = [
     ['arcanine', 'Grass', 'Rock']
 ];
 const gymBlaine = new GymLeader ('Blaine', 'blaine.png', 'Volcano', blaineTeam)
-console.log(gymBlaine);
 
 const giovanniTeam = [
     ['dugtrio', 'Rock', 'Flying'],
@@ -184,7 +178,6 @@ const giovanniTeam = [
     ['nidoking', 'Dark', 'Ice']
 ];
 const gymGiovanni = new GymLeader ('Giovanni', 'giovanni.png', 'Earth', giovanniTeam)
-console.log(gymGiovanni);
 
 //--functions--
 //Event Delegation
@@ -208,7 +201,6 @@ function stopAudio (audio) {
 let wildMp3 = playAudio('wild.mp3');
 let gymLeaderMp3 = playAudio('gymleader.mp3');
 let gymLeaderFinalMp3 = playAudio('gymleaderFinal.mp3');
-let criticalHitMp3 = playAudio('criticalHit.mp3');
 let victoryMp3 = playAudio('victory.mp3');
 
 
@@ -482,7 +474,7 @@ function createHealthBar (owner) {
     return healthBarDiv;
 }
 
-//Renders
+/*----- Renders -----*/
 function renderStarterChoice() {
     //Starter Div Container
     const starterDiv = document.createElement('div');
@@ -517,8 +509,6 @@ function renderStarterChoice() {
 }
 
 function renderMainMenu() {
-    //Generate Menu Text
-
     //Menu Div Container
     const menuDiv = document.createElement('div');
     menuDiv.setAttribute('class', 'main-menu');
@@ -576,8 +566,6 @@ function renderPokemonStats(pkmn) {
     }
 }
 
-let pkmnPartyDivs;
-let movesDiv;
 function renderWildBattle () {
     let lowWild = structuredClone(lowLvlPkmn);
     let midWild = structuredClone(midLvlPkmn);
@@ -928,7 +916,6 @@ addGlobalEventListener('click', '.starter', e => {
     gameState = 'main menu';
 });
 
-let statPlace;
 // Main Menu > Stat
 addGlobalEventListener('click', '.main-menu-icon', e => {
     statPlace = Number(e.target.getAttribute('id'));
@@ -990,7 +977,6 @@ addGlobalEventListener('click', '.run', e => {
     stopAudio(wildMp3);
 });
 
-let gymleaderPlaceHolder;
 //Gym Leader Selection > Gym Leader Battle
 addGlobalEventListener('click', '.gymleader', e => {
     removeElement(".gymleader-selection-container");
