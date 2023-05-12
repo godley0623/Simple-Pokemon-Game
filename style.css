@@ -4,6 +4,7 @@
 
 body {
     background-color: rgb(5, 69, 5);
+    font-family: 'Bruno Ace', cursive;
 }
 
 .game-container {
@@ -66,6 +67,12 @@ body {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
+}
+
+.title {
+    color: white;
+    position: absolute;
+    left: 400px;
 }
 
 .main-menu-text {
@@ -148,7 +155,7 @@ body {
 .box {
     background-color:rgba(244, 222, 222, 0.497);
     grid-column: 4 / span 3;
-    grid-row: 2 / span 6; /* 4 / span 5*/
+    grid-row: 2 / span 6; 
     border-radius: 12px;
 }
 
@@ -169,7 +176,9 @@ body {
     position: relative;
     top: 24px; 
 }
-
+.stat-pkmn-moves {
+    font-size: 14px;
+}
 .stat-pkmn-stat {
     grid-column: 5 / 5;
     grid-row: 4 / 4;
@@ -617,6 +626,12 @@ body {
     grid-template-rows: repeat(20, 1fr); 
 }
 
+.badges {
+    color: white;
+    grid-column: 1 / span 20;
+    grid-row: 20 / 20;
+}
+
 #brock {
     transform: scale(2);
     grid-column: 6 / 6;
@@ -662,8 +677,11 @@ body {
 #gym-details {
     color: white;
     text-align: center;
-    grid-column: 5 / span 10;
-    grid-row: 15 / 15;
+    position: absolute;
+    top: 425px;
+    left: 550px;
+    /*grid-column: 5 / span 10;
+    grid-row: 15 / 15;*/
 }
 
 .go-back {
@@ -685,7 +703,7 @@ body {
 
 .trainer-img {
     transform: scale(2);
-    position: relative;
-    left: 1000px;
+    position: absolute;
+    left: 1200px;
     top: 220px;
 }

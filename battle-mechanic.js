@@ -291,7 +291,6 @@ function weaknessCheck(matchup){
         twoXRes: halfResist,
         immune: immune
     }
-    //return [fourTimes, twoTimes, quarterResist, halfResist, immune, matchup[3]];
 }
 
 function weaknessText(wArray) {
@@ -474,7 +473,7 @@ export function damageCalc (attacker, defender, moveType, showBattleText) {
 
     if (baseCalc <= 0) baseCalc = 1;
 
-    //ToDo -> Check if a miss or crit happens and then update the battle text
+    //Check if a miss or crit happens and then update the battle text
     if (weakness === 0) {
         console.log("It doesn't affect X");
         showBattleText(`It doesn't affect ${cap(defender.name)}`);

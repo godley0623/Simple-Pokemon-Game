@@ -13,7 +13,13 @@ if (pkmnParty === null) {
     pkmnParty = [];
 }
 
-console.log(pkmnParty[0]);
+let gymBadges = localStorage.getItem('gymBadges');
+gymBadges = JSON.parse(gymBadges);
+if (gymBadges === null) {
+    gymBadges = [];
+}
+
+console.log(gymBadges);
 
 let gameState;
 if (pkmnParty.length > 0) {
@@ -82,6 +88,13 @@ class GymLeader {
             }
         }
     }
+
+    giveBadge () {
+        let badgeStr = gymBadges.join(' ');
+        if (!badgeStr.includes(this.badge)) {
+            gymBadges.push(this.badge);
+        }
+    }
 }
 
 //Gym Leaders
@@ -109,7 +122,7 @@ console.log(gymMisty);
 
 const surgeTeam = [
     ['pikachu', 'Water', 'Flying'],
-    ['voltorb', 'Ground', 'Fire'],
+    ['magneton', 'Ice', 'Water'],
     ['electrode', 'Steel', 'Poison'],
     ['electabuzz', 'Ice', 'Fighting'],
     ['jolteon', 'Water', 'Bug'],
@@ -119,22 +132,22 @@ const gymSurge = new GymLeader ('Lt. Surge', 'surge.png', 'Thunder', surgeTeam)
 console.log(gymSurge);
 
 const erikaTeam = [
-    ['oddish', 'Rock', 'Bug'],
     ['weepinbell', 'Ground', 'Fire'],
     ['gloom', 'Electric', 'Dark'],
-    ['tangela', 'Ice', 'Fairy'],
+    ['ivysaur', 'Ground', 'Electric'],
     ['victreebel', 'Ground', 'Fire'],
-    ['vileplume', 'Rock', 'Ghost']
+    ['vileplume', 'Rock', 'Ghost'],
+    ['venusaur', 'Rock', 'Dark']
 ];
 const gymErika = new GymLeader ('Erika', 'erika.png', 'Rainbow', erikaTeam)
 console.log(gymErika);
 
 const janineTeam = [
-    ['ekans', 'Grass', 'Fire'],
     ['grimer', 'Water', 'Fire'],
     ['golbat', 'Ground', 'Ghost'],
-    ['muk', 'Dark', 'Fighting'],
     ['arbok', 'Ice', 'Fire'],
+    ['muk', 'Dark', 'Fighting'],
+    ['gengar', 'Water', 'Rock'],
     ['weezing', 'Ice', 'Dark']
 ];
 const gymJanine = new GymLeader ('Janine', 'janine.png', 'Soul', janineTeam)
@@ -152,8 +165,8 @@ const gymSabrina = new GymLeader ('Sabrina', 'sabrina.png', 'Marsh', sabrinaTeam
 console.log(gymSabrina);
 
 const blaineTeam = [
-    ['ponyta', 'Water', 'Grass'],
-    ['growlithe', 'Rock', 'Ice'],
+    ['growlithe', 'Grass', 'Ground'],
+    ['ninetales', 'Electric', 'Psychic'],
     ['magmar', 'Dark', 'Ice'],
     ['rapidash', 'Fighting', 'Psychic'],
     ['flareon', 'Electric', 'Ground'],
@@ -196,6 +209,7 @@ let wildMp3 = playAudio('wild.mp3');
 let gymLeaderMp3 = playAudio('gymleader.mp3');
 let gymLeaderFinalMp3 = playAudio('gymleaderFinal.mp3');
 let criticalHitMp3 = playAudio('criticalHit.mp3');
+let victoryMp3 = playAudio('victory.mp3');
 
 
 function addPkmnToParty(pkmn) {
@@ -233,7 +247,11 @@ function switchPkmn (gameState, targetIdx, trainer) {
         //remove the top index of the gymTeam array
         gymTeam.shift();
         if (gymTeam.length === 0) {
+            stopAudio(gymLeaderFinalMp3);
+            victoryMp3.play()
             showBattleText(gymleaderPlaceHolder.badgeMessage);
+            gymleaderPlaceHolder.giveBadge();
+            canSwitch = false;
             return;
         }
         //Make oppPkmn equal the new gymTeam[0]
@@ -492,6 +510,7 @@ function renderMainMenu() {
     const menuDiv = document.createElement('div');
     menuDiv.setAttribute('class', 'main-menu');
     menuDiv.innerHTML = `
+    <h1 class="title">Pokemon: Simplified Version</h1>
     <p class='main-menu-text text0'>Battle Wild Pokemon</p>
     <p class='main-menu-text text1 hidden'>Battle Trainer</p>
     <p class='main-menu-text text2'>Battle Gym Leader</p>
@@ -551,12 +570,12 @@ function renderWildBattle () {
     let midWild = structuredClone(midLvlPkmn);
     let highWild = structuredClone(highLvlPkmn);
     //Getting the wild pokemon to battle
-    if (pkmnParty.length <= 3) {
+    if (pkmnParty.length <= 2) {
         oppPkmn = getRandomPkmn(lowWild);     
-    } else if (pkmnParty.length === 4) {
-        oppPkmn = getRandomPkmn(choose([lowWild, midWild]));
+    } else if (pkmnParty.length >= 3 && pkmnParty.length < 5) {
+        oppPkmn = getRandomPkmn(choose([lowWild, midWild, midWild]));
     } else {
-        oppPkmn = getRandomPkmn(choose([lowWild, midWild, midWild, highWild]));
+        oppPkmn = getRandomPkmn(choose([lowWild, midWild, midWild, midWild, highWild]));
     }
     addMoves(oppPkmn); 
 
@@ -618,6 +637,7 @@ function renderGymLeaderSelection () {
     <img id="sabrina" class="gymleader sabrina" src="assets/gymleaders/${gymSabrina.sprite}">
     <img id="blaine" class="gymleader blaine" src="assets/gymleaders/${gymBlaine.sprite}">
     <img id="giovanni" class="gymleader giovanni" src="assets/gymleaders/${gymGiovanni.sprite}">
+    <h3 class="badges">Badges (${gymBadges.length}/8): ${gymBadges.join(', ')}</h3>
     <button class="go-back">Go Back</button>
 
     <div id="gym-details" class="brock-details hidden">
@@ -940,7 +960,6 @@ addGlobalEventListener('click', '.run', e => {
     renderMainMenu();
     gameState = 'main menu';
 
-    //TODO: Create a function that fully heals the pokemon in your party
     healParty();
 
     //Save Team to the local Storage
@@ -1018,6 +1037,12 @@ addGlobalEventListener('click', '.leave', e => {
     renderMainMenu();
     stopAudio(gymLeaderFinalMp3);
     stopAudio(gymLeaderMp3);
+    stopAudio(victoryMp3);
+    canSwitch = true;
+
+    //Save Badges to the local Storage
+    let arr = JSON.stringify(gymBadges);
+    localStorage.setItem('gymBadges', arr);
 });
 
 //--Game State--

@@ -46,7 +46,7 @@ async function getPokemon(amount, id = 1) {
 
 const genOnePkmn = await getPokemon(151)
 const genOneStarters = [genOnePkmn.bulbasaur, genOnePkmn.charmander, genOnePkmn.squirtle]
-const genOneLowLvl = []//Object.entries(genOnePkmn).filter(([key, value]) => value.hp <= 20)
+const genOneLowLvl = []
 const genOneMidLvl = []
 const genOneHighLvl = []
 for (const [key, value] of Object.entries(genOnePkmn)) {
