@@ -24,7 +24,7 @@ A simplified version of the Pokemon Games' battle system.
 -The type of pokemon that appear is tied to the number of pokemon in your party. The more pokemon you have the stronger the pokemon you will encounter.  
 
 
--Wild pokemon will gain two attack with a random type.  
+-Wild pokemon will gain two attacks with a random type.  
 
 
 -Wild pokemon will use random attacks.
