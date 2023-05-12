@@ -5,8 +5,10 @@ import {damageCalc, speedCheck, weaknessCalc} from "./battle-mechanic.js";
 
 //--state variables--
 let gameLoop = true;
+console.log(highLvlPkmn)
 
 let pkmnParty = localStorage.getItem('pkmnParty');
+pkmnParty = JSON.parse(pkmnParty);
 if (pkmnParty === null) {
     pkmnParty = [];
 }
@@ -101,9 +103,75 @@ const mistyTeam = [
     ['lapras', 'Flying', 'Ground'],
     ['starmie', 'Ghost', 'Ground'],
     ['gyarados', 'Ground', 'Electric']
-]
+];
 const gymMisty = new GymLeader ('Misty', 'misty.png', 'Cascade', mistyTeam);
 console.log(gymMisty);
+
+const surgeTeam = [
+    ['pikachu', 'Water', 'Flying'],
+    ['voltorb', 'Ground', 'Fire'],
+    ['electrode', 'Steel', 'Poison'],
+    ['electabuzz', 'Ice', 'Fighting'],
+    ['jolteon', 'Water', 'Bug'],
+    ['raichu', 'Grass', 'Ice']
+];
+const gymSurge = new GymLeader ('Lt. Surge', 'surge.png', 'Thunder', surgeTeam)
+console.log(gymSurge);
+
+const erikaTeam = [
+    ['oddish', 'Rock', 'Bug'],
+    ['weepinbell', 'Ground', 'Fire'],
+    ['gloom', 'Electric', 'Dark'],
+    ['tangela', 'Ice', 'Fairy'],
+    ['victreebel', 'Ground', 'Fire'],
+    ['vileplume', 'Rock', 'Ghost']
+];
+const gymErika = new GymLeader ('Erika', 'erika.png', 'Rainbow', erikaTeam)
+console.log(gymErika);
+
+const janineTeam = [
+    ['ekans', 'Grass', 'Fire'],
+    ['grimer', 'Water', 'Fire'],
+    ['golbat', 'Ground', 'Ghost'],
+    ['muk', 'Dark', 'Fighting'],
+    ['arbok', 'Ice', 'Fire'],
+    ['weezing', 'Ice', 'Dark']
+];
+const gymJanine = new GymLeader ('Janine', 'janine.png', 'Soul', janineTeam)
+console.log(gymJanine);
+
+const sabrinaTeam = [
+    ['slowpoke', 'Ghost', 'Fire'],
+    ['drowzee', 'Rock', 'Bug'],
+    ['kadabra', 'Dark', 'Fighting'],
+    ['hypno', 'Ghost', 'Fire'],
+    ['slowbro', 'Ice', 'Ground'],
+    ['alakazam', 'Fire', 'Dark']
+];
+const gymSabrina = new GymLeader ('Sabrina', 'sabrina.png', 'Marsh', sabrinaTeam)
+console.log(gymSabrina);
+
+const blaineTeam = [
+    ['ponyta', 'Water', 'Grass'],
+    ['growlithe', 'Rock', 'Ice'],
+    ['magmar', 'Dark', 'Ice'],
+    ['rapidash', 'Fighting', 'Psychic'],
+    ['flareon', 'Electric', 'Ground'],
+    ['arcanine', 'Grass', 'Rock']
+];
+const gymBlaine = new GymLeader ('Blaine', 'blaine.png', 'Volcano', blaineTeam)
+console.log(gymBlaine);
+
+const giovanniTeam = [
+    ['sandshrew', 'Ice', 'Steel'],
+    ['dugtrio', 'Rock', 'Flying'],
+    ['sandslash', 'Fire', 'Grass'],
+    ['marowak', 'Fire', 'Rock'],
+    ['nidoqueen', 'Water', 'Electric'],
+    ['nidoking', 'Dark', 'Ice']
+];
+const gymGiovanni = new GymLeader ('Giovanni', 'giovanni.png', 'Earth', giovanniTeam)
+console.log(gymGiovanni);
 
 //--functions--
 //Event Delegation
@@ -485,7 +553,7 @@ function renderWildBattle () {
     //Getting the wild pokemon to battle
     if (pkmnParty.length <= 3) {
         oppPkmn = getRandomPkmn(lowWild);     
-    } else if (pkmnParty.length >= 4 && pkmnParty.length <= 5) {
+    } else if (pkmnParty.length === 4) {
         oppPkmn = getRandomPkmn(choose([lowWild, midWild]));
     } else {
         oppPkmn = getRandomPkmn(choose([lowWild, midWild, midWild, highWild]));
@@ -542,9 +610,15 @@ function renderGymLeaderSelection () {
     const gymLeaderSDiv = document.createElement('div');
     gymLeaderSDiv.classList.add('gymleader-selection-container');
     gymLeaderSDiv.innerHTML = `
-    <img id="brock" class="gymleader" src="assets/gymleaders/${gymBrock.sprite}">
-    <img id="misty" class="gymleader" src="assets/gymleaders/${gymMisty.sprite}">
-    <button class="leave">Go Back</button>
+    <img id="brock" class="gymleader brock" src="assets/gymleaders/${gymBrock.sprite}">
+    <img id="misty" class="gymleader misty" src="assets/gymleaders/${gymMisty.sprite}">
+    <img id="surge" class="gymleader surge" src="assets/gymleaders/${gymSurge.sprite}">
+    <img id="erika" class="gymleader erika" src="assets/gymleaders/${gymErika.sprite}">
+    <img id="janine" class="gymleader janine" src="assets/gymleaders/${gymJanine.sprite}">
+    <img id="sabrina" class="gymleader sabrina" src="assets/gymleaders/${gymSabrina.sprite}">
+    <img id="blaine" class="gymleader blaine" src="assets/gymleaders/${gymBlaine.sprite}">
+    <img id="giovanni" class="gymleader giovanni" src="assets/gymleaders/${gymGiovanni.sprite}">
+    <button class="go-back">Go Back</button>
 
     <div id="gym-details" class="brock-details hidden">
         <h2>Brock</h2>
@@ -552,6 +626,48 @@ function renderGymLeaderSelection () {
         <h2>Badge: ${gymBrock.badge}</h2>
         <h2>Ace Pokemon: <img src="${gymBrock.acePkmn.sprite[0]}"><h2>
     </div>
+    <div id="gym-details" class="misty-details hidden">
+        <h2>Misty</h2>
+        <h2>Water Type Specialist</h2>
+        <h2>Badge: ${gymMisty.badge}</h2>
+        <h2>Ace Pokemon: <img src="${gymMisty.acePkmn.sprite[0]}"><h2>
+    </div>
+    <div id="gym-details" class="surge-details hidden">
+        <h2>Lt. Surge</h2>
+        <h2>Electric Type Specialist</h2>
+        <h2>Badge: ${gymSurge.badge}</h2>
+        <h2>Ace Pokemon: <img src="${gymSurge.acePkmn.sprite[0]}"><h2>
+    </div>
+    <div id="gym-details" class="erika-details hidden">
+        <h2>Erika</h2>
+        <h2>Grass Type Specialist</h2>
+        <h2>Badge: ${gymErika.badge}</h2>
+        <h2>Ace Pokemon: <img src="${gymErika.acePkmn.sprite[0]}"><h2>
+    </div>
+    <div id="gym-details" class="janine-details hidden">
+        <h2>Janine</h2>
+        <h2>Poison Type Specialist</h2>
+        <h2>Badge: ${gymJanine.badge}</h2>
+        <h2>Ace Pokemon: <img src="${gymJanine.acePkmn.sprite[0]}"><h2>
+    </div>
+    <div id="gym-details" class="sabrina-details hidden">
+        <h2>Sabrina</h2>
+        <h2>Psychic Type Specialist</h2>
+        <h2>Badge: ${gymSabrina.badge}</h2>
+        <h2>Ace Pokemon: <img src="${gymSabrina.acePkmn.sprite[0]}"><h2>
+    </div> 
+    <div id="gym-details" class="blaine-details hidden">
+        <h2>Blaine</h2>
+        <h2>Fire Type Specialist</h2>
+        <h2>Badge: ${gymBlaine.badge}</h2>
+        <h2>Ace Pokemon: <img src="${gymBlaine.acePkmn.sprite[0]}"><h2>
+    </div>
+    <div id="gym-details" class="giovanni-details hidden">
+        <h2>Giovanni</h2>
+        <h2>Ground Type Specialist</h2>
+        <h2>Badge: ${gymGiovanni.badge}</h2>
+        <h2>Ace Pokemon: <img src="${gymGiovanni.acePkmn.sprite[0]}"><h2>
+    </div>       
     `;
     gameContainer.append(gymLeaderSDiv);
 }
@@ -568,6 +684,7 @@ function renderGymLeaderBattle () {
      <img class="enemy-pkmn" src="${oppPkmn.sprite[0]}">
      <img class="battle-bg" src="assets/battle_bgs/00.png">
      <div class="battle-title">Gym Leader ${gymleaderName} wants to battle!</div>
+     <img class="trainer-img" src="assets/gymleaders/${gymleaderPlaceHolder.sprite}">
      <div class="battle-text"></div>
      <button class="leave">Go Back</button>
      `;
@@ -626,10 +743,14 @@ addGlobalEventListener('click', '.stat-release', e => {
 
 /*----- GymLeader Details -----*/
 addGlobalEventListener('mouseover', '.gymleader', e => {
-    e.target.classList.remove('hidden');
+    let gymleaderGet = e.target.getAttribute('class').split(' ')[1];
+    let gymDetailsDiv = document.querySelector(`.${gymleaderGet}-details`);
+    gymDetailsDiv.classList.remove('hidden');
 })
 addGlobalEventListener('mouseout', '.gymleader', e => {
-    e.target.classList.add('hidden');
+    let gymleaderGet = e.target.getAttribute('class').split(' ')[1];
+    let gymDetailsDiv = document.querySelector(`.${gymleaderGet}-details`);
+    gymDetailsDiv.classList.add('hidden');
 })
 
 /*----- Catch wild pokemon -----*/
@@ -805,6 +926,13 @@ addGlobalEventListener('click', '.text2', e => {
     gameState = 'gym leader selection';
 });
 
+// Gym Leader Selection > Main Menu
+addGlobalEventListener('click', '.go-back', e => {
+    removeElement(".gymleader-selection-container");
+    renderMainMenu();
+    gameState = 'main menu';
+});
+
 //Wild Battle > Main Menu
 addGlobalEventListener('click', '.run', e => {
     canAttack = true;
@@ -816,7 +944,8 @@ addGlobalEventListener('click', '.run', e => {
     healParty();
 
     //Save Team to the local Storage
-    //localStorage.setItem('pkmnParty', pkmnParty);
+    let jsonArr = JSON.stringify(pkmnParty);
+    localStorage.setItem('pkmnParty', jsonArr);
 
     //Stop Audio
     stopAudio(wildMp3);
@@ -837,7 +966,37 @@ addGlobalEventListener('click', '.gymleader', e => {
             gymleaderPlaceHolder = gymMisty;
             gymTeam = structuredClone(gymMisty.fullTeam);
             gymleaderName = gymMisty.name;
-            break;            
+            break;  
+        case 'surge':
+            gymleaderPlaceHolder = gymSurge;
+            gymTeam = structuredClone(gymSurge.fullTeam);
+            gymleaderName = gymSurge.name;
+            break;  
+        case 'erika':
+            gymleaderPlaceHolder = gymErika;
+            gymTeam = structuredClone(gymErika.fullTeam);
+            gymleaderName = gymErika.name;
+            break;   
+        case 'janine':
+            gymleaderPlaceHolder = gymJanine;
+            gymTeam = structuredClone(gymJanine.fullTeam);
+            gymleaderName = gymJanine.name;
+            break;  
+        case 'sabrina':
+            gymleaderPlaceHolder = gymSabrina;
+            gymTeam = structuredClone(gymSabrina.fullTeam);
+            gymleaderName = gymSabrina.name;
+            break; 
+        case 'blaine':
+            gymleaderPlaceHolder = gymBlaine;
+            gymTeam = structuredClone(gymBlaine.fullTeam);
+            gymleaderName = gymBlaine.name;
+            break;
+        case 'giovanni':
+            gymleaderPlaceHolder = gymGiovanni;
+            gymTeam = structuredClone(gymGiovanni.fullTeam);
+            gymleaderName = gymGiovanni.name;
+            break;  
     }
 
     renderGymLeaderBattle();
@@ -848,7 +1007,7 @@ addGlobalEventListener('click', '.leave', e => {
     if (gymTeam.length > 0) {
         for (let i = 0; i < pkmnParty.length; i++) {
             if (pkmnParty[i].currentHp > 0) {
-                showBattleText("You Can't run from a Gym Battle!");
+                showBattleText("You can't run from a Gym Battle!");
                 return;
             }
         }

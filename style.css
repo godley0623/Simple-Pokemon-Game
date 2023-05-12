@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: rgb(1, 29, 1);
+    background-color: rgb(5, 69, 5);
 }
 
 .game-container {
@@ -366,7 +366,7 @@ body {
 .battle-text {
     background-color: white;
     grid-column: 6 / span 11;
-    grid-row: 15 / span 4;
+    grid-row: 15 / span 5;
     border-radius: 10px;
 }
 
@@ -619,15 +619,59 @@ body {
 
 #brock {
     transform: scale(2);
-    grid-column: 2 / 2;
-    grid-row: 6 / 6;
+    grid-column: 6 / 6;
+    grid-row: 3 / 3;
 }
 #misty {
     transform: scale(2);
-    grid-column: 5 / 5;
-    grid-row: 6 / 6;   
+    grid-column: 9 / 9;
+    grid-row: 3 / 3;   
+}
+#surge {
+    transform: scale(2);
+    grid-column: 12 / 12;
+    grid-row: 3 / 3;   
+}
+#erika {
+    transform: scale(2);
+    grid-column: 15 / 15;
+    grid-row: 3 / 3;   
+}
+#janine {
+    transform: scale(2);
+    grid-column: 6 / 6;
+    grid-row: 8 / 8;   
+}
+#sabrina {
+    transform: scale(2);
+    grid-column: 9 / 9;
+    grid-row: 8 / 8;   
+}
+#blaine {
+    transform: scale(2);
+    grid-column: 12 / 12;
+    grid-row: 8 / 8;   
+}
+#giovanni {
+    transform: scale(2);
+    grid-column: 15 / 15;
+    grid-row: 8 / 8; 
 }
 
+
+#gym-details {
+    color: white;
+    text-align: center;
+    grid-column: 5 / span 10;
+    grid-row: 15 / 15;
+}
+
+.go-back {
+    grid-column: 19 / 19;
+    grid-row: 18 / 18;
+    background-color: red;
+    border-radius: 8px;
+}
 
 /*Gym Leader Battle CSS*/
 .gym-container {
@@ -637,4 +681,11 @@ body {
     display: grid;
     grid-template-columns: repeat(20, 1fr);
     grid-template-rows: repeat(20, 1fr); 
+}
+
+.trainer-img {
+    transform: scale(2);
+    position: relative;
+    left: 1000px;
+    top: 220px;
 }
