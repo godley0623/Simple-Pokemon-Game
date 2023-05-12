@@ -236,6 +236,13 @@ function healParty () {
     }
 }
 
+function teamCheck () {
+    for (let i = 0; i < pkmnParty.length; i++) {
+        if (pkmnParty[i].currentHp >= 1) return false;
+    }
+    return true;
+}
+
 let canSwitch = true;
 function switchPkmn (gameState, targetIdx, trainer) {
     let switchIn;
@@ -277,6 +284,7 @@ function switchPkmn (gameState, targetIdx, trainer) {
     }
     if (canSwitch) {
         canSwitch = false;
+        canAttack = false;
         switch (gameState) {
             case "wild battle":
                 let wildDiv = document.querySelector('.wild-pkmn-container');
@@ -320,12 +328,15 @@ function switchPkmn (gameState, targetIdx, trainer) {
                 showBattleText(`${capFirstLetter(pkmnParty[targetIdx].name)} was called back.`);
 
                 //making the opponent attack if your hp wasn't 0
-                if (pkmnParty[targetIdx].currentHp > 0) {
-                    attacking(document.querySelector('.enemy-pkmn'), getOppAttack(oppPkmn), playerHp, oppPkmn, pkmnParty[0]);
-                }
+                setTimeout (() => {
+                    if (pkmnParty[targetIdx].currentHp > 0) {
+                        attacking(document.querySelector('.enemy-pkmn'), getOppAttack(oppPkmn, pkmnParty[targetIdx]), playerHp, oppPkmn, pkmnParty[0]);
+                    }
+                }, "500");
 
                 setTimeout (() => {
                     canSwitch = true;
+                    canAttack = true
                 }, "2000")
                 break;
 
@@ -370,13 +381,15 @@ function switchPkmn (gameState, targetIdx, trainer) {
                     showBattleText(`${capFirstLetter(pkmnParty[0].name)} was sent out.`);
                     showBattleText(`${capFirstLetter(pkmnParty[targetIdx].name)} was called back.`);
     
-                    //making the opponent attack if your hp wasn't 0
-                    if (pkmnParty[targetIdx].currentHp > 0) {
-                        attacking(document.querySelector('.enemy-pkmn'), getOppAttack(oppPkmn), playerHp, oppPkmn, pkmnParty[targetIdx]);
-                    }
+                    setTimeout (() => {
+                        if (pkmnParty[targetIdx].currentHp > 0) {
+                            attacking(document.querySelector('.enemy-pkmn'), getOppAttack(oppPkmn, pkmnParty[targetIdx]), playerHp, oppPkmn, pkmnParty[0]);
+                        }
+                    }, "500");
     
                     setTimeout (() => {
                         canSwitch = true;
+                        canAttack = true;
                     }, "2000")
                     break;                
         }
@@ -797,6 +810,7 @@ addGlobalEventListener('click', '.moves-button', e => {
     //Setting the game flow
     if (canAttack) {
         canAttack = false;
+        canSwitch = false;
 
         let dmg;
         let newHp;
@@ -884,6 +898,7 @@ addGlobalEventListener('click', '.moves-button', e => {
 
     setTimeout(() => {
         canAttack = true;
+        canSwitch = true;
         playerImg.classList.remove('player-attacking');
         oppImg.classList.remove('enemy-attacking');
 
@@ -893,6 +908,9 @@ addGlobalEventListener('click', '.moves-button', e => {
         }
         if (oppPkmn.currentHp <= 0 && gameState === "gym leader battle") {
             switchPkmn('gym leader battle', 0, 'opp');
+        }
+        if (teamCheck()) {
+            showBattleText("You're out of usable pokemon"); 
         }
     }, "4000");
 
