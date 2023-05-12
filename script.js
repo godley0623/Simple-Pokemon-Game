@@ -155,8 +155,8 @@ console.log(gymJanine);
 
 const sabrinaTeam = [
     ['slowpoke', 'Ghost', 'Fire'],
-    ['drowzee', 'Rock', 'Bug'],
-    ['kadabra', 'Dark', 'Fighting'],
+    ['jynx', 'Rock', 'Electric'],
+    ['starmie', 'Dark', 'Ground'],
     ['hypno', 'Ghost', 'Fire'],
     ['slowbro', 'Ice', 'Ground'],
     ['alakazam', 'Fire', 'Dark']
@@ -165,21 +165,21 @@ const gymSabrina = new GymLeader ('Sabrina', 'sabrina.png', 'Marsh', sabrinaTeam
 console.log(gymSabrina);
 
 const blaineTeam = [
-    ['growlithe', 'Grass', 'Ground'],
     ['ninetales', 'Electric', 'Psychic'],
     ['magmar', 'Dark', 'Ice'],
     ['rapidash', 'Fighting', 'Psychic'],
     ['flareon', 'Electric', 'Ground'],
+    ['charizard', 'Water', 'Grass'],
     ['arcanine', 'Grass', 'Rock']
 ];
 const gymBlaine = new GymLeader ('Blaine', 'blaine.png', 'Volcano', blaineTeam)
 console.log(gymBlaine);
 
 const giovanniTeam = [
-    ['sandshrew', 'Ice', 'Steel'],
     ['dugtrio', 'Rock', 'Flying'],
-    ['sandslash', 'Fire', 'Grass'],
     ['marowak', 'Fire', 'Rock'],
+    ['sandslash', 'Fire', 'Grass'],
+    ['rhydon', 'Grass', 'Flying'],
     ['nidoqueen', 'Water', 'Electric'],
     ['nidoking', 'Dark', 'Ice']
 ];
@@ -278,7 +278,7 @@ function switchPkmn (gameState, targetIdx, trainer) {
         }
         return;
     }
-    if (trainer === 'player' && pkmnParty[targetIdx].currentHp < 0) {
+    if (trainer === 'player' && pkmnParty[targetIdx].currentHp <= 0) {
         showBattleText("Can't switch to a fainted pokemon");
         return;
     }
@@ -337,7 +337,7 @@ function switchPkmn (gameState, targetIdx, trainer) {
                 setTimeout (() => {
                     canSwitch = true;
                     canAttack = true
-                }, "2000")
+                }, "1000")
                 break;
 
                 case "gym leader battle":
@@ -390,7 +390,7 @@ function switchPkmn (gameState, targetIdx, trainer) {
                     setTimeout (() => {
                         canSwitch = true;
                         canAttack = true;
-                    }, "2000")
+                    }, "1000")
                     break;                
         }
     }
@@ -803,6 +803,8 @@ addGlobalEventListener('click', '.moves-button', e => {
     let playerImg = document.querySelector('.your-pkmn');
     let oppImg = document.querySelector('.enemy-pkmn');
 
+    console.log(pkmnParty[0].currentHp);
+
     if (oppPkmn.currentHp <= 0 || pkmnParty[0].currentHp <= 0) {
         return false;
     }
@@ -912,7 +914,7 @@ addGlobalEventListener('click', '.moves-button', e => {
         if (teamCheck()) {
             showBattleText("You're out of usable pokemon"); 
         }
-    }, "4000");
+    }, "3000");
 
 
 });
