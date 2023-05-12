@@ -5,7 +5,7 @@ A simplified version of the Pokemon Games' battle system.
 
 # How to play
 -Choose a starter pokemon by clicking on one of the three options.
-![image](assests/screenshots/starterChoice-screenshot.png)
+![image](assets/screenshots/starterChoice-screenshot.png)
 -Battle wild pokemon to build your roster with up to six pokemon.
 -Battle and defeat the eight gym leaders
 
