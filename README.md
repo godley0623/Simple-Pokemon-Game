@@ -1,5 +1,8 @@
 # Project 1 - Simple-Pokemon-Game
 
+# Play Now
+https://simple-pokemon-game.netlify.app/
+
 # Project Description
 A simplified version of the Pokemon Games' battle system.
 
