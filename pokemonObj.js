@@ -1,3 +1,7 @@
+/*----- Storing Dom Elements -----*/
+const pkmnLoaderDiv = document.querySelector('.pkmn-loader');
+const gameContainerDiv = document.querySelector('.game-container');
+
 /*----- Async Functions -----*/
 async function getJSON(id) {
     return fetch('https://pokeapi.co/api/v2/pokemon/'+ id)
@@ -7,6 +11,8 @@ async function getJSON(id) {
 async function getPokemon(amount, id = 1) {
     let pkmnObj;
     let pokemon = {};
+    const amountTotal = amount
+    pkmnLoaderDiv.innerText = `Saving Pokemon Data from PokeAPI: 0 / 151 Pokemon Loaded`;
 
     while (amount > 0) {
         const data = await getJSON(id);
@@ -25,26 +31,29 @@ async function getPokemon(amount, id = 1) {
         pokemon[pkmnObj.name] = pkmnObj;
         amount--
         id++
+        pkmnLoaderDiv.innerText = `Getting Pokemon Data from PokeAPI: ${amountTotal - amount} / 151 Pokemon Loaded`;
     }
+    pkmnLoaderDiv.innerText = ``;
     return pokemon
 }
 
 let genOnePkmn = localStorage.getItem('allPkmn');
-//Saving the pokemon to the local storage
+//Saving the pokemon to the local storage if genOnePkmn returns false
 if (!genOnePkmn) {
-    console.log('Pokemon Data not found. Getting Pokemon from PokeAPI')
     genOnePkmn = await getPokemon(151);
     
     let jsonArr = JSON.stringify(genOnePkmn);
     localStorage.setItem('allPkmn', jsonArr);
 }else {
     genOnePkmn = JSON.parse(genOnePkmn);
-    console.log('Pokemon Data Located')
 }
+gameContainerDiv.classList.remove('hidden');
+
 const genOneStarters = [genOnePkmn.bulbasaur, genOnePkmn.charmander, genOnePkmn.squirtle]
 const genOneLowLvl = []
 const genOneMidLvl = []
 const genOneHighLvl = []
+
 for (const [key, value] of Object.entries(genOnePkmn)) {
     if (value.atk <= 5) { 
         genOneLowLvl.push(genOnePkmn[`${value.name}`])

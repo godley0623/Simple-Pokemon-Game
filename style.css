@@ -7,6 +7,15 @@ body {
     font-family: 'Bruno Ace', cursive;
 }
 
+.pkmn-loader {
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .game-container {
     margin: auto;
     background-color: rgb(20, 22, 21);
