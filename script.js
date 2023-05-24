@@ -179,7 +179,7 @@ const giovanniTeam = [
 ];
 const gymGiovanni = new GymLeader ('Giovanni', 'giovanni.png', 'Earth', giovanniTeam)
 
-//--functions--
+/*----- Functions -----*/
 //Event Delegation
 function addGlobalEventListener(type, selector, callback) {
     document.addEventListener(type, e => {

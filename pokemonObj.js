@@ -1,4 +1,5 @@
-function getJSON(id) {
+/*----- Async Functions -----*/
+async function getJSON(id) {
     return fetch('https://pokeapi.co/api/v2/pokemon/'+ id)
         .then(response => response.json())
 }
@@ -9,34 +10,18 @@ async function getPokemon(amount, id = 1) {
 
     while (amount > 0) {
         const data = await getJSON(id);
-        try {
-            pkmnObj = {
-                name: data.forms[0].name,
-                type: [data.types[0].type.name, data.types[1].type.name],
-                hp: Math.floor(data.stats[0].base_stat / 10) * 5,
-                currentHp: Math.floor(data.stats[0].base_stat / 10) * 5,
-                atk: Math.floor((Math.floor(data.stats[1].base_stat / 10) + Math.floor(data.stats[3].base_stat / 10)) / 2),
-                def: Math.floor((Math.floor(data.stats[2].base_stat / 10) + Math.floor(data.stats[4].base_stat / 10)) / 2),
-                spd: data.stats[5].base_stat,
-                sprite: [data.sprites.versions['generation-v']['black-white'].animated.front_default, data.sprites.versions['generation-v']['black-white'].animated.back_default],
-                icon: data.sprites.versions['generation-vii'].icons.front_default,
-                moves: getMoves([data.types[0].type.name, data.types[1].type.name])
-            };
-        }
-        catch(err) {
-            pkmnObj = {
-                name: data.forms[0].name,
-                type: [data.types[0].type.name, 'none'],
-                hp: Math.floor(data.stats[0].base_stat / 10) * 5,
-                currentHp: Math.floor(data.stats[0].base_stat / 10) * 5,
-                atk: Math.floor((Math.floor(data.stats[1].base_stat / 10) + Math.floor(data.stats[3].base_stat / 10)) / 2),
-                def: Math.floor((Math.floor(data.stats[2].base_stat / 10) + Math.floor(data.stats[4].base_stat / 10)) / 2),
-                spd: data.stats[5].base_stat,
-                sprite: [data.sprites.versions['generation-v']['black-white'].animated.front_default, data.sprites.versions['generation-v']['black-white'].animated.back_default],
-                icon: data.sprites.versions['generation-vii'].icons.front_default,
-                moves: getMoves([data.types[0].type.name, 'none'])
-            };        
-        }
+        pkmnObj = {
+            name: data.forms[0].name,
+            type: typeCheck(data),
+            hp: Math.floor(data.stats[0].base_stat / 10) * 5,
+            currentHp: Math.floor(data.stats[0].base_stat / 10) * 5,
+            atk: Math.floor((Math.floor(data.stats[1].base_stat / 10) + Math.floor(data.stats[3].base_stat / 10)) / 2),
+            def: Math.floor((Math.floor(data.stats[2].base_stat / 10) + Math.floor(data.stats[4].base_stat / 10)) / 2),
+            spd: data.stats[5].base_stat,
+            sprite: [data.sprites.versions['generation-v']['black-white'].animated.front_default, data.sprites.versions['generation-v']['black-white'].animated.back_default],
+            icon: data.sprites.versions['generation-vii'].icons.front_default,
+            moves: getMoves(typeCheck(data))
+        };
         pokemon[pkmnObj.name] = pkmnObj;
         amount--
         id++
@@ -44,7 +29,18 @@ async function getPokemon(amount, id = 1) {
     return pokemon
 }
 
-const genOnePkmn = await getPokemon(151)
+let genOnePkmn = localStorage.getItem('allPkmn');
+//Saving the pokemon to the local storage
+if (!genOnePkmn) {
+    console.log('Pokemon Data not found. Getting Pokemon from PokeAPI')
+    genOnePkmn = await getPokemon(151);
+    
+    let jsonArr = JSON.stringify(genOnePkmn);
+    localStorage.setItem('allPkmn', jsonArr);
+}else {
+    genOnePkmn = JSON.parse(genOnePkmn);
+    console.log('Pokemon Data Located')
+}
 const genOneStarters = [genOnePkmn.bulbasaur, genOnePkmn.charmander, genOnePkmn.squirtle]
 const genOneLowLvl = []
 const genOneMidLvl = []
@@ -119,4 +115,13 @@ function getMoves (type) {
     }
     
     return moves;
+}
+
+function typeCheck (data) {
+    try {
+        return [data.types[0].type.name, data.types[1].type.name];
+    }
+    catch(error) {
+        return [data.types[0].type.name, 'none'];
+    }
 }
