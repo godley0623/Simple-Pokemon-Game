@@ -1,3 +1,5 @@
+/*LayOutIt ----> https://grid.layoutit.com/?id=RwKJUFk*/
+
 .hidden {
     display: none;
 }
@@ -451,7 +453,7 @@ body {
 }
 
 /*WildBattle-CSS*/
-.wild-pkmn-container {
+/*.wild-pkmn-container {
     margin: auto;
     height: 100vh;
     width: 80vw;
@@ -650,144 +652,208 @@ body {
     animation-duration: 500ms;
 }
 
-@keyframes faint {
-    0% {
-        opacity: 1;
-    }
-
-    25% {
-        top: 10px;
-        opacity: .75;
-    }
-
-    50% {
-        top: 20px;
-        opacity: .50;
-    }
-
-    75% {
-        top: 30px;
-        opacity: .25;
-    }
-
-    100% {
-        top: 40px;
-        opacity: 0;
-    }
-}
-
-@keyframes playerAttacking {
-    0% {
-        left: 0px;
-        bottom: 0px;
-    }
-
-    10% {
-        left: 50px;
-        bottom: 30px;
-    }
-
-    20% {
-        left: 100px;
-        bottom: 60px;
-    }
-
-    30% {
-        left: 150px;
-        bottom: 90px;
-    }
-
-    40% {
-        left: 200px;
-        bottom: 120px;
-    }
-
-    50% {
-        left: 250px;
-        bottom: 150px;
-    }
-
-    60% {
-        left: 200px;
-        bottom: 120px;
-    }
-
-    70% {
-        left: 150px;
-        bottom: 90px;
-    }
-
-    80% {
-        left: 100px;
-        bottom: 60px;
-    }
-
-    90% {
-        left: 50px;
-        bottom: 30px;
-    }
-
-    100% {
-        left: 0px;
-        bottom: 0px;
-    }
-}
-@keyframes enemyAttacking {
-    0% {
-        right: 0px;
-        top: 0px;
-    }
-
-    10% {
-        right: 48px;
-        top: 26px;
-    }
-
-    20% {
-        right: 96px;
-        top: 52px;
-    }
-
-    30% {
-        right: 144px;
-        top: 78px;
-    }
-
-    40% {
-        right: 192px;
-        top: 104px;
+@media only screen and (min-height: 844px) {
+    .wild-pkmn-container {
+        margin: auto;
+        height: 100vh;
+        width: 80vw;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(20, 1fr); 
     }
     
-    50% {
-        right: 240px;
-        top: 130px;
-    }
+    .battle-bg {
+        grid-column: 1 / 4;
+        grid-row: 2 / span 10;
+        width: 50%;
+        height: 50%;
 
-    60% {
-        right: 192px;
-        top: 104px;
     }
+    .battle-title {
+        grid-column: 5 / span 12;
+        grid-row: 1 / 1;
+        font-weight: bold;
+        font-size: 32px;
+        text-align: center;
+        color: white;
+    }
+    .your-pkmn {
+        grid-column: 9 / 9;
+        grid-row: 10 / 10;
+        transform: scale(2);
+        z-index: 999;
+        position: relative;
+    }
+    .player-attacking {
+        animation-name: playerAttacking;
+        animation-duration: 1000ms;
+    }
+    
+    .enemy-pkmn {
+        grid-column: 14 / 14;
+        grid-row: 6 / 6;
+        transform: scale(1.5);
+        z-index: 999;  
+        position: relative;
+    }
+    .enemy-attacking {
+        animation-name: enemyAttacking;
+        animation-duration: 1000ms;
+    }
+    
+    .moves-button {
+        width: 100px;
+        border-radius: 10px;
+        margin: 0;
+    }
+    .move-0 {
+        grid-column: 7 / span 1;
+        grid-row: 13 / 13;
+        position: relative;
+        left: 24px;
+    }
+    .move-1 {
+        grid-column: 8 / span 1;
+        grid-row: 13 / 13;
+    }
+    .move-2 {
+        grid-column: 10 / span 1;
+        grid-row: 13 / 13;
+    }
+    .move-3 {
+        grid-column: 12 / span 1;
+        grid-row: 13 / 13;
+    }
+    .run {
+        grid-column: 16 / span 1;
+        grid-row: 13 / 13;
+        width: 48px;
+        background-color: red;
+        color: white;
+    }
+    .leave {
+        grid-column: 15 / span 1;
+        grid-row: 13 / 13;
+        width: 64px;
+        background-color: red;
+        color: white;
+    }
+    .catch {
+        grid-column: 15 / span 1;
+        grid-row: 13 / 13;
+        width: 64px;
+        background-color: #59ea63;
+        color: white;
+        position: relative;
+        left: 32px;
+    }
+    
+    .battle-text {
+        background-color: white;
+        grid-column: 6 / span 11;
+        grid-row: 15 / span 5;
+        border-radius: 10px;
+    }
+    
+    .health-bar-player {
+        position: relative;
+        width: 150px;
+        height: 20px;
+        border: 1px solid black;
+        border-radius: 8px;
+        grid-column: 7 / 7;
+        grid-row: 7 / 7;
+    }
+    .health-bar-player .health-bar-fill {
+        height: 100%;
+        background: #59ea63;
+        transition: width 0.5s;
+        border-radius: 8px;
+    }
+    .health-bar-player .health-bar-value {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+    
+    .health-bar-opp {
+        position: relative;
+        width: 150px;
+        height: 20px;
+        border: 1px solid black;
+        border-radius: 8px;
+        grid-column: 15 / 15;
+        grid-row: 3 / 3;
+    }
+    .health-bar-opp .health-bar-fill {
+        height: 100%;
+        background: #59ea63;
+        transition: width 0.5s;
+        border-radius: 8px;
+    }
+    .health-bar-opp .health-bar-value {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+    
+    
+    .battle-party {
+        background-color: rgba(231, 217, 217, 0.7);
+        border-radius: 10px;
+        margin-right: 18px;
+        width: 60px;
+        height: 38px;
+        position: relative;
+    }
+    .battle-party:hover {
+        background-color: rgba(255, 255, 255, 1)
+    }
+    .battle-party-0 {
+        display: none;
+    }
+    .battle-party-1 {
+        grid-column: 2 / 2;
+        grid-row: 8 / 8;
+    }
+    .battle-party-2 {
+        grid-column: 3 / 3;
+        grid-row: 9 / 9;
+    }
+    .battle-party-3 {
+        grid-column: 2 / 2;
+        grid-row: 10 / 10;
+    }
+    .battle-party-4 {
+        grid-column: 3 / 3;
+        grid-row: 11/ 11;
+    }
+    .battle-party-5 {
+        grid-column: 2 / 2;
+        grid-row: 12 / 12;
+    }
+    .battle-icon {
+        transform: scale(2.5);
+        position: relative;
+        bottom: 9px;
+        left: 9px;
+    }
+    
+    .faint {
+        opacity: 0;
+        animation-name: faint;
+        animation-duration: 500ms;
+    }
+}*/
 
-    70% {
-        right: 144px;
-        top: 78px;
-    }
-
-    80% {
-        right: 96px;
-        top: 52px;
-    }
-
-    90% {
-        right: 48px;
-        top: 26px;
-    }
-
-    100% {
-        right: 0px;
-        top: 0px;
-    }
-}
 
 /*Gym Leader Selection CSS*/
 .gymleader-selection-container {

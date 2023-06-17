@@ -280,6 +280,9 @@ function switchPkmn (gameState, targetIdx, trainer) {
         switch (gameState) {
             case "wild battle":
                 let wildDiv = document.querySelector('.wild-pkmn-container');
+                let pkmnPartyDiv = document.querySelector('.pkmn-party');
+                let yourPkmnContainer = document.querySelector('.your-pkmn-container');
+                let battleMoves = document.querySelector('.battle-moves');
                 switchIn;
                 [pkmnParty[0], pkmnParty[targetIdx]] = [pkmnParty[targetIdx], pkmnParty[0]]
 
@@ -288,7 +291,7 @@ function switchPkmn (gameState, targetIdx, trainer) {
                 switchIn = document.createElement('img');
                 switchIn.setAttribute('class', 'your-pkmn');
                 switchIn.setAttribute('src', `${pkmnParty[0].sprite[1]}`)
-                wildDiv.append(switchIn);
+                yourPkmnContainer.append(switchIn);
 
                 //updating the pokemon icon
                 removeElement('.battle-party');
@@ -299,7 +302,7 @@ function switchPkmn (gameState, targetIdx, trainer) {
                     pkmnPartyDivs[i].innerHTML = `
                     <img id="${i}" class='battle-icon' src=${pkmnParty[i].icon}>
                     `;
-                    wildDiv.append(pkmnPartyDivs[i]);
+                    pkmnPartyDiv.append(pkmnPartyDivs[i]);
                 }
 
                 //updating the pokemon moves
@@ -309,7 +312,7 @@ function switchPkmn (gameState, targetIdx, trainer) {
                     movesDiv.push(document.createElement('button'));
                     movesDiv[i].innerText = pkmnParty[0].moves[i];
                     movesDiv[i].setAttribute('class', `moves-button move-${i}`);
-                    wildDiv.append(movesDiv[i]);
+                    battleMoves.append(movesDiv[i]);
                 }
 
                 //updating the pokemon hp
@@ -584,13 +587,24 @@ function renderWildBattle () {
     const wildDiv = document.createElement('div');
     wildDiv.classList.add('wild-pkmn-container');
     wildDiv.innerHTML = `
-    <img class="your-pkmn" src="${pkmnParty[0].sprite[1]}">
-    <img class="enemy-pkmn" src="${oppPkmn.sprite[0]}">
-    <img class="battle-bg" src="assets/battle_bgs/00.png">
+    <div class="battle-container">
+        <div class="your-health-container"></div>
+        <div class="opp-health-container"></div>
+        <div class="your-pkmn-container">
+            <img class="your-pkmn" src="${pkmnParty[0].sprite[1]}">
+        </div>
+        <div class="opp-pkmn-container">
+            <img class="enemy-pkmn" src="${oppPkmn.sprite[0]}">
+        </div>
+    </div>
     <div class="battle-title">A wild ${capFirstLetter(oppPkmn.name)} appeared!</div>
     <div class="battle-text"></div>
-    <button class="run">Go Back</button>
-    <button class="catch hidden">Catch</button>
+    <div class="pkmn-party"></div>
+    <div class="battle-moves"></div>
+    <div class="run-catch">
+        <button class="catch hidden">Catch</button>    
+        <button class="run">Go Back</button>
+    </div>
     `;
     gameContainer.append(wildDiv);
 
@@ -601,7 +615,7 @@ function renderWildBattle () {
         pkmnPartyDivs[i].innerHTML = `
         <img id="${i}" class='battle-icon' src=${pkmnParty[i].icon}>
         `;
-        wildDiv.append(pkmnPartyDivs[i]);
+        document.querySelector('.pkmn-party').append(pkmnPartyDivs[i]);
     }
 
     movesDiv = [];
@@ -610,15 +624,16 @@ function renderWildBattle () {
         movesDiv.push(document.createElement('button'));
         movesDiv[i].innerText = pkmnParty[0].moves[i];
         movesDiv[i].setAttribute('class', `moves-button move-${i}`);
-        wildDiv.append(movesDiv[i]);
+        document.querySelector('.battle-moves').append(movesDiv[i]);
     }
 
+    const healthContainer = [document.querySelector('.your-health-container'), document.querySelector('.opp-health-container')];
     let playerHpDiv = createHealthBar('player');
-    wildDiv.append(playerHpDiv);
+    healthContainer[0].append(playerHpDiv);
     playerHp = new HealthBar(playerHpDiv, 100);
 
     let oppHpDiv = createHealthBar('opp');
-    wildDiv.append(oppHpDiv);
+    healthContainer[1].append(oppHpDiv);
     oppHp = new HealthBar(oppHpDiv, 100);
 
     wildMp3.play();
