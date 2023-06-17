@@ -1,6 +1,6 @@
 //--imports--
 import { starterPkmn, lowLvlPkmn, midLvlPkmn, highLvlPkmn, allPkmn, capFirstLetter, addMoves, choose } from "./pokemonObj.js";
-import {damageCalc, speedCheck, weaknessCalc} from "./battle-mechanic.js";
+import { damageCalc, speedCheck, weaknessCalc } from "./battle-mechanic.js";
 
 
 //--state variables--
@@ -41,14 +41,14 @@ const gameContainer = document.querySelector('.game-container');
 
 //--classes--
 class HealthBar {
-    constructor (element, initialValue = 100) {
+    constructor(element, initialValue = 100) {
         this.valueElem = element.querySelector('.health-bar-value');
         this.fillElem = element.querySelector('.health-bar-fill');
 
         this.setValue(initialValue);
     }
 
-    setValue (newValue) {
+    setValue(newValue) {
         if (newValue > 100) newValue = 100;
         if (newValue < 0) newValue = 0;
 
@@ -56,29 +56,29 @@ class HealthBar {
         this.update();
     }
 
-    update () {
+    update() {
         const percentage = this.value + '%';
-        
+
         this.fillElem.style.width = percentage;
         this.valueElem.textContent = percentage;
     }
 }
 
 class GymLeader {
-    constructor (name, sprite, badge, team) {
+    constructor(name, sprite, badge, team) {
         this.name = name;
         this.sprite = sprite;
         this.badge = badge;
         this.team = team;
         this.fullTeam = [];
-        
+
         this.formatTeam();
         this.acePkmn = this.fullTeam[5];
 
         this.badgeMessage = `You defeated Gym Leader ${this.name}. You've earned the ${this.badge} Badge.`
     }
 
-    formatTeam () {
+    formatTeam() {
         for (let i = 0; i < this.team.length; i++) {
             for (let [key, value] of Object.entries(allPkmn)) {
                 if (this.team[i][0] === key) {
@@ -90,7 +90,7 @@ class GymLeader {
         }
     }
 
-    giveBadge () {
+    giveBadge() {
         let badgeStr = gymBadges.join(' ');
         if (!badgeStr.includes(this.badge)) {
             gymBadges.push(this.badge);
@@ -107,7 +107,7 @@ const brockTeam = [
     ['rhydon', 'Grass', 'Ice'],
     ['golem', 'Grass', 'Flying']
 ];
-const gymBrock = new GymLeader ('Brock', "brock.png", "Boulder", brockTeam);
+const gymBrock = new GymLeader('Brock', "brock.png", "Boulder", brockTeam);
 
 const mistyTeam = [
     ['psyduck', 'Psychic', 'Ice'],
@@ -117,7 +117,7 @@ const mistyTeam = [
     ['starmie', 'Ghost', 'Ground'],
     ['gyarados', 'Ground', 'Electric']
 ];
-const gymMisty = new GymLeader ('Misty', 'misty.png', 'Cascade', mistyTeam);
+const gymMisty = new GymLeader('Misty', 'misty.png', 'Cascade', mistyTeam);
 
 const surgeTeam = [
     ['pikachu', 'Water', 'Flying'],
@@ -127,7 +127,7 @@ const surgeTeam = [
     ['jolteon', 'Water', 'Bug'],
     ['raichu', 'Grass', 'Ice']
 ];
-const gymSurge = new GymLeader ('Lt. Surge', 'surge.png', 'Thunder', surgeTeam)
+const gymSurge = new GymLeader('Lt. Surge', 'surge.png', 'Thunder', surgeTeam)
 
 const erikaTeam = [
     ['weepinbell', 'Ground', 'Fire'],
@@ -137,7 +137,7 @@ const erikaTeam = [
     ['vileplume', 'Rock', 'Ghost'],
     ['venusaur', 'Rock', 'Dark']
 ];
-const gymErika = new GymLeader ('Erika', 'erika.png', 'Rainbow', erikaTeam)
+const gymErika = new GymLeader('Erika', 'erika.png', 'Rainbow', erikaTeam)
 
 const janineTeam = [
     ['grimer', 'Water', 'Fire'],
@@ -147,7 +147,7 @@ const janineTeam = [
     ['gengar', 'Water', 'Rock'],
     ['weezing', 'Ice', 'Dark']
 ];
-const gymJanine = new GymLeader ('Janine', 'janine.png', 'Soul', janineTeam)
+const gymJanine = new GymLeader('Janine', 'janine.png', 'Soul', janineTeam)
 
 const sabrinaTeam = [
     ['slowpoke', 'Ghost', 'Fire'],
@@ -157,7 +157,7 @@ const sabrinaTeam = [
     ['slowbro', 'Ice', 'Ground'],
     ['alakazam', 'Fire', 'Dark']
 ];
-const gymSabrina = new GymLeader ('Sabrina', 'sabrina.png', 'Marsh', sabrinaTeam)
+const gymSabrina = new GymLeader('Sabrina', 'sabrina.png', 'Marsh', sabrinaTeam)
 
 const blaineTeam = [
     ['ninetales', 'Electric', 'Psychic'],
@@ -167,7 +167,7 @@ const blaineTeam = [
     ['charizard', 'Water', 'Grass'],
     ['arcanine', 'Grass', 'Rock']
 ];
-const gymBlaine = new GymLeader ('Blaine', 'blaine.png', 'Volcano', blaineTeam)
+const gymBlaine = new GymLeader('Blaine', 'blaine.png', 'Volcano', blaineTeam)
 
 const giovanniTeam = [
     ['dugtrio', 'Rock', 'Flying'],
@@ -177,7 +177,7 @@ const giovanniTeam = [
     ['nidoqueen', 'Water', 'Electric'],
     ['nidoking', 'Dark', 'Ice']
 ];
-const gymGiovanni = new GymLeader ('Giovanni', 'giovanni.png', 'Earth', giovanniTeam)
+const gymGiovanni = new GymLeader('Giovanni', 'giovanni.png', 'Earth', giovanniTeam)
 
 /*----- Functions -----*/
 //Event Delegation
@@ -188,13 +188,13 @@ function addGlobalEventListener(type, selector, callback) {
 }
 
 //Audio files
-function playAudio (mp3, volume = .25) {
+function playAudio(mp3, volume = .25) {
     let audio = new Audio(`assets/audio/${mp3}`);
     audio.volume = volume;
-    
+
     return audio
 }
-function stopAudio (audio) {
+function stopAudio(audio) {
     audio.pause();
     audio.currentTime = 0;
 }
@@ -208,8 +208,8 @@ function addPkmnToParty(pkmn) {
     if (pkmnParty.length < 6) {
         pkmnParty.push(pkmn);
         let partySize = pkmnParty.length;
-        if (gameState === 'choose starter') addMoves(pkmnParty[partySize-1]);
-        
+        if (gameState === 'choose starter') addMoves(pkmnParty[partySize - 1]);
+
         if (gameState === 'wild battle') {
             showBattleText(`${capFirstLetter(pkmn.name)} was added to your party`);
         }
@@ -218,17 +218,17 @@ function addPkmnToParty(pkmn) {
     }
 }
 
-function getRandomPkmn (pkmnArry) {
+function getRandomPkmn(pkmnArry) {
     return pkmnArry[Math.floor(Math.random() * pkmnArry.length)]
 }
 
-function healParty () {
+function healParty() {
     for (let i = 0; i < pkmnParty.length; i++) {
         pkmnParty[i].currentHp = pkmnParty[i].hp;
     }
 }
 
-function teamCheck () {
+function teamCheck() {
     for (let i = 0; i < pkmnParty.length; i++) {
         if (pkmnParty[i].currentHp >= 1) return false;
     }
@@ -236,9 +236,15 @@ function teamCheck () {
 }
 
 let canSwitch = true;
-function switchPkmn (gameState, targetIdx, trainer) {
+function switchPkmn(gameState, targetIdx, trainer) {
     let switchIn;
     let gymDiv;
+
+    let pkmnPartyDiv = document.querySelector('.pkmn-party');
+    let yourPkmnContainer = document.querySelector('.your-pkmn-container');
+    let oppPkmnContainer = document.querySelector('.opp-pkmn-container');
+    let battleMoves = document.querySelector('.battle-moves');
+
     if (trainer === 'opp' && gymTeam.length >= 1) {
         gymDiv = document.querySelector('.gym-container');
         //remove the opp pokemon image;
@@ -258,7 +264,7 @@ function switchPkmn (gameState, targetIdx, trainer) {
         let newPkmn = document.createElement('img');
         newPkmn.setAttribute('class', 'enemy-pkmn');
         newPkmn.setAttribute('src', `${oppPkmn.sprite[0]}`);
-        gymDiv.append(newPkmn);
+        oppPkmnContainer.append(newPkmn);
         //updating the pokemon hp
         oppHp.setValue(Math.floor(gymTeam[0].currentHp / gymTeam[0].hp * 100))
 
@@ -280,9 +286,6 @@ function switchPkmn (gameState, targetIdx, trainer) {
         switch (gameState) {
             case "wild battle":
                 let wildDiv = document.querySelector('.wild-pkmn-container');
-                let pkmnPartyDiv = document.querySelector('.pkmn-party');
-                let yourPkmnContainer = document.querySelector('.your-pkmn-container');
-                let battleMoves = document.querySelector('.battle-moves');
                 switchIn;
                 [pkmnParty[0], pkmnParty[targetIdx]] = [pkmnParty[targetIdx], pkmnParty[0]]
 
@@ -323,107 +326,107 @@ function switchPkmn (gameState, targetIdx, trainer) {
                 showBattleText(`${capFirstLetter(pkmnParty[targetIdx].name)} was called back.`);
 
                 //making the opponent attack if your hp wasn't 0
-                setTimeout (() => {
+                setTimeout(() => {
                     if (pkmnParty[targetIdx].currentHp > 0) {
                         attacking(document.querySelector('.enemy-pkmn'), getOppAttack(oppPkmn, pkmnParty[targetIdx]), playerHp, oppPkmn, pkmnParty[0]);
                     }
                 }, "500");
 
-                setTimeout (() => {
+                setTimeout(() => {
                     canSwitch = true;
                     canAttack = true
                 }, "1000")
                 break;
 
-                case "gym leader battle":
-                    gymDiv = document.querySelector('.gym-container');
-                    switchIn;
-                    [pkmnParty[0], pkmnParty[targetIdx]] = [pkmnParty[targetIdx], pkmnParty[0]]
-    
-                    //updating the pokemon battle sprite
-                    removeElement('.your-pkmn');
-                    switchIn = document.createElement('img');
-                    switchIn.setAttribute('class', 'your-pkmn');
-                    switchIn.setAttribute('src', `${pkmnParty[0].sprite[1]}`)
-                    gymDiv.append(switchIn);
-    
-                    //updating the pokemon icon
-                    removeElement('.battle-party');
-                    pkmnPartyDivs = [];
-                    for (let i = 0; i < pkmnParty.length; i++) {
-                        pkmnPartyDivs.push(document.createElement('div'));
-                        pkmnPartyDivs[i].setAttribute('class', `battle-party battle-party-${i}`);
-                        pkmnPartyDivs[i].innerHTML = `
-                        <img id="${i}" class='battle-icon' src=${pkmnParty[i].icon}>
-                        `;
-                        gymDiv.append(pkmnPartyDivs[i]);
+            case "gym leader battle":
+                gymDiv = document.querySelector('.gym-container');
+                switchIn;
+                [pkmnParty[0], pkmnParty[targetIdx]] = [pkmnParty[targetIdx], pkmnParty[0]]
+
+                //updating the pokemon battle sprite
+                removeElement('.your-pkmn');
+                switchIn = document.createElement('img');
+                switchIn.setAttribute('class', 'your-pkmn');
+                switchIn.setAttribute('src', `${pkmnParty[0].sprite[1]}`)
+                yourPkmnContainer.append(switchIn);
+                
+                //updating the pokemon icon
+                removeElement('.battle-party');
+                pkmnPartyDivs = [];
+                for (let i = 0; i < pkmnParty.length; i++) {
+                    pkmnPartyDivs.push(document.createElement('div'));
+                    pkmnPartyDivs[i].setAttribute('class', `battle-party battle-party-${i}`);
+                    pkmnPartyDivs[i].innerHTML = `
+                    <img id="${i}" class='battle-icon' src=${pkmnParty[i].icon}>
+                    `;
+                    pkmnPartyDiv.append(pkmnPartyDivs[i]);
+                }
+
+                //updating the pokemon moves
+                removeElement('.moves-button');
+                movesDiv = [];
+                for (let i = 0; i < pkmnParty[0].moves.length; i++) {
+                    movesDiv.push(document.createElement('button'));
+                    movesDiv[i].innerText = pkmnParty[0].moves[i];
+                    movesDiv[i].setAttribute('class', `moves-button move-${i}`);
+                    battleMoves.append(movesDiv[i]);
+                }
+
+                //updating the pokemon hp
+                playerHp.setValue(Math.floor(pkmnParty[0].currentHp / pkmnParty[0].hp * 100))
+
+                //updating the battle text
+                showBattleText(`${capFirstLetter(pkmnParty[0].name)} was sent out.`);
+                showBattleText(`${capFirstLetter(pkmnParty[targetIdx].name)} was called back.`);
+
+                setTimeout(() => {
+                    if (pkmnParty[targetIdx].currentHp > 0) {
+                        attacking(document.querySelector('.enemy-pkmn'), getOppAttack(oppPkmn, pkmnParty[targetIdx]), playerHp, oppPkmn, pkmnParty[0]);
                     }
-    
-                    //updating the pokemon moves
-                    removeElement('.moves-button');
-                    movesDiv = [];
-                    for (let i = 0; i < pkmnParty[0].moves.length; i++) {
-                        movesDiv.push(document.createElement('button'));
-                        movesDiv[i].innerText = pkmnParty[0].moves[i];
-                        movesDiv[i].setAttribute('class', `moves-button move-${i}`);
-                        gymDiv.append(movesDiv[i]);
-                    }
-    
-                    //updating the pokemon hp
-                    playerHp.setValue(Math.floor(pkmnParty[0].currentHp / pkmnParty[0].hp * 100))
-    
-                    //updating the battle text
-                    showBattleText(`${capFirstLetter(pkmnParty[0].name)} was sent out.`);
-                    showBattleText(`${capFirstLetter(pkmnParty[targetIdx].name)} was called back.`);
-    
-                    setTimeout (() => {
-                        if (pkmnParty[targetIdx].currentHp > 0) {
-                            attacking(document.querySelector('.enemy-pkmn'), getOppAttack(oppPkmn, pkmnParty[targetIdx]), playerHp, oppPkmn, pkmnParty[0]);
-                        }
-                    }, "500");
-    
-                    setTimeout (() => {
-                        canSwitch = true;
-                        canAttack = true;
-                    }, "1000")
-                    break;                
+                }, "500");
+
+                setTimeout(() => {
+                    canSwitch = true;
+                    canAttack = true;
+                }, "1000")
+                break;
         }
     }
 }
 
-function attacking (img, attack, hp, attacker, defender) {
+function attacking(img, attack, hp, attacker, defender) {
     if (attacker.currentHp > 0) {
         canAttack = false;
         canSwitch = false;
 
         console.log(defender)
-        
+
         img.classList.add('enemy-attacking');
         let dmg = damageCalc(attacker, defender, attack, showBattleText);
         defender.currentHp -= dmg;
         let newHp = Math.floor(defender.currentHp / defender.hp * 100);
         hp.setValue(newHp);
         hp.update();
-    
-        setTimeout (() => {
-        canAttack = true;
-        canSwitch = true;
-        img.classList.remove('enemy-attacking');
+
+        setTimeout(() => {
+            canAttack = true;
+            canSwitch = true;
+            img.classList.remove('enemy-attacking');
         }, "2000");
     } else {
         return;
     }
 }
 
-function getOppAttack (oppPkmn, defender = pkmnParty[0]) {
-    if (gameState === 'wild battle') { 
+function getOppAttack(oppPkmn, defender = pkmnParty[0]) {
+    if (gameState === 'wild battle') {
         return choose(oppPkmn.moves);
     } else if (gameState === 'gym leader battle') {
-       return getBestAttack(defender);
+        return getBestAttack(defender);
     }
 }
 
-function getBestAttack (defender) {
+function getBestAttack(defender) {
     let moveOptions = [];
     let highest = 0
     let highestIdx = 0;
@@ -442,7 +445,7 @@ function getBestAttack (defender) {
     return oppPkmn.moves[highestIdx];
 }
 
-function showBattleText (message) {
+function showBattleText(message) {
     if (battleText.length === 4) {
         battleText.pop();
     }
@@ -466,14 +469,14 @@ function removeElement(selector) {
     elements.forEach((element) => element.parentNode.removeChild(element));
 }
 
-function createHealthBar (owner) {
+function createHealthBar(owner) {
     let healthBarDiv = document.createElement('div');
     healthBarDiv.setAttribute('class', `health-bar-${owner}`);
     healthBarDiv.innerHTML = `
     <div class="health-bar-value">100%</div>
     <div class="health-bar-fill"></div>
     `;
-    
+
     return healthBarDiv;
 }
 
@@ -569,23 +572,24 @@ function renderPokemonStats(pkmn) {
     }
 }
 
-function renderWildBattle () {
+function renderWildBattle() {
     let lowWild = structuredClone(lowLvlPkmn);
     let midWild = structuredClone(midLvlPkmn);
     let highWild = structuredClone(highLvlPkmn);
     //Getting the wild pokemon to battle
     if (pkmnParty.length <= 2) {
-        oppPkmn = getRandomPkmn(lowWild);     
+        oppPkmn = getRandomPkmn(lowWild);
     } else if (pkmnParty.length >= 3 && pkmnParty.length < 5) {
         oppPkmn = getRandomPkmn(choose([lowWild, midWild, midWild]));
     } else {
         oppPkmn = getRandomPkmn(choose([lowWild, midWild, midWild, midWild, highWild]));
     }
-    addMoves(oppPkmn); 
+    addMoves(oppPkmn);
 
     //Wild Battle Div Container
     const wildDiv = document.createElement('div');
-    wildDiv.classList.add('wild-pkmn-container');
+    wildDiv.classList.add('pkmn-battle-container');
+    wildDiv.classList.add('wild-pkmn-container')
     wildDiv.innerHTML = `
     <div class="battle-container">
         <div class="your-health-container"></div>
@@ -640,7 +644,7 @@ function renderWildBattle () {
 }
 
 
-function renderGymLeaderSelection () {
+function renderGymLeaderSelection() {
     //GymLeader Selection Div Container
     const gymLeaderSDiv = document.createElement('div');
     gymLeaderSDiv.classList.add('gymleader-selection-container');
@@ -708,52 +712,67 @@ function renderGymLeaderSelection () {
     gameContainer.append(gymLeaderSDiv);
 }
 
-function renderGymLeaderBattle () {
+function renderGymLeaderBattle() {
     oppPkmn = gymTeam[0];
 
 
-     //Gym Battle Div Container
-     const gymDiv = document.createElement('div');
-     gymDiv.classList.add('gym-container');
-     gymDiv.innerHTML = `
-     <img class="your-pkmn" src="${pkmnParty[0].sprite[1]}">
-     <img class="enemy-pkmn" src="${oppPkmn.sprite[0]}">
-     <img class="battle-bg" src="assets/battle_bgs/00.png">
+    //Gym Battle Div Container
+    const gymDiv = document.createElement('div');
+    gymDiv.classList.add('pkmn-battle-container');
+    gymDiv.classList.add('gym-container');
+    gymDiv.innerHTML = `
+     <div class="battle-container">
+         <div class="your-health-container"></div>
+         <div class="opp-health-container"></div>
+         <div class="your-pkmn-container">
+             <img class="your-pkmn" src="${pkmnParty[0].sprite[1]}">
+         </div>
+         <div class="opp-pkmn-container">
+             <img class="enemy-pkmn" src="${oppPkmn.sprite[0]}">
+         </div>
+     </div>
      <div class="battle-title">Gym Leader ${gymleaderName} wants to battle!</div>
-     <img class="trainer-img" src="assets/gymleaders/${gymleaderPlaceHolder.sprite}">
+     <div class="trainer">
+       <img class="trainer-img" src="assets/gymleaders/${gymleaderPlaceHolder.sprite}">
+     </div>
      <div class="battle-text"></div>
-     <button class="leave">Go Back</button>
-     `;
-     gameContainer.append(gymDiv);
- 
-     pkmnPartyDivs = [];
-     for (let i = 0; i < pkmnParty.length; i++) {
-         pkmnPartyDivs.push(document.createElement('div'));
-         pkmnPartyDivs[i].setAttribute('class', `battle-party battle-party-${i}`);
-         pkmnPartyDivs[i].innerHTML = `
-         <img id="${i}" class='battle-icon' src=${pkmnParty[i].icon}>
-         `;
-         gymDiv.append(pkmnPartyDivs[i]);
-     }
- 
-     movesDiv = [];
-     battleText = [];
-     for (let i = 0; i < pkmnParty[0].moves.length; i++) {
-         movesDiv.push(document.createElement('button'));
-         movesDiv[i].innerText = pkmnParty[0].moves[i];
-         movesDiv[i].setAttribute('class', `moves-button move-${i}`);
-         gymDiv.append(movesDiv[i]);
-     }
- 
-     let playerHpDiv = createHealthBar('player');
-     gymDiv.append(playerHpDiv);
-     playerHp = new HealthBar(playerHpDiv, 100);
- 
-     let oppHpDiv = createHealthBar('opp');
-     gymDiv.append(oppHpDiv);
-     oppHp = new HealthBar(oppHpDiv, 100);
+     <div class="pkmn-party"></div>
+     <div class="battle-moves"></div>
+     <div class="run-catch">
+       <button class="leave">Go Back</button>
+     </div>
+    `;
+    gameContainer.append(gymDiv);
 
-     gymLeaderMp3.play();
+    pkmnPartyDivs = [];
+    for (let i = 0; i < pkmnParty.length; i++) {
+        pkmnPartyDivs.push(document.createElement('div'));
+        pkmnPartyDivs[i].setAttribute('class', `battle-party battle-party-${i}`);
+        pkmnPartyDivs[i].innerHTML = `
+        <img id="${i}" class='battle-icon' src=${pkmnParty[i].icon}>
+        `;
+        document.querySelector('.pkmn-party').append(pkmnPartyDivs[i]);
+    }
+
+    movesDiv = [];
+    battleText = [];
+    for (let i = 0; i < pkmnParty[0].moves.length; i++) {
+        movesDiv.push(document.createElement('button'));
+        movesDiv[i].innerText = pkmnParty[0].moves[i];
+        movesDiv[i].setAttribute('class', `moves-button move-${i}`);
+        document.querySelector('.battle-moves').append(movesDiv[i]);
+    }
+
+    const healthContainer = [document.querySelector('.your-health-container'), document.querySelector('.opp-health-container')];
+    let playerHpDiv = createHealthBar('player');
+    healthContainer[0].append(playerHpDiv);
+    playerHp = new HealthBar(playerHpDiv, 100);
+
+    let oppHpDiv = createHealthBar('opp');
+    healthContainer[1].append(oppHpDiv);
+    oppHp = new HealthBar(oppHpDiv, 100);
+
+    gymLeaderMp3.play();
 }
 
 /*----- Releasing Pokemon -----*/
@@ -770,7 +789,7 @@ addGlobalEventListener('click', '.stat-release', e => {
             return;
         }
     }
-    
+
     pkmnParty.splice(statPlace, 1);
     removeElement(".stat-container");
     renderMainMenu();
@@ -821,14 +840,14 @@ addGlobalEventListener('click', '.moves-button', e => {
         let newHp;
         let attackOrder;
         let oppAttack;
-        
+
         //Getting the order of attackers
         attackOrder = speedCheck(pkmnParty[0], oppPkmn);
         //Selecting the attack for the opponent
         oppAttack = getOppAttack(oppPkmn);
 
         //Attack Phase
-        
+
         if (attackOrder[0].currentHp > 0) {
             if (attackOrder[0] === oppPkmn) {
                 oppImg.classList.add('enemy-attacking');
@@ -855,7 +874,7 @@ addGlobalEventListener('click', '.moves-button', e => {
                 if (attackOrder[1].currentHp <= 0) {
                     oppImg.classList.add('faint');
                     showBattleText(`${capFirstLetter(attackOrder[1].name)} fainted!!!`);
-                }               
+                }
             }
         }
 
@@ -890,15 +909,15 @@ addGlobalEventListener('click', '.moves-button', e => {
                     }
                 }
             }
-          }, "2000");      
+        }, "2000");
     } else {
         return false;
     }
 
-    setTimeout(() =>{
+    setTimeout(() => {
         if (oppPkmn.currentHp <= 0 && gameState === "gym leader battle") {
             switchPkmn('gym leader battle', 0, 'opp');
-        }       
+        }
     }, "2500");
 
     setTimeout(() => {
@@ -915,7 +934,7 @@ addGlobalEventListener('click', '.moves-button', e => {
             switchPkmn('gym leader battle', 0, 'opp');
         }
         if (teamCheck()) {
-            showBattleText("You're out of usable pokemon"); 
+            showBattleText("You're out of usable pokemon");
         }
     }, "3000");
 
@@ -1006,27 +1025,27 @@ addGlobalEventListener('click', '.gymleader', e => {
             gymleaderPlaceHolder = gymMisty;
             gymTeam = structuredClone(gymMisty.fullTeam);
             gymleaderName = gymMisty.name;
-            break;  
+            break;
         case 'surge':
             gymleaderPlaceHolder = gymSurge;
             gymTeam = structuredClone(gymSurge.fullTeam);
             gymleaderName = gymSurge.name;
-            break;  
+            break;
         case 'erika':
             gymleaderPlaceHolder = gymErika;
             gymTeam = structuredClone(gymErika.fullTeam);
             gymleaderName = gymErika.name;
-            break;   
+            break;
         case 'janine':
             gymleaderPlaceHolder = gymJanine;
             gymTeam = structuredClone(gymJanine.fullTeam);
             gymleaderName = gymJanine.name;
-            break;  
+            break;
         case 'sabrina':
             gymleaderPlaceHolder = gymSabrina;
             gymTeam = structuredClone(gymSabrina.fullTeam);
             gymleaderName = gymSabrina.name;
-            break; 
+            break;
         case 'blaine':
             gymleaderPlaceHolder = gymBlaine;
             gymTeam = structuredClone(gymBlaine.fullTeam);
@@ -1036,7 +1055,7 @@ addGlobalEventListener('click', '.gymleader', e => {
             gymleaderPlaceHolder = gymGiovanni;
             gymTeam = structuredClone(gymGiovanni.fullTeam);
             gymleaderName = gymGiovanni.name;
-            break;  
+            break;
     }
 
     renderGymLeaderBattle();
@@ -1067,7 +1086,7 @@ addGlobalEventListener('click', '.leave', e => {
 });
 
 //--Game State--
-switch(gameState) {
+switch (gameState) {
     case 'choose starter':
         renderStarterChoice();
         break;

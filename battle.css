@@ -1,5 +1,5 @@
 /*----- Fullscreen Grid Template -----*/
-.wild-pkmn-container {  display: grid;
+.pkmn-battle-container  {  display: grid;
     grid-template-columns: 0.6fr 1.4fr 1.3fr 0.7fr;
     grid-template-rows: 0.5fr 1.6fr 0.6fr 1fr;
     gap: 7px 10px;
@@ -88,7 +88,7 @@
   }  
   
 /*----- Fullscreen CSS -----*/
-.wild-pkmn-container {
+.pkmn-battle-container  {
     margin: auto;
     height: 100vh;
     width: 80vw;
@@ -119,6 +119,12 @@
     position: relative;
     bottom: 30px;
     left: 40px
+}
+
+.trainer {
+    justify-self: center;
+    align-self: center;
+    transform: scale(2.5);
 }
 
 .battle-moves {
@@ -176,7 +182,7 @@
     align-self: center;
 }
 
-.run {
+.run, .leave {
     grid-column: 2/2;
     width: 64px;
     height: 48px;
