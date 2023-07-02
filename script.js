@@ -1,6 +1,7 @@
 //--imports--
 import { starterPkmn, lowLvlPkmn, midLvlPkmn, highLvlPkmn, allPkmn, capFirstLetter, addMoves, choose } from "./pokemonObj.js";
 import { damageCalc, speedCheck, weaknessCalc } from "./battle-mechanic.js";
+import { GymLeader } from "./trainer.js";
 
 
 //--state variables--
@@ -15,8 +16,6 @@ gymBadges = JSON.parse(gymBadges);
 if (gymBadges === null) {
     gymBadges = [];
 }
-
-console.log(gymBadges);
 
 let gameState;
 if (pkmnParty.length > 0) {
@@ -61,40 +60,6 @@ class HealthBar {
 
         this.fillElem.style.width = percentage;
         this.valueElem.textContent = percentage;
-    }
-}
-
-class GymLeader {
-    constructor(name, sprite, badge, team) {
-        this.name = name;
-        this.sprite = sprite;
-        this.badge = badge;
-        this.team = team;
-        this.fullTeam = [];
-
-        this.formatTeam();
-        this.acePkmn = this.fullTeam[5];
-
-        this.badgeMessage = `You defeated Gym Leader ${this.name}. You've earned the ${this.badge} Badge.`
-    }
-
-    formatTeam() {
-        for (let i = 0; i < this.team.length; i++) {
-            for (let [key, value] of Object.entries(allPkmn)) {
-                if (this.team[i][0] === key) {
-                    this.fullTeam.push(structuredClone(value));
-                    addMoves(this.fullTeam[i], [this.team[i][1], this.team[i][2]]);
-                    break;
-                }
-            }
-        }
-    }
-
-    giveBadge() {
-        let badgeStr = gymBadges.join(' ');
-        if (!badgeStr.includes(this.badge)) {
-            gymBadges.push(this.badge);
-        }
     }
 }
 
@@ -591,7 +556,7 @@ function renderWildBattle() {
     wildDiv.classList.add('pkmn-battle-container');
     wildDiv.classList.add('wild-pkmn-container')
     wildDiv.innerHTML = `
-    <div class="battle-container">
+    <div class="battle-container bc-wild">
         <div class="your-health-container"></div>
         <div class="opp-health-container"></div>
         <div class="your-pkmn-container">
@@ -602,12 +567,12 @@ function renderWildBattle() {
         </div>
     </div>
     <div class="battle-title">A wild ${capFirstLetter(oppPkmn.name)} appeared!</div>
-    <div class="battle-text"></div>
-    <div class="pkmn-party"></div>
-    <div class="battle-moves"></div>
-    <div class="run-catch">
+    <div class="battle-text bt-wild"></div>
+    <div class="pkmn-party pp-wild"></div>
+    <div class="battle-moves bm-wild"></div>
+    <div class="run-catch rc-wild">
         <button class="catch hidden">Catch</button>    
-        <button class="run">Go Back</button>
+        <button class="run">Run</button>
     </div>
     `;
     gameContainer.append(wildDiv);
@@ -739,7 +704,7 @@ function renderGymLeaderBattle() {
      <div class="pkmn-party"></div>
      <div class="battle-moves"></div>
      <div class="run-catch">
-       <button class="leave">Go Back</button>
+       <button class="leave">Run</button>
      </div>
     `;
     gameContainer.append(gymDiv);
