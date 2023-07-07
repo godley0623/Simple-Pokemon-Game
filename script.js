@@ -1,7 +1,7 @@
 //--imports--
 import { starterPkmn, lowLvlPkmn, midLvlPkmn, highLvlPkmn, allPkmn, capFirstLetter, addMoves, choose } from "./pokemonObj.js";
 import { damageCalc, speedCheck, weaknessCalc } from "./battle-mechanic.js";
-import { GymLeader } from "./trainer.js";
+import { GymLeader, EliteFour } from "./trainer.js";
 
 
 //--state variables--
@@ -24,6 +24,7 @@ if (pkmnParty.length > 0) {
     gameState = 'choose starter';
 }
 
+let e4Beaten = [];
 let playerHp;
 let oppHp;
 let oppPkmn;
@@ -31,6 +32,9 @@ let battleText;
 let gymTeam;
 let gymleaderName;
 let gymleaderPlaceHolder;
+let e4Team;
+let e4Name;
+let e4PlaceHolder;
 let pkmnPartyDivs;
 let movesDiv;
 let statPlace;
@@ -65,10 +69,10 @@ class HealthBar {
 
 //Gym Leaders
 const brockTeam = [
-    ['geodude', 'Ice', 'Steel'],
     ['onix', 'Electric', 'Ghost'],
-    ['rhyhorn', 'Fire', 'Fighting'],
     ['graveler', 'Electric', 'Poison'],
+    ['rhyhorn', 'Fire', 'Fighting'],
+    ['kabutops', 'Fire', 'Psychic'],
     ['rhydon', 'Grass', 'Ice'],
     ['golem', 'Grass', 'Flying']
 ];
@@ -78,7 +82,7 @@ const mistyTeam = [
     ['psyduck', 'Psychic', 'Ice'],
     ['staryu', 'Ice', 'Dark'],
     ['golduck', 'Psychic', 'Fire'],
-    ['lapras', 'Flying', 'Ground'],
+    ['vaporeon', 'Flying', 'Ground'],
     ['starmie', 'Ghost', 'Ground'],
     ['gyarados', 'Ground', 'Electric']
 ];
@@ -144,6 +148,47 @@ const giovanniTeam = [
 ];
 const gymGiovanni = new GymLeader('Giovanni', 'giovanni.png', 'Earth', giovanniTeam)
 
+//Elite Four
+const loreleiTeam = [
+    ['jynx', 'Water', 'Fighting'],
+    ['dewgong', 'Poison', 'Psychic'],
+    ['slowking', 'Fire', 'Ground'],
+    ['walrein', 'Dark', 'Flying'],
+    ['cloyster', 'Grass', 'Fire'],
+    ['lapras', 'Psychic', 'Ground']
+];
+const e4Lorelei = new EliteFour('Lorelei', 'lorelei.png', loreleiTeam)
+
+const brunoTeam = [
+    ['steelix', 'Water', 'Flying'],
+    ['hitmonchan', 'Ice', 'Ghost'],
+    ['hitmonlee', 'Electric', 'Dark'],
+    ['hariyama', 'Bug', 'Rock'],
+    ['poliwrath', 'Ice', 'Grass'],
+    ['machamp', 'Rock', 'Dark']
+];
+const e4Bruno = new EliteFour('Bruno', 'bruno.png', brunoTeam)
+
+const agathaTeam = [
+    ['misdreavus', 'Fairy', 'Fire'],
+    ['muk', 'Ice', 'Ghost'],
+    ['gengar', 'Fighting', 'Water'],
+    ['dusclops', 'Bug', 'Rock'],
+    ['crobat', 'Ground', 'Ghost'],
+    ['gengar', 'Ice', 'Fairy']
+];
+const e4Agatha = new EliteFour('Agatha', 'agatha.png', agathaTeam)
+
+const lanceTeam = [
+    ['flygon', 'Steel', 'Flying'],
+    ['aerodactyl', 'Ground', 'Grass'],
+    ['dragonite', 'Rock', 'Ice'],
+    ['gyarados', 'Gorund', 'Dark'],
+    ['salamence', 'Steel', 'Bug'],
+    ['dragonite', 'Steel', 'Ice']
+];
+const e4Lance = new EliteFour('Lance', 'lance.png', lanceTeam)
+
 /*----- Functions -----*/
 //Event Delegation
 function addGlobalEventListener(type, selector, callback) {
@@ -165,6 +210,7 @@ function stopAudio(audio) {
 }
 let wildMp3 = playAudio('wild.mp3');
 let gymLeaderMp3 = playAudio('gymleader.mp3');
+let e4Mp3 = playAudio('e4.mp3');
 let gymLeaderFinalMp3 = playAudio('gymleaderFinal.mp3');
 let victoryMp3 = playAudio('victory.mp3');
 
@@ -202,41 +248,64 @@ function teamCheck() {
 
 let canSwitch = true;
 function switchPkmn(gameState, targetIdx, trainer) {
+    let team;
+    let placeholder;
+    let name;
+
     let switchIn;
     let gymDiv;
+    gymDiv = document.querySelector('.gym-container');
+    if (!gymDiv) {
+        gymDiv = document.querySelector('.e4-container');
+        team = e4Team;
+        placeholder = e4PlaceHolder;
+        name = e4Name;
+    }else {
+        team = gymTeam;
+        placeholder = gymleaderPlaceHolder;
+        name = gymleaderName;
+    }
 
     let pkmnPartyDiv = document.querySelector('.pkmn-party');
     let yourPkmnContainer = document.querySelector('.your-pkmn-container');
     let oppPkmnContainer = document.querySelector('.opp-pkmn-container');
     let battleMoves = document.querySelector('.battle-moves');
 
-    if (trainer === 'opp' && gymTeam.length >= 1) {
-        gymDiv = document.querySelector('.gym-container');
+    if (trainer === 'opp' && team.length >= 1) {
         //remove the opp pokemon image;
         removeElement('.enemy-pkmn');
         //remove the top index of the gymTeam array
-        gymTeam.shift();
-        if (gymTeam.length === 0) {
-            stopAudio(gymLeaderFinalMp3);
-            victoryMp3.play()
-            showBattleText(gymleaderPlaceHolder.badgeMessage);
-            gymleaderPlaceHolder.giveBadge();
-            canSwitch = false;
-            return;
+        team.shift();
+        if (team.length === 0) {
+            if (gameState === 'gym leader battle') {
+                stopAudio(gymLeaderFinalMp3);
+                victoryMp3.play()
+                showBattleText(placeholder.badgeMessage);
+                placeholder.giveBadge(gymBadges);
+                canSwitch = false;
+                return;
+            } else if (gameState === 'e4 battle') {
+                stopAudio(gymLeaderFinalMp3);
+                victoryMp3.play()
+                placeholder.eliteFourBeaten(e4Beaten);
+                canSwitch = false;
+                return;                
+            }
         }
         //Make oppPkmn equal the new gymTeam[0]
-        oppPkmn = gymTeam[0];
+        oppPkmn = team[0];
         let newPkmn = document.createElement('img');
         newPkmn.setAttribute('class', 'enemy-pkmn');
         newPkmn.setAttribute('src', `${oppPkmn.sprite[0]}`);
         oppPkmnContainer.append(newPkmn);
         //updating the pokemon hp
-        oppHp.setValue(Math.floor(gymTeam[0].currentHp / gymTeam[0].hp * 100))
+        oppHp.setValue(Math.floor(team[0].currentHp / team[0].hp * 100))
 
-        showBattleText(`${gymleaderName} sent out ${capFirstLetter(gymTeam[0].name)}`)
+        showBattleText(`${name} sent out ${capFirstLetter(team[0].name)}`)
 
-        if (gymTeam.length === 1) {
+        if (team.length === 1) {
             stopAudio(gymLeaderMp3);
+            stopAudio(e4Mp3);
             gymLeaderFinalMp3.play();
         }
         return;
@@ -304,7 +373,8 @@ function switchPkmn(gameState, targetIdx, trainer) {
                 break;
 
             case "gym leader battle":
-                gymDiv = document.querySelector('.gym-container');
+            case "e4 battle":
+                //gymDiv = document.querySelector('.gym-container');
                 switchIn;
                 [pkmnParty[0], pkmnParty[targetIdx]] = [pkmnParty[targetIdx], pkmnParty[0]]
 
@@ -386,7 +456,7 @@ function attacking(img, attack, hp, attacker, defender) {
 function getOppAttack(oppPkmn, defender = pkmnParty[0]) {
     if (gameState === 'wild battle') {
         return choose(oppPkmn.moves);
-    } else if (gameState === 'gym leader battle') {
+    } else if (gameState === 'gym leader battle' || gameState === 'e4 battle') {
         return getBestAttack(defender);
     }
 }
@@ -485,13 +555,23 @@ function renderMainMenu() {
     menuDiv.setAttribute('class', 'main-menu');
     menuDiv.innerHTML = `
     <h1 class="title">Pokemon: Simplified Version</h1>
-    <p class='main-menu-text text0'>Battle Wild Pokemon</p>
-    <p class='main-menu-text text1 hidden'>Battle Trainer</p>
-    <p class='main-menu-text text2'>Battle Gym Leader</p>
+    <div class="text-container">
+        <p class='main-menu-text text0'>Battle Wild Pokemon</p>
+        <p class='main-menu-text text1 hidden'>Battle Trainer</p>
+        <p class='main-menu-text text2'>Battle Gym Leader</p>
+        <p class='main-menu-text text3'>Battle Elite Four</p>
+    </div>
 
     <p class='main-menu-text-party'>Pokemon in Party</p>
+    <div class='main-menu-pkmn-party'></div>
     `;
     gameContainer.append(menuDiv);
+
+    //Gym Badges check
+    if (gymBadges.length < 8) {
+        const eliteFour = document.querySelector('.text3');
+        eliteFour.classList.add('hidden'); 
+    }
 
     //Show Pokemon in Party
     let pkmnPartyDivs = [];
@@ -501,7 +581,7 @@ function renderMainMenu() {
         pkmnPartyDivs[i].innerHTML = `
         <img id="${i}" class='main-menu-icon' src=${pkmnParty[i].icon}>
         `;
-        menuDiv.append(pkmnPartyDivs[i]);
+        document.querySelector('.main-menu-pkmn-party').append(pkmnPartyDivs[i]);
     }
 }
 
@@ -510,18 +590,23 @@ function renderPokemonStats(pkmn) {
     const statDiv = document.createElement('div');
     statDiv.setAttribute('class', 'stat-container');
     statDiv.innerHTML = `
-    <div class='box'></div>
-    <img class='stat-pkmn-image' src='${pkmn.sprite[0]}'>
-    <h3 class='stat-pkmn-name'>${capFirstLetter(pkmn.name)}</h3>
-    <h3 class='stat-pkmn-type'>${structureType(pkmn.type)}</h3>
-    <h4 class='stat-pkmn-stat hp'>HP: ${pkmn.hp}</h4>
-    <h4 class='stat-pkmn-stat atk'>Attack: ${pkmn.atk}</h4>
-    <h4 class='stat-pkmn-stat def'>Defense: ${pkmn.def}</h4>
-    <h4 class='stat-pkmn-stat spd'>Speed: ${pkmn.spd}</h4>
-    <h4 class='stat-pkmn-moves'>Moves: ${pkmn.moves.join(' / ')}</h4>
-    <button class='stat-go-back'>Go Back</button>
-    <button class='stat-release'>Release</button>
+    <div class='box'>
+        <img class='stat-pkmn-image' src='${pkmn.sprite[0]}'>
+        <h3 class='stat-pkmn-name'>${capFirstLetter(pkmn.name)}</h3>
+        <h3 class='stat-pkmn-type'>${structureType(pkmn.type)}</h3>
+        <h4 class='stat-pkmn-stat hp'>HP: ${pkmn.hp}</h4>
+        <h4 class='stat-pkmn-stat atk'>Attack: ${pkmn.atk}</h4>
+        <h4 class='stat-pkmn-stat def'>Defense: ${pkmn.def}</h4>
+        <h4 class='stat-pkmn-stat spd'>Speed: ${pkmn.spd}</h4>
+        <h4 class='stat-pkmn-moves'>Moves: ${pkmn.moves.join(' / ')}</h4>
+        <div class='stat-buttons'>
+            <button class='stat-go-back'>Go Back</button>
+            <button class='stat-release'>Release</button>
+        </div>
+    </div>
+    
     <p class='stat-menu-text-party'>Pokemon in Party</p>
+    <div class='stat-menu-pkmn-party'></div>
     `;
     gameContainer.append(statDiv);
 
@@ -533,7 +618,7 @@ function renderPokemonStats(pkmn) {
         pkmnPartyDivs[i].innerHTML = `
         <img id="${i}" class='stat-menu-icon' src=${pkmnParty[i].icon}>
         `;
-        statDiv.append(pkmnPartyDivs[i]);
+        document.querySelector(".stat-menu-pkmn-party").append(pkmnPartyDivs[i]);
     }
 }
 
@@ -614,16 +699,16 @@ function renderGymLeaderSelection() {
     const gymLeaderSDiv = document.createElement('div');
     gymLeaderSDiv.classList.add('gymleader-selection-container');
     gymLeaderSDiv.innerHTML = `
-    <img id="brock" class="gymleader brock" src="assets/gymleaders/${gymBrock.sprite}">
-    <img id="misty" class="gymleader misty" src="assets/gymleaders/${gymMisty.sprite}">
-    <img id="surge" class="gymleader surge" src="assets/gymleaders/${gymSurge.sprite}">
-    <img id="erika" class="gymleader erika" src="assets/gymleaders/${gymErika.sprite}">
-    <img id="janine" class="gymleader janine" src="assets/gymleaders/${gymJanine.sprite}">
-    <img id="sabrina" class="gymleader sabrina" src="assets/gymleaders/${gymSabrina.sprite}">
-    <img id="blaine" class="gymleader blaine" src="assets/gymleaders/${gymBlaine.sprite}">
-    <img id="giovanni" class="gymleader giovanni" src="assets/gymleaders/${gymGiovanni.sprite}">
-    <h3 class="badges">Badges (${gymBadges.length}/8): ${gymBadges.join(', ')}</h3>
-    <button class="go-back">Go Back</button>
+    <div class="gymleader-container">
+        <img id="brock" class="gymleader brock" src="assets/gymleaders/${gymBrock.sprite}">
+        <img id="misty" class="gymleader misty" src="assets/gymleaders/${gymMisty.sprite}">
+        <img id="surge" class="gymleader surge" src="assets/gymleaders/${gymSurge.sprite}">
+        <img id="erika" class="gymleader erika" src="assets/gymleaders/${gymErika.sprite}">
+        <img id="janine" class="gymleader janine" src="assets/gymleaders/${gymJanine.sprite}">
+        <img id="sabrina" class="gymleader sabrina" src="assets/gymleaders/${gymSabrina.sprite}">
+        <img id="blaine" class="gymleader blaine" src="assets/gymleaders/${gymBlaine.sprite}">
+        <img id="giovanni" class="gymleader giovanni" src="assets/gymleaders/${gymGiovanni.sprite}">
+    </div>
 
     <div id="gym-details" class="brock-details hidden">
         <h2>Brock</h2>
@@ -672,7 +757,12 @@ function renderGymLeaderSelection() {
         <h2>Ground Type Specialist</h2>
         <h2>Badge: ${gymGiovanni.badge}</h2>
         <h2>Ace Pokemon: <img src="${gymGiovanni.acePkmn.sprite[0]}"><h2>
-    </div>       
+    </div>
+    
+    <div class="gymleader-footer">
+        <h3 class="badges">Badges (${gymBadges.length}/8): ${gymBadges.join(', ')}</h3>
+        <button class="go-back">Go Back</button>
+    </div>
     `;
     gameContainer.append(gymLeaderSDiv);
 }
@@ -740,6 +830,110 @@ function renderGymLeaderBattle() {
     gymLeaderMp3.play();
 }
 
+function renderEliteFourSelection() {
+    //E4 Selection Div Container
+    const eliteFourDiv = document.createElement('div');
+    eliteFourDiv.classList.add('e4-selection-container');
+    eliteFourDiv.innerHTML = `
+    <div class="e4-container">
+        <img id="lorelei" class="e4 lorelei" src="assets/e4/${e4Lorelei.sprite}">
+        <img id="bruno" class="e4 bruno" src="assets/e4/${e4Bruno.sprite}">
+        <img id="agatha" class="e4 agatha" src="assets/e4/${e4Agatha.sprite}">
+        <img id="lance" class="e4 lance" src="assets/e4/${e4Lance.sprite}">
+    </div>
+
+    <div id="e4-details" class="lorelei-details hidden">
+        <h2>Lorelei</h2>
+        <h2>Ice Type Specialist</h2>
+        <h2>Ace Pokemon: <img src="${e4Lorelei.acePkmn.sprite[0]}"><h2>
+    </div>
+    <div id="e4-details" class="bruno-details hidden">
+        <h2>Bruno</h2>
+        <h2>Fighting Type Specialist</h2>
+        <h2>Ace Pokemon: <img src="${e4Bruno.acePkmn.sprite[0]}"><h2>
+    </div>
+    <div id="e4-details" class="agatha-details hidden">
+        <h2>Agatha</h2>
+        <h2>Ghost Type Specialist</h2>
+        <h2>Ace Pokemon: <img src="${e4Agatha.acePkmn.sprite[0]}"><h2>
+    </div>
+    <div id="e4-details" class="lance-details hidden">
+        <h2>Lance</h2>
+        <h2>Dragon Type Specialist</h2>
+        <h2>Ace Pokemon: <img src="${e4Lance.acePkmn.sprite[0]}"><h2>
+    </div>
+    
+    <div class="e4-footer">
+        <h3 class="badges">Elite4 (${e4Beaten.length}/4): ${e4Beaten.join(', ')}</h3>
+        <button class="e4-go-back">Go Back</button>
+    </div>
+    `;
+    gameContainer.append(eliteFourDiv);
+}
+
+function renderEliteFourBattle() {
+    oppPkmn = e4Team[0];
+
+
+    //Gym Battle Div Container
+    const e4Div = document.createElement('div');
+    e4Div.classList.add('pkmn-battle-container');
+    e4Div.classList.add('e4-container');
+    e4Div.innerHTML = `
+     <div class="battle-container">
+         <div class="your-health-container"></div>
+         <div class="opp-health-container"></div>
+         <div class="your-pkmn-container">
+             <img class="your-pkmn" src="${pkmnParty[0].sprite[1]}">
+         </div>
+         <div class="opp-pkmn-container">
+             <img class="enemy-pkmn" src="${oppPkmn.sprite[0]}">
+         </div>
+     </div>
+     <div class="battle-title">E4 Member ${e4Name} wants to battle!</div>
+     <div class="trainer">
+       <img class="trainer-img" src="assets/e4/${e4PlaceHolder.sprite}">
+     </div>
+     <div class="battle-text"></div>
+     <div class="pkmn-party"></div>
+     <div class="battle-moves"></div>
+     <div class="run-catch">
+       <button class="e4-leave">Run</button>
+     </div>
+    `;
+    gameContainer.append(e4Div);
+
+    pkmnPartyDivs = [];
+    for (let i = 0; i < pkmnParty.length; i++) {
+        pkmnPartyDivs.push(document.createElement('div'));
+        pkmnPartyDivs[i].setAttribute('class', `battle-party battle-party-${i}`);
+        pkmnPartyDivs[i].innerHTML = `
+        <img id="${i}" class='battle-icon' src=${pkmnParty[i].icon}>
+        `;
+        document.querySelector('.pkmn-party').append(pkmnPartyDivs[i]);
+    }
+
+    movesDiv = [];
+    battleText = [];
+    for (let i = 0; i < pkmnParty[0].moves.length; i++) {
+        movesDiv.push(document.createElement('button'));
+        movesDiv[i].innerText = pkmnParty[0].moves[i];
+        movesDiv[i].setAttribute('class', `moves-button move-${i}`);
+        document.querySelector('.battle-moves').append(movesDiv[i]);
+    }
+
+    const healthContainer = [document.querySelector('.your-health-container'), document.querySelector('.opp-health-container')];
+    let playerHpDiv = createHealthBar('player');
+    healthContainer[0].append(playerHpDiv);
+    playerHp = new HealthBar(playerHpDiv, 100);
+
+    let oppHpDiv = createHealthBar('opp');
+    healthContainer[1].append(oppHpDiv);
+    oppHp = new HealthBar(oppHpDiv, 100);
+
+    e4Mp3.play();
+}
+
 /*----- Releasing Pokemon -----*/
 addGlobalEventListener('click', '.stat-release', e => {
     if (pkmnParty.length === 1) {
@@ -771,6 +965,18 @@ addGlobalEventListener('mouseout', '.gymleader', e => {
     let gymleaderGet = e.target.getAttribute('class').split(' ')[1];
     let gymDetailsDiv = document.querySelector(`.${gymleaderGet}-details`);
     gymDetailsDiv.classList.add('hidden');
+})
+
+/*----- E4 Details -----*/
+addGlobalEventListener('mouseover', '.e4', e => {
+    let e4Get = e.target.getAttribute('class').split(' ')[1];
+    let e4DetailsDiv = document.querySelector(`.${e4Get}-details`);
+    e4DetailsDiv.classList.remove('hidden');
+})
+addGlobalEventListener('mouseout', '.e4', e => {
+    let e4Get = e.target.getAttribute('class').split(' ')[1];
+    let e4DetailsDiv = document.querySelector(`.${e4Get}-details`);
+    e4DetailsDiv.classList.add('hidden');
 })
 
 /*----- Catch wild pokemon -----*/
@@ -883,6 +1089,9 @@ addGlobalEventListener('click', '.moves-button', e => {
         if (oppPkmn.currentHp <= 0 && gameState === "gym leader battle") {
             switchPkmn('gym leader battle', 0, 'opp');
         }
+        if (oppPkmn.currentHp <= 0 && gameState === "e4 battle") {
+            switchPkmn('e4 battle', 0, 'opp');
+        }
     }, "2500");
 
     setTimeout(() => {
@@ -897,6 +1106,9 @@ addGlobalEventListener('click', '.moves-button', e => {
         }
         if (oppPkmn.currentHp <= 0 && gameState === "gym leader battle") {
             switchPkmn('gym leader battle', 0, 'opp');
+        }
+        if (oppPkmn.currentHp <= 0 && gameState === "e4 battle") {
+            switchPkmn('e4 battle', 0, 'opp');
         }
         if (teamCheck()) {
             showBattleText("You're out of usable pokemon");
@@ -952,9 +1164,23 @@ addGlobalEventListener('click', '.text2', e => {
     gameState = 'gym leader selection';
 });
 
+// Main Menu > Elite Four Selection
+addGlobalEventListener('click', '.text3', e => {
+    removeElement(".main-menu");
+    renderEliteFourSelection();
+    gameState = 'elite four selection';
+});
+
 // Gym Leader Selection > Main Menu
 addGlobalEventListener('click', '.go-back', e => {
     removeElement(".gymleader-selection-container");
+    renderMainMenu();
+    gameState = 'main menu';
+});
+
+// Elite Four Selection > Main Menu
+addGlobalEventListener('click', '.e4-go-back', e => {
+    removeElement(".e4-selection-container");
     renderMainMenu();
     gameState = 'main menu';
 });
@@ -1042,6 +1268,62 @@ addGlobalEventListener('click', '.leave', e => {
     renderMainMenu();
     stopAudio(gymLeaderFinalMp3);
     stopAudio(gymLeaderMp3);
+    stopAudio(e4Mp3);
+    stopAudio(victoryMp3);
+    canSwitch = true;
+
+    //Save Badges to the local Storage
+    let arr = JSON.stringify(gymBadges);
+    localStorage.setItem('gymBadges', arr);
+});
+
+//Elite Four Selection > Elite Four Battle
+addGlobalEventListener('click', '.e4', e => {
+    removeElement(".e4-selection-container");
+    gameState = 'e4 battle';
+    switch (e.target.getAttribute('id')) {
+        case 'lorelei':
+            e4PlaceHolder = e4Lorelei;
+            e4Team = structuredClone(e4Lorelei.fullTeam);
+            e4Name = e4Lorelei.name;
+            break;
+        case 'bruno':
+            e4PlaceHolder = e4Bruno;
+            e4Team = structuredClone(e4Bruno.fullTeam);
+            e4Name = e4Bruno.name;
+            break;
+        case 'agatha':
+            e4PlaceHolder = e4Agatha;
+            e4Team = structuredClone(e4Agatha.fullTeam);
+            e4Name = e4Agatha.name;
+            break;
+        case 'lance':
+            e4PlaceHolder = e4Lance;
+            e4Team = structuredClone(e4Lance.fullTeam);
+            e4Name = e4Lance.name;
+            break;
+    }
+
+    renderEliteFourBattle();
+});
+
+//E4 Battle > E4 Selection
+addGlobalEventListener('click', '.e4-leave', e => {
+    if (e4Team.length > 0) {
+        for (let i = 0; i < pkmnParty.length; i++) {
+            if (pkmnParty[i].currentHp > 0) {
+                showBattleText("You can't run from an Elite Four Battle!");
+                return;
+            }
+        }
+    }
+    removeElement(".e4-container");
+    gameState = 'e4 selection';
+    healParty();
+    renderEliteFourSelection();
+    stopAudio(gymLeaderFinalMp3);
+    stopAudio(gymLeaderMp3);
+    stopAudio(e4Mp3);
     stopAudio(victoryMp3);
     canSwitch = true;
 

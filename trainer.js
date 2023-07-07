@@ -1,4 +1,8 @@
 import genOnePkmn from './data/genone_pkmn.json' assert {type: 'json'}
+import genTwoPkmn from './data/gentwo_pkmn.json' assert {type: 'json'}
+import genThreePkmn from './data/genthree_pkmn.json' assert {type: 'json'}
+
+const allPkmn = { ...genOnePkmn, ...genTwoPkmn, ...genThreePkmn };
 
 function addMoves(pkmn, types = []) {
     if (types.length === 0) {
@@ -45,7 +49,7 @@ export class GymLeader {
 
     formatTeam() {
         for (let i = 0; i < this.team.length; i++) {
-            for (let [key, value] of Object.entries(genOnePkmn)) {
+            for (let [key, value] of Object.entries(allPkmn)) {
                 if (this.team[i][0] === key) {
                     this.fullTeam.push(structuredClone(value));
                     addMoves(this.fullTeam[i], [this.team[i][1], this.team[i][2]]);
@@ -55,10 +59,43 @@ export class GymLeader {
         }
     }
 
-    giveBadge() {
+    giveBadge(gymBadges) {
         let badgeStr = gymBadges.join(' ');
         if (!badgeStr.includes(this.badge)) {
             gymBadges.push(this.badge);
+        }
+    }
+}
+
+export class EliteFour {
+    constructor(name, sprite, team) {
+        this.name = name;
+        this.sprite = sprite;
+        this.team = team;
+        this.fullTeam = [];
+
+        this.formatTeam();
+        this.acePkmn = this.fullTeam[5];
+
+        this.badgeMessage = `You defeated E4 Member ${this.name}.`
+    }
+
+    formatTeam() {
+        for (let i = 0; i < this.team.length; i++) {
+            for (let [key, value] of Object.entries(allPkmn)) {
+                if (this.team[i][0] === key) {
+                    this.fullTeam.push(structuredClone(value));
+                    addMoves(this.fullTeam[i], [this.team[i][1], this.team[i][2]]);
+                    break;
+                }
+            }
+        }
+    }
+
+    eliteFourBeaten(e4Beaten) {
+        let e4Str = e4Beaten.join(' ');
+        if (!e4Str.includes(this.name)) {
+            e4Beaten.push(this.name);
         }
     }
 }

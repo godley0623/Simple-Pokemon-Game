@@ -1,53 +1,6 @@
-/*----- Storing Dom Elements -----*/
-const pkmnLoaderDiv = document.querySelector('.pkmn-loader');
-const gameContainerDiv = document.querySelector('.game-container');
-
-/*----- Async Functions -----*/
-async function getJSON(id) {
-    return fetch('https://pokeapi.co/api/v2/pokemon/'+ id)
-        .then(response => response.json())
-}
-
-async function getPokemon(amount, id = 1) {
-    let pkmnObj;
-    let pokemon = {};
-    const amountTotal = amount
-    pkmnLoaderDiv.innerText = `Saving Pokemon Data from PokeAPI: 0 / 151 Pokemon Loaded`;
-
-    while (amount > 0) {
-        const data = await getJSON(id);
-        pkmnObj = {
-            name: data.forms[0].name,
-            type: typeCheck(data),
-            hp: Math.floor(data.stats[0].base_stat / 10) * 5,
-            currentHp: Math.floor(data.stats[0].base_stat / 10) * 5,
-            atk: Math.floor((Math.floor(data.stats[1].base_stat / 10) + Math.floor(data.stats[3].base_stat / 10)) / 2),
-            def: Math.floor((Math.floor(data.stats[2].base_stat / 10) + Math.floor(data.stats[4].base_stat / 10)) / 2),
-            spd: data.stats[5].base_stat,
-            sprite: [data.sprites.versions['generation-v']['black-white'].animated.front_default, data.sprites.versions['generation-v']['black-white'].animated.back_default],
-            icon: data.sprites.versions['generation-vii'].icons.front_default,
-            moves: getMoves(typeCheck(data))
-        };
-        pokemon[pkmnObj.name] = pkmnObj;
-        amount--
-        id++
-        pkmnLoaderDiv.innerText = `Getting Pokemon Data from PokeAPI: ${amountTotal - amount} / 151 Pokemon Loaded`;
-    }
-    pkmnLoaderDiv.innerText = ``;
-    return pokemon
-}
-
-let genOnePkmn = localStorage.getItem('allPkmn');
-//Saving the pokemon to the local storage if genOnePkmn returns false
-if (!genOnePkmn) {
-    genOnePkmn = await getPokemon(151);
-    
-    let jsonArr = JSON.stringify(genOnePkmn);
-    localStorage.setItem('allPkmn', jsonArr);
-}else {
-    genOnePkmn = JSON.parse(genOnePkmn);
-}
-gameContainerDiv.classList.remove('hidden');
+import genOnePkmn from './data/genone_pkmn.json' assert {type: 'json'};
+import genTwoPkmn from './data/gentwo_pkmn.json' assert {type: 'json'};
+import genThreePkmn from './data/genthree_pkmn.json' assert {type: 'json'};
 
 const genOneStarters = [genOnePkmn.bulbasaur, genOnePkmn.charmander, genOnePkmn.squirtle]
 const genOneLowLvl = []
@@ -61,6 +14,26 @@ for (const [key, value] of Object.entries(genOnePkmn)) {
         genOneMidLvl.push(genOnePkmn[`${value.name}`])
     } else {
         genOneHighLvl.push(genOnePkmn[`${value.name}`])
+    }
+}
+
+for (const [key, value] of Object.entries(genTwoPkmn)) {
+    if (value.atk <= 5) { 
+        genOneLowLvl.push(genTwoPkmn[`${value.name}`])
+    } else if (value.atk > 5 && value.atk <= 7) {
+        genOneMidLvl.push(genTwoPkmn[`${value.name}`])
+    } else {
+        genOneHighLvl.push(genTwoPkmn[`${value.name}`])
+    }
+}
+
+for (const [key, value] of Object.entries(genThreePkmn)) {
+    if (value.atk <= 5) { 
+        genOneLowLvl.push(genThreePkmn[`${value.name}`])
+    } else if (value.atk > 5 && value.atk <= 7) {
+        genOneMidLvl.push(genThreePkmn[`${value.name}`])
+    } else {
+        genOneHighLvl.push(genThreePkmn[`${value.name}`])
     }
 }
 

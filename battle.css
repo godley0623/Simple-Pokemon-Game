@@ -1,4 +1,4 @@
-@media only screen and (min-height: 1000px) {
+@media only screen and (min-width: 1000px) {
     /*----- Fullscreen Grid Template -----*/
     .pkmn-battle-container  {  display: grid;
         grid-template-columns: 0.6fr 1.4fr 1.3fr 0.7fr;
@@ -100,6 +100,7 @@
         background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;
+        width: 100%;
     }
 
     .your-health-container, .opp-health-container {
@@ -154,7 +155,7 @@
         position: relative;
         grid-column: 2/2;
         justify-self: center;
-        width: 120px;
+        /*width: 120px;*/
         height: 100px;
     }
     .player-attacking {
@@ -167,7 +168,7 @@
         position: relative;
         grid-column: 2/2;
         justify-self: end;
-        width: 120px;
+        /*width: 120px;*/
         height: 100px;
     }
     .enemy-attacking {
@@ -183,7 +184,7 @@
         align-self: center;
     }
 
-    .run, .leave {
+    .run, .leave, .e4-leave {
         grid-column: 2/2;
         width: 64px;
         height: 48px;
@@ -343,7 +344,7 @@
     }
 }
 
-@media only screen and (max-height: 844px) {
+@media only screen and (max-width: 999px) {
     .pkmn-battle-container {
         display: grid;
         grid-template-columns: 312px;
@@ -562,7 +563,7 @@
         justify-self: end;
         align-self: end;
     }
-    .run, .leave {
+    .run, .leave, .e4-leave {
         width: 64px;
         height: 32px;
         background-color: red;
