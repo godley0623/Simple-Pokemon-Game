@@ -1,0 +1,654 @@
+@media only screen and (min-width: 1000px) {
+    /*----- Fullscreen Grid Template -----*/
+    .pkmn-battle-container  {  display: grid;
+        grid-template-columns: 0.6fr 1.4fr 1.3fr 0.7fr;
+        grid-template-rows: 0.5fr 1.6fr 0.6fr 1fr;
+        gap: 7px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        ". battle-title battle-title ."
+        "pkmn-party battle-container battle-container trainer"
+        ". battle-moves battle-moves run-catch"
+        ". battle-text battle-text .";
+    }
+    
+    .pkmn-party {  display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.6fr 0.6fr 0.6fr;
+        gap: 5px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        ". battle-party-1"
+        "battle-party-2 battle-party-3"
+        "battle-party-4 battle-party-5";
+        grid-area: pkmn-party;
+    }
+    
+    .battle-party-1 { grid-area: battle-party-1; }
+    
+    .battle-party-2 { grid-area: battle-party-2; }
+    
+    .battle-party-3 { grid-area: battle-party-3; }
+    
+    .battle-party-4 { grid-area: battle-party-4; }
+    
+    .battle-party-5 { grid-area: battle-party-5; }
+    
+    .trainer { grid-area: trainer; }
+    
+    .battle-title { grid-area: battle-title; }
+    
+    .battle-moves {  display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "move-0 move-1 move-2 move-3";
+        grid-area: battle-moves;
+    }
+    
+    .move-0 { grid-area: move-0; }
+    
+    .move-1 { grid-area: move-1; }
+    
+    .move-2 { grid-area: move-2; }
+    
+    .move-3 { grid-area: move-3; }
+    
+    .battle-text { grid-area: battle-text; }
+    
+    .battle-container {  display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        ". . opp-health-container"
+        "your-health-container opp-pkmn-container opp-pkmn-container"
+        "your-pkmn-container your-pkmn-container .";
+        grid-area: battle-container;
+    }
+    
+    .your-pkmn-container { grid-area: your-pkmn-container; }
+    
+    .opp-pkmn-container { grid-area: opp-pkmn-container; }
+    
+    .your-health-container { grid-area: your-health-container; }
+    
+    .opp-health-container { grid-area: opp-health-container; }
+    
+    .run-catch {  display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        ". .";
+        grid-area: run-catch;
+    }  
+    
+    /*----- Fullscreen CSS -----*/
+    .pkmn-battle-container  {
+        margin: auto;
+        height: 100vh;
+        width: 80vw;
+    }
+
+    .battle-container {
+        background-image: url('./assets/battle_bgs/00.png');
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+    }
+
+    .your-health-container, .opp-health-container {
+        width: 154px;
+        height: 24px;
+    }
+    .opp-health-container {
+        justify-self: end;
+    }
+
+    .your-pkmn-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .opp-pkmn-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        position: relative;
+        bottom: 30px;
+        left: 40px
+    }
+
+    .trainer {
+        justify-self: center;
+        align-self: center;
+        transform: scale(2.5);
+    }
+
+    .battle-moves {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .run-catch {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .battle-bg {
+        width: 100%;
+        height: 100%;
+        /*width: 795.4px;
+        height: 624.95px;*/
+    }
+    .battle-title {
+        font-weight: bold;
+        font-size: 32px;
+        text-align: center;
+        color: white;
+    }
+    .your-pkmn {
+        z-index: 999;
+        position: relative;
+        grid-column: 2/2;
+        justify-self: center;
+        /*width: 120px;*/
+        height: 100px;
+    }
+    .player-attacking {
+        animation-name: playerAttacking;
+        animation-duration: 1000ms;
+    }
+
+    .enemy-pkmn {
+        z-index: 998;  
+        position: relative;
+        grid-column: 2/2;
+        justify-self: end;
+        /*width: 120px;*/
+        height: 100px;
+    }
+    .enemy-attacking {
+        animation-name: enemyAttacking;
+        animation-duration: 1000ms;
+    }
+
+    .moves-button {
+        width: 150px;
+        height: 48px;
+        border-radius: 10px;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .run, .leave, .e4-leave {
+        grid-column: 2/2;
+        width: 64px;
+        height: 48px;
+        background-color: red;
+        color: white;
+        align-self: center;
+    }
+
+    .catch {
+        grid-column: 1/1;
+        width: 64px;
+        height: 48px;
+        background-color: limegreen;
+        color: white;
+        align-self: center;
+    }
+
+    .battle-text {
+        background-color: white;
+        border-radius: 10px;
+        height: 150px;
+        width: 60vw;
+    }
+
+    .health-bar-player {
+        width: 152px;
+        height: 22px;
+        border: 1px solid black;
+        border-radius: 8px;
+    }
+    .health-bar-player .health-bar-fill {
+        height: 100%;
+        background: #59ea63;
+        transition: width 0.5s;
+        border-radius: 8px;
+    }
+    .health-bar-player .health-bar-value {
+        position: absolute;
+        width: 152px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .health-bar-opp {
+        position: relative;
+        width: 152px;
+        height: 22px;
+        border: 1px solid black;
+        border-radius: 8px;
+    }
+    .health-bar-opp .health-bar-fill {
+        height: 100%;
+        background: #59ea63;
+        transition: width 0.5s;
+        border-radius: 8px;
+    }
+    .health-bar-opp .health-bar-value {
+        position: absolute;
+        width: 152px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+
+    .battle-party {
+        background-color: rgba(231, 217, 217, 0.7);
+        border-radius: 10px;
+        margin-right: 18px;
+        width: 60px;
+        height: 38px;
+        position: relative;
+    }
+    .battle-party:hover {
+        background-color: rgba(255, 255, 255, 1)
+    }
+
+    .battle-party-0 {
+        display: none;
+    }
+
+    .battle-icon {
+        transform: scale(2.5);
+        position: relative;
+        bottom: 9px;
+        left: 9px;
+    }
+
+    .faint {
+        opacity: 0;
+        animation-name: faint;
+        animation-duration: 500ms;
+    }
+
+
+    @keyframes faint {
+        0% {
+            opacity: 1;
+        }
+
+        25% {
+            top: 10px;
+            opacity: .75;
+        }
+
+        50% {
+            top: 20px;
+            opacity: .50;
+        }
+
+        75% {
+            top: 30px;
+            opacity: .25;
+        }
+
+        100% {
+            top: 40px;
+            opacity: 0;
+        }
+    }
+
+    @keyframes playerAttacking {
+        0% {
+            bottom: 0;
+            left: 0;
+        }
+        50% {
+            bottom: 90px;
+            left: 250px;
+        }
+        100% {
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+
+    @keyframes enemyAttacking {
+        0% {
+            top: 0;
+            right: 0;
+        }
+
+        50% {
+            top: 90px;
+            right: 275px;
+        }
+
+        100% {
+            top: 0;
+            right: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 999px) {
+    .pkmn-battle-container {
+        display: grid;
+        grid-template-columns: 312px;
+        grid-template-rows: .25fr .5fr .5fr .25fr 52px 150px;
+    }
+    
+    .battle-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        grid-column: 1/1;
+        grid-row: 1/1;
+
+        height: 30px;
+        width: 312px;
+    }
+    
+    .trainer {
+        align-self: center;
+        justify-self: center;
+        
+        grid-column: 1/1;
+        grid-row: 2/2;
+    }
+    .trainer-img {
+        transform: scale(2);
+    }
+
+    .battle-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        background-image: url('./assets/battle_bgs/00.png');
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        grid-column: 1/1;
+        grid-row: 3/3;
+
+        width: 312px;
+        height: 300px;
+    }
+    .bc-wild {
+        background-image: url('./assets/battle_bgs/00.png');
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        grid-column: 1/1;
+        grid-row: 2/2;
+
+        width: 312px;
+        height: 300px;
+    }
+    .your-pkmn-container {
+        width: 60px;
+        height: 60px;
+        align-self: center;
+        justify-self: end;
+
+        grid-row: 3/3;
+    }
+    .opp-pkmn-container {
+        grid-column: 2/2;
+        justify-self: center;
+    }
+    .your-pkmn, .enemy-pkmn {
+        height: 70px;
+        position: relative;
+    }
+
+    .your-health-container, .opp-health-container {
+        height: 24px;
+    }
+    .your-health-container {
+        align-self: center;
+        grid-row: 2/2;
+    }
+    .opp-health-container {
+        justify-self: end;
+        grid-column: 2/2;
+    }
+    .health-bar-player {
+        width: 125px;
+        height: 22px;
+        border: 1px solid black;
+        border-radius: 8px;
+    }
+    .health-bar-player .health-bar-fill {
+        height: 100%;
+        background: #59ea63;
+        transition: width 0.5s;
+        border-radius: 8px;
+    }
+    .health-bar-player .health-bar-value {
+        position: absolute;
+        width: 125px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+    .health-bar-opp {
+        position: relative;
+        width: 125px;
+        height: 22px;
+        border: 1px solid black;
+        border-radius: 8px;
+    }
+    .health-bar-opp .health-bar-fill {
+        height: 100%;
+        background: #59ea63;
+        transition: width 0.5s;
+        border-radius: 8px;
+    }
+    .health-bar-opp .health-bar-value {
+        position: absolute;
+        width: 125px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .battle-moves {
+        display: flex;
+        grid-column: 1/1;
+        grid-row: 4/4;
+        align-self: center;
+
+        height: 34px;
+    }
+    .bm-wild {
+        display: flex;
+        grid-column: 1/1;
+        grid-row: 3/3;
+        align-self: center;
+
+        height: 34px;
+    }
+    .moves-button {
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .pkmn-party {
+        display: flex;
+        grid-column: 1/1;
+        grid-row: 5/5;
+
+        height: 52px;
+    }
+    .pp-wild {
+        display: flex;
+        grid-column: 1/1;
+        grid-row: 4/4;
+
+        height: 52px;
+    }
+    .battle-icon {
+        transform: scale(1.75);
+        position: relative;
+        bottom: 3px;
+        left: 1px;
+    }
+    .battle-party {
+        background-color: rgba(231, 217, 217, 0.7);
+        border-radius: 10px;
+        margin-right: 18px;
+        width: 45px;
+        height: 38px;
+        position: relative;
+    }
+    .battle-party-0 {
+        display: none;
+    }
+
+    .battle-text {
+        grid-column: 1/1;
+        grid-row: 6/6;
+
+        background-color: white;
+        border-radius: 10px;
+        height: 150px;
+
+        font-size: 14px;
+    }
+    .bt-wild, .bt-e4 {
+        grid-column: 1/1;
+        grid-row: 5/5;
+
+        background-color: white;
+        border-radius: 10px;
+        height: 150px;
+
+        font-size: 14px;
+    }
+
+    .run-catch {
+        grid-column: 1/1;
+        grid-row: 7/7;
+        justify-self: end;
+        align-self: end;
+    }
+    .rc-wild {
+        grid-column: 1/1;
+        grid-row: 6/6;
+        justify-self: end;
+        align-self: end;
+    }
+    .run, .leave, .e4-leave {
+        width: 64px;
+        height: 32px;
+        background-color: red;
+        color: white;
+    }
+    .catch {
+        width: 64px;
+        height: 32px;
+        background-color: limegreen;
+        color: white;
+    }
+
+
+    .faint {
+        opacity: 0;
+        animation-name: faint;
+        animation-duration: 500ms;
+    }
+    .player-attacking {
+        animation-name: playerAttacking;
+        animation-duration: 1000ms;
+    }
+    .enemy-attacking {
+        animation-name: enemyAttacking;
+        animation-duration: 1000ms;
+    }
+
+
+    @keyframes faint {
+        0% {
+            opacity: 1;
+        }
+
+        25% {
+            top: 10px;
+            opacity: .75;
+        }
+
+        50% {
+            top: 20px;
+            opacity: .50;
+        }
+
+        75% {
+            top: 30px;
+            opacity: .25;
+        }
+
+        100% {
+            top: 40px;
+            opacity: 0;
+        }
+    }
+
+    @keyframes playerAttacking {
+        0% {
+            bottom: 0;
+            left: 0;
+        }
+        50% {
+            bottom: 90px;
+            left: 60px;
+        }
+        100% {
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+
+    @keyframes enemyAttacking {
+        0% {
+            top: 0;
+            right: 0;
+        }
+
+        50% {
+            top: 70px;
+            right: 70px;
+        }
+
+        100% {
+            top: 0;
+            right: 0;
+        }
+    }
+}

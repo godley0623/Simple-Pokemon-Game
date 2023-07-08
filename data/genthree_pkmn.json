@@ -1,0 +1,2768 @@
+{
+    "treecko": {
+        "name": "treecko",
+        "type": [
+            "grass",
+            "none"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 5,
+        "def": 4,
+        "spd": 70,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/252.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/252.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/252.png",
+        "moves": [
+            "Grass"
+        ]
+    },
+    "grovyle": {
+        "name": "grovyle",
+        "type": [
+            "grass",
+            "none"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 7,
+        "def": 5,
+        "spd": 95,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/253.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/253.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/253.png",
+        "moves": [
+            "Grass"
+        ]
+    },
+    "sceptile": {
+        "name": "sceptile",
+        "type": [
+            "grass",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 9,
+        "def": 7,
+        "spd": 120,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/254.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/254.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/254.png",
+        "moves": [
+            "Grass"
+        ]
+    },
+    "torchic": {
+        "name": "torchic",
+        "type": [
+            "fire",
+            "none"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 6,
+        "def": 4,
+        "spd": 45,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/255.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/255.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/255.png",
+        "moves": [
+            "Fire"
+        ]
+    },
+    "combusken": {
+        "name": "combusken",
+        "type": [
+            "fire",
+            "fighting"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 8,
+        "def": 6,
+        "spd": 55,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/256.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/256.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/256.png",
+        "moves": [
+            "Fire",
+            "Fighting"
+        ]
+    },
+    "blaziken": {
+        "name": "blaziken",
+        "type": [
+            "fire",
+            "fighting"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 11,
+        "def": 7,
+        "spd": 80,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/257.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/257.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/257.png",
+        "moves": [
+            "Fire",
+            "Fighting"
+        ]
+    },
+    "mudkip": {
+        "name": "mudkip",
+        "type": [
+            "water",
+            "none"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 6,
+        "def": 5,
+        "spd": 40,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/258.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/258.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/258.png",
+        "moves": [
+            "Water"
+        ]
+    },
+    "marshtomp": {
+        "name": "marshtomp",
+        "type": [
+            "water",
+            "ground"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 7,
+        "def": 7,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/259.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/259.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/259.png",
+        "moves": [
+            "Water",
+            "Ground"
+        ]
+    },
+    "swampert": {
+        "name": "swampert",
+        "type": [
+            "water",
+            "ground"
+        ],
+        "hp": 50,
+        "currentHp": 50,
+        "atk": 9,
+        "def": 9,
+        "spd": 60,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/260.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/260.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/260.png",
+        "moves": [
+            "Water",
+            "Ground"
+        ]
+    },
+    "poochyena": {
+        "name": "poochyena",
+        "type": [
+            "dark",
+            "none"
+        ],
+        "hp": 15,
+        "currentHp": 15,
+        "atk": 4,
+        "def": 3,
+        "spd": 35,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/261.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/261.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/261.png",
+        "moves": [
+            "Dark"
+        ]
+    },
+    "mightyena": {
+        "name": "mightyena",
+        "type": [
+            "dark",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 7,
+        "def": 6,
+        "spd": 70,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/262.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/262.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/262.png",
+        "moves": [
+            "Dark"
+        ]
+    },
+    "zigzagoon": {
+        "name": "zigzagoon",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 15,
+        "currentHp": 15,
+        "atk": 3,
+        "def": 4,
+        "spd": 60,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/263.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/263.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/263.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "linoone": {
+        "name": "linoone",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 6,
+        "def": 6,
+        "spd": 100,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/264.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/264.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/264.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "wurmple": {
+        "name": "wurmple",
+        "type": [
+            "bug",
+            "none"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 3,
+        "def": 3,
+        "spd": 20,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/265.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/265.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/265.png",
+        "moves": [
+            "Bug"
+        ]
+    },
+    "silcoon": {
+        "name": "silcoon",
+        "type": [
+            "bug",
+            "none"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 2,
+        "def": 3,
+        "spd": 15,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/266.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/266.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/266.png",
+        "moves": [
+            "Bug"
+        ]
+    },
+    "beautifly": {
+        "name": "beautifly",
+        "type": [
+            "bug",
+            "flying"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 8,
+        "def": 5,
+        "spd": 65,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/267.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/267.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/267.png",
+        "moves": [
+            "Bug",
+            "Flying"
+        ]
+    },
+    "cascoon": {
+        "name": "cascoon",
+        "type": [
+            "bug",
+            "none"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 2,
+        "def": 3,
+        "spd": 15,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/268.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/268.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/268.png",
+        "moves": [
+            "Bug"
+        ]
+    },
+    "dustox": {
+        "name": "dustox",
+        "type": [
+            "bug",
+            "poison"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 5,
+        "def": 8,
+        "spd": 65,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/269.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/269.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/269.png",
+        "moves": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    "lotad": {
+        "name": "lotad",
+        "type": [
+            "water",
+            "grass"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 3,
+        "def": 4,
+        "spd": 30,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/270.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/270.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/270.png",
+        "moves": [
+            "Water",
+            "Grass"
+        ]
+    },
+    "lombre": {
+        "name": "lombre",
+        "type": [
+            "water",
+            "grass"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 5,
+        "def": 6,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/271.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/271.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/271.png",
+        "moves": [
+            "Water",
+            "Grass"
+        ]
+    },
+    "ludicolo": {
+        "name": "ludicolo",
+        "type": [
+            "water",
+            "grass"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 8,
+        "def": 8,
+        "spd": 70,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/272.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/272.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/272.png",
+        "moves": [
+            "Water",
+            "Grass"
+        ]
+    },
+    "seedot": {
+        "name": "seedot",
+        "type": [
+            "grass",
+            "none"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 3,
+        "def": 4,
+        "spd": 30,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/273.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/273.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/273.png",
+        "moves": [
+            "Grass"
+        ]
+    },
+    "nuzleaf": {
+        "name": "nuzleaf",
+        "type": [
+            "grass",
+            "dark"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 6,
+        "def": 4,
+        "spd": 60,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/274.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/274.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/274.png",
+        "moves": [
+            "Grass",
+            "Dark"
+        ]
+    },
+    "shiftry": {
+        "name": "shiftry",
+        "type": [
+            "grass",
+            "dark"
+        ],
+        "hp": 45,
+        "currentHp": 45,
+        "atk": 9,
+        "def": 6,
+        "spd": 80,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/275.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/275.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/275.png",
+        "moves": [
+            "Grass",
+            "Dark"
+        ]
+    },
+    "taillow": {
+        "name": "taillow",
+        "type": [
+            "normal",
+            "flying"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 4,
+        "def": 3,
+        "spd": 85,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/276.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/276.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/276.png",
+        "moves": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    "swellow": {
+        "name": "swellow",
+        "type": [
+            "normal",
+            "flying"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 7,
+        "def": 5,
+        "spd": 125,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/277.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/277.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/277.png",
+        "moves": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    "wingull": {
+        "name": "wingull",
+        "type": [
+            "water",
+            "flying"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 4,
+        "def": 3,
+        "spd": 85,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/278.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/278.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/278.png",
+        "moves": [
+            "Water",
+            "Flying"
+        ]
+    },
+    "pelipper": {
+        "name": "pelipper",
+        "type": [
+            "water",
+            "flying"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 7,
+        "def": 8,
+        "spd": 65,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/279.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/279.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/279.png",
+        "moves": [
+            "Water",
+            "Flying"
+        ]
+    },
+    "ralts": {
+        "name": "ralts",
+        "type": [
+            "psychic",
+            "fairy"
+        ],
+        "hp": 10,
+        "currentHp": 10,
+        "atk": 3,
+        "def": 2,
+        "spd": 40,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/280.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/280.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/280.png",
+        "moves": [
+            "Psychic",
+            "Fairy"
+        ]
+    },
+    "kirlia": {
+        "name": "kirlia",
+        "type": [
+            "psychic",
+            "fairy"
+        ],
+        "hp": 15,
+        "currentHp": 15,
+        "atk": 4,
+        "def": 4,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/281.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/281.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/281.png",
+        "moves": [
+            "Psychic",
+            "Fairy"
+        ]
+    },
+    "gardevoir": {
+        "name": "gardevoir",
+        "type": [
+            "psychic",
+            "fairy"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 9,
+        "def": 8,
+        "spd": 80,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/282.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/282.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/282.png",
+        "moves": [
+            "Psychic",
+            "Fairy"
+        ]
+    },
+    "surskit": {
+        "name": "surskit",
+        "type": [
+            "bug",
+            "water"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 4,
+        "def": 4,
+        "spd": 65,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/283.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/283.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/283.png",
+        "moves": [
+            "Bug",
+            "Water"
+        ]
+    },
+    "masquerain": {
+        "name": "masquerain",
+        "type": [
+            "bug",
+            "flying"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 8,
+        "def": 7,
+        "spd": 80,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/284.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/284.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/284.png",
+        "moves": [
+            "Bug",
+            "Flying"
+        ]
+    },
+    "shroomish": {
+        "name": "shroomish",
+        "type": [
+            "grass",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 4,
+        "def": 6,
+        "spd": 35,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/285.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/285.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/285.png",
+        "moves": [
+            "Grass"
+        ]
+    },
+    "breloom": {
+        "name": "breloom",
+        "type": [
+            "grass",
+            "fighting"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 9,
+        "def": 7,
+        "spd": 70,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/286.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/286.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/286.png",
+        "moves": [
+            "Grass",
+            "Fighting"
+        ]
+    },
+    "slakoth": {
+        "name": "slakoth",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 4,
+        "def": 4,
+        "spd": 30,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/287.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/287.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/287.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "vigoroth": {
+        "name": "vigoroth",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 6,
+        "def": 6,
+        "spd": 90,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/288.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/288.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/288.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "slaking": {
+        "name": "slaking",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 75,
+        "currentHp": 75,
+        "atk": 12,
+        "def": 8,
+        "spd": 100,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/289.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/289.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/289.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "nincada": {
+        "name": "nincada",
+        "type": [
+            "bug",
+            "ground"
+        ],
+        "hp": 15,
+        "currentHp": 15,
+        "atk": 3,
+        "def": 6,
+        "spd": 40,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/290.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/290.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/290.png",
+        "moves": [
+            "Bug",
+            "Ground"
+        ]
+    },
+    "ninjask": {
+        "name": "ninjask",
+        "type": [
+            "bug",
+            "flying"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 7,
+        "def": 4,
+        "spd": 160,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/291.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/291.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/291.png",
+        "moves": [
+            "Bug",
+            "Flying"
+        ]
+    },
+    "shedinja": {
+        "name": "shedinja",
+        "type": [
+            "bug",
+            "ghost"
+        ],
+        "hp": 0,
+        "currentHp": 0,
+        "atk": 6,
+        "def": 3,
+        "spd": 40,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/292.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/292.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/292.png",
+        "moves": [
+            "Bug",
+            "Ghost"
+        ]
+    },
+    "whismur": {
+        "name": "whismur",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 5,
+        "def": 2,
+        "spd": 28,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/293.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/293.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/293.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "loudred": {
+        "name": "loudred",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 7,
+        "def": 4,
+        "spd": 48,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/294.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/294.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/294.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "exploud": {
+        "name": "exploud",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 50,
+        "currentHp": 50,
+        "atk": 9,
+        "def": 6,
+        "spd": 68,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/295.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/295.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/295.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "makuhita": {
+        "name": "makuhita",
+        "type": [
+            "fighting",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 4,
+        "def": 3,
+        "spd": 25,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/296.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/296.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/296.png",
+        "moves": [
+            "Fighting"
+        ]
+    },
+    "hariyama": {
+        "name": "hariyama",
+        "type": [
+            "fighting",
+            "none"
+        ],
+        "hp": 70,
+        "currentHp": 70,
+        "atk": 8,
+        "def": 6,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/297.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/297.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/297.png",
+        "moves": [
+            "Fighting"
+        ]
+    },
+    "azurill": {
+        "name": "azurill",
+        "type": [
+            "normal",
+            "fairy"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 2,
+        "def": 4,
+        "spd": 20,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/298.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/298.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/298.png",
+        "moves": [
+            "Normal",
+            "Fairy"
+        ]
+    },
+    "nosepass": {
+        "name": "nosepass",
+        "type": [
+            "rock",
+            "none"
+        ],
+        "hp": 15,
+        "currentHp": 15,
+        "atk": 4,
+        "def": 11,
+        "spd": 30,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/299.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/299.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/299.png",
+        "moves": [
+            "Rock"
+        ]
+    },
+    "skitty": {
+        "name": "skitty",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 3,
+        "def": 3,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/300.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/300.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/300.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "delcatty": {
+        "name": "delcatty",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 5,
+        "def": 5,
+        "spd": 90,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/301.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/301.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/301.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "sableye": {
+        "name": "sableye",
+        "type": [
+            "dark",
+            "ghost"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 6,
+        "def": 6,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/302.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/302.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/302.png",
+        "moves": [
+            "Dark",
+            "Ghost"
+        ]
+    },
+    "mawile": {
+        "name": "mawile",
+        "type": [
+            "steel",
+            "fairy"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 6,
+        "def": 6,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/303.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/303.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/303.png",
+        "moves": [
+            "Steel",
+            "Fairy"
+        ]
+    },
+    "aron": {
+        "name": "aron",
+        "type": [
+            "steel",
+            "rock"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 5,
+        "def": 7,
+        "spd": 30,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/304.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/304.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/304.png",
+        "moves": [
+            "Steel",
+            "Rock"
+        ]
+    },
+    "lairon": {
+        "name": "lairon",
+        "type": [
+            "steel",
+            "rock"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 7,
+        "def": 9,
+        "spd": 40,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/305.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/305.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/305.png",
+        "moves": [
+            "Steel",
+            "Rock"
+        ]
+    },
+    "aggron": {
+        "name": "aggron",
+        "type": [
+            "steel",
+            "rock"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 8,
+        "def": 12,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/306.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/306.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/306.png",
+        "moves": [
+            "Steel",
+            "Rock"
+        ]
+    },
+    "meditite": {
+        "name": "meditite",
+        "type": [
+            "fighting",
+            "psychic"
+        ],
+        "hp": 15,
+        "currentHp": 15,
+        "atk": 4,
+        "def": 5,
+        "spd": 60,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/307.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/307.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/307.png",
+        "moves": [
+            "Fighting",
+            "Psychic"
+        ]
+    },
+    "medicham": {
+        "name": "medicham",
+        "type": [
+            "fighting",
+            "psychic"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 6,
+        "def": 7,
+        "spd": 80,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/308.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/308.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/308.png",
+        "moves": [
+            "Fighting",
+            "Psychic"
+        ]
+    },
+    "electrike": {
+        "name": "electrike",
+        "type": [
+            "electric",
+            "none"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 5,
+        "def": 4,
+        "spd": 65,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/309.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/309.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/309.png",
+        "moves": [
+            "Electric"
+        ]
+    },
+    "manectric": {
+        "name": "manectric",
+        "type": [
+            "electric",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 8,
+        "def": 6,
+        "spd": 105,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/310.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/310.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/310.png",
+        "moves": [
+            "Electric"
+        ]
+    },
+    "plusle": {
+        "name": "plusle",
+        "type": [
+            "electric",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 6,
+        "def": 5,
+        "spd": 95,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/311.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/311.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/311.png",
+        "moves": [
+            "Electric"
+        ]
+    },
+    "minun": {
+        "name": "minun",
+        "type": [
+            "electric",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 5,
+        "def": 6,
+        "spd": 95,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/312.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/312.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/312.png",
+        "moves": [
+            "Electric"
+        ]
+    },
+    "volbeat": {
+        "name": "volbeat",
+        "type": [
+            "bug",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 5,
+        "def": 7,
+        "spd": 85,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/313.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/313.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/313.png",
+        "moves": [
+            "Bug"
+        ]
+    },
+    "illumise": {
+        "name": "illumise",
+        "type": [
+            "bug",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 5,
+        "def": 7,
+        "spd": 85,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/314.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/314.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/314.png",
+        "moves": [
+            "Bug"
+        ]
+    },
+    "roselia": {
+        "name": "roselia",
+        "type": [
+            "grass",
+            "poison"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 8,
+        "def": 6,
+        "spd": 65,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/315.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/315.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/315.png",
+        "moves": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    "gulpin": {
+        "name": "gulpin",
+        "type": [
+            "poison",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 4,
+        "def": 5,
+        "spd": 40,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/316.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/316.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/316.png",
+        "moves": [
+            "Poison"
+        ]
+    },
+    "swalot": {
+        "name": "swalot",
+        "type": [
+            "poison",
+            "none"
+        ],
+        "hp": 50,
+        "currentHp": 50,
+        "atk": 7,
+        "def": 8,
+        "spd": 55,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/317.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/317.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/317.png",
+        "moves": [
+            "Poison"
+        ]
+    },
+    "carvanha": {
+        "name": "carvanha",
+        "type": [
+            "water",
+            "dark"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 7,
+        "def": 2,
+        "spd": 65,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/318.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/318.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/318.png",
+        "moves": [
+            "Water",
+            "Dark"
+        ]
+    },
+    "sharpedo": {
+        "name": "sharpedo",
+        "type": [
+            "water",
+            "dark"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 10,
+        "def": 4,
+        "spd": 95,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/319.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/319.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/319.png",
+        "moves": [
+            "Water",
+            "Dark"
+        ]
+    },
+    "wailmer": {
+        "name": "wailmer",
+        "type": [
+            "water",
+            "none"
+        ],
+        "hp": 65,
+        "currentHp": 65,
+        "atk": 7,
+        "def": 3,
+        "spd": 60,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/320.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/320.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/320.png",
+        "moves": [
+            "Water"
+        ]
+    },
+    "wailord": {
+        "name": "wailord",
+        "type": [
+            "water",
+            "none"
+        ],
+        "hp": 85,
+        "currentHp": 85,
+        "atk": 9,
+        "def": 4,
+        "spd": 60,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/321.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/321.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/321.png",
+        "moves": [
+            "Water"
+        ]
+    },
+    "numel": {
+        "name": "numel",
+        "type": [
+            "fire",
+            "ground"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 6,
+        "def": 4,
+        "spd": 35,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/322.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/322.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/322.png",
+        "moves": [
+            "Fire",
+            "Ground"
+        ]
+    },
+    "camerupt": {
+        "name": "camerupt",
+        "type": [
+            "fire",
+            "ground"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 10,
+        "def": 7,
+        "spd": 40,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/323.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/323.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/323.png",
+        "moves": [
+            "Fire",
+            "Ground"
+        ]
+    },
+    "torkoal": {
+        "name": "torkoal",
+        "type": [
+            "fire",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 8,
+        "def": 10,
+        "spd": 20,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/324.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/324.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/324.png",
+        "moves": [
+            "Fire"
+        ]
+    },
+    "spoink": {
+        "name": "spoink",
+        "type": [
+            "psychic",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 4,
+        "def": 5,
+        "spd": 60,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/325.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/325.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/325.png",
+        "moves": [
+            "Psychic"
+        ]
+    },
+    "grumpig": {
+        "name": "grumpig",
+        "type": [
+            "psychic",
+            "none"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 6,
+        "def": 8,
+        "spd": 80,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/326.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/326.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/326.png",
+        "moves": [
+            "Psychic"
+        ]
+    },
+    "spinda": {
+        "name": "spinda",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 6,
+        "def": 6,
+        "spd": 60,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/327.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/327.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/327.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "trapinch": {
+        "name": "trapinch",
+        "type": [
+            "ground",
+            "none"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 7,
+        "def": 4,
+        "spd": 10,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/328.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/328.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/328.png",
+        "moves": [
+            "Ground"
+        ]
+    },
+    "vibrava": {
+        "name": "vibrava",
+        "type": [
+            "ground",
+            "dragon"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 6,
+        "def": 5,
+        "spd": 70,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/329.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/329.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/329.png",
+        "moves": [
+            "Ground",
+            "Dragon"
+        ]
+    },
+    "flygon": {
+        "name": "flygon",
+        "type": [
+            "ground",
+            "dragon"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 9,
+        "def": 8,
+        "spd": 100,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/330.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/330.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/330.png",
+        "moves": [
+            "Ground",
+            "Dragon"
+        ]
+    },
+    "cacnea": {
+        "name": "cacnea",
+        "type": [
+            "grass",
+            "none"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 8,
+        "def": 4,
+        "spd": 35,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/331.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/331.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/331.png",
+        "moves": [
+            "Grass"
+        ]
+    },
+    "cacturne": {
+        "name": "cacturne",
+        "type": [
+            "grass",
+            "dark"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 11,
+        "def": 6,
+        "spd": 55,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/332.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/332.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/332.png",
+        "moves": [
+            "Grass",
+            "Dark"
+        ]
+    },
+    "swablu": {
+        "name": "swablu",
+        "type": [
+            "normal",
+            "flying"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 4,
+        "def": 6,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/333.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/333.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/333.png",
+        "moves": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    "altaria": {
+        "name": "altaria",
+        "type": [
+            "dragon",
+            "flying"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 7,
+        "def": 9,
+        "spd": 80,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/334.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/334.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/334.png",
+        "moves": [
+            "Dragon",
+            "Flying"
+        ]
+    },
+    "zangoose": {
+        "name": "zangoose",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 8,
+        "def": 6,
+        "spd": 90,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/335.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/335.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/335.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "seviper": {
+        "name": "seviper",
+        "type": [
+            "poison",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 10,
+        "def": 6,
+        "spd": 65,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/336.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/336.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/336.png",
+        "moves": [
+            "Poison"
+        ]
+    },
+    "lunatone": {
+        "name": "lunatone",
+        "type": [
+            "rock",
+            "psychic"
+        ],
+        "hp": 45,
+        "currentHp": 45,
+        "atk": 7,
+        "def": 7,
+        "spd": 70,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/337.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/337.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/337.png",
+        "moves": [
+            "Rock",
+            "Psychic"
+        ]
+    },
+    "solrock": {
+        "name": "solrock",
+        "type": [
+            "rock",
+            "psychic"
+        ],
+        "hp": 45,
+        "currentHp": 45,
+        "atk": 7,
+        "def": 7,
+        "spd": 70,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/338.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/338.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/338.png",
+        "moves": [
+            "Rock",
+            "Psychic"
+        ]
+    },
+    "barboach": {
+        "name": "barboach",
+        "type": [
+            "water",
+            "ground"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 4,
+        "def": 4,
+        "spd": 60,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/339.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/339.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/339.png",
+        "moves": [
+            "Water",
+            "Ground"
+        ]
+    },
+    "whiscash": {
+        "name": "whiscash",
+        "type": [
+            "water",
+            "ground"
+        ],
+        "hp": 55,
+        "currentHp": 55,
+        "atk": 7,
+        "def": 7,
+        "spd": 60,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/340.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/340.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/340.png",
+        "moves": [
+            "Water",
+            "Ground"
+        ]
+    },
+    "corphish": {
+        "name": "corphish",
+        "type": [
+            "water",
+            "none"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 6,
+        "def": 4,
+        "spd": 35,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/341.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/341.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/341.png",
+        "moves": [
+            "Water"
+        ]
+    },
+    "crawdaunt": {
+        "name": "crawdaunt",
+        "type": [
+            "water",
+            "dark"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 10,
+        "def": 6,
+        "spd": 55,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/342.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/342.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/342.png",
+        "moves": [
+            "Water",
+            "Dark"
+        ]
+    },
+    "baltoy": {
+        "name": "baltoy",
+        "type": [
+            "ground",
+            "psychic"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 4,
+        "def": 6,
+        "spd": 55,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/343.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/343.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/343.png",
+        "moves": [
+            "Ground",
+            "Psychic"
+        ]
+    },
+    "claydol": {
+        "name": "claydol",
+        "type": [
+            "ground",
+            "psychic"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 7,
+        "def": 11,
+        "spd": 75,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/344.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/344.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/344.png",
+        "moves": [
+            "Ground",
+            "Psychic"
+        ]
+    },
+    "lileep": {
+        "name": "lileep",
+        "type": [
+            "rock",
+            "grass"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 5,
+        "def": 7,
+        "spd": 23,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/345.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/345.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/345.png",
+        "moves": [
+            "Rock",
+            "Grass"
+        ]
+    },
+    "cradily": {
+        "name": "cradily",
+        "type": [
+            "rock",
+            "grass"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 8,
+        "def": 9,
+        "spd": 43,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/346.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/346.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/346.png",
+        "moves": [
+            "Rock",
+            "Grass"
+        ]
+    },
+    "anorith": {
+        "name": "anorith",
+        "type": [
+            "rock",
+            "bug"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 6,
+        "def": 5,
+        "spd": 75,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/347.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/347.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/347.png",
+        "moves": [
+            "Rock",
+            "Bug"
+        ]
+    },
+    "armaldo": {
+        "name": "armaldo",
+        "type": [
+            "rock",
+            "bug"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 9,
+        "def": 9,
+        "spd": 45,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/348.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/348.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/348.png",
+        "moves": [
+            "Rock",
+            "Bug"
+        ]
+    },
+    "feebas": {
+        "name": "feebas",
+        "type": [
+            "water",
+            "none"
+        ],
+        "hp": 10,
+        "currentHp": 10,
+        "atk": 1,
+        "def": 3,
+        "spd": 80,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/349.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/349.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/349.png",
+        "moves": [
+            "Water"
+        ]
+    },
+    "milotic": {
+        "name": "milotic",
+        "type": [
+            "water",
+            "none"
+        ],
+        "hp": 45,
+        "currentHp": 45,
+        "atk": 8,
+        "def": 9,
+        "spd": 81,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/350.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/350.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/350.png",
+        "moves": [
+            "Water"
+        ]
+    },
+    "castform": {
+        "name": "castform",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 7,
+        "def": 7,
+        "spd": 70,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/351.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/351.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/351.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "kecleon": {
+        "name": "kecleon",
+        "type": [
+            "normal",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 7,
+        "def": 9,
+        "spd": 40,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/352.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/352.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/352.png",
+        "moves": [
+            "Normal"
+        ]
+    },
+    "shuppet": {
+        "name": "shuppet",
+        "type": [
+            "ghost",
+            "none"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 6,
+        "def": 3,
+        "spd": 45,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/353.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/353.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/353.png",
+        "moves": [
+            "Ghost"
+        ]
+    },
+    "banette": {
+        "name": "banette",
+        "type": [
+            "ghost",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 9,
+        "def": 6,
+        "spd": 65,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/354.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/354.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/354.png",
+        "moves": [
+            "Ghost"
+        ]
+    },
+    "duskull": {
+        "name": "duskull",
+        "type": [
+            "ghost",
+            "none"
+        ],
+        "hp": 10,
+        "currentHp": 10,
+        "atk": 3,
+        "def": 9,
+        "spd": 25,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/355.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/355.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/355.png",
+        "moves": [
+            "Ghost"
+        ]
+    },
+    "dusclops": {
+        "name": "dusclops",
+        "type": [
+            "ghost",
+            "none"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 6,
+        "def": 13,
+        "spd": 25,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/356.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/356.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/356.png",
+        "moves": [
+            "Ghost"
+        ]
+    },
+    "tropius": {
+        "name": "tropius",
+        "type": [
+            "grass",
+            "flying"
+        ],
+        "hp": 45,
+        "currentHp": 45,
+        "atk": 6,
+        "def": 8,
+        "spd": 51,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/357.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/357.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/357.png",
+        "moves": [
+            "Grass",
+            "Flying"
+        ]
+    },
+    "chimecho": {
+        "name": "chimecho",
+        "type": [
+            "psychic",
+            "none"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 7,
+        "def": 8,
+        "spd": 65,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/358.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/358.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/358.png",
+        "moves": [
+            "Psychic"
+        ]
+    },
+    "absol": {
+        "name": "absol",
+        "type": [
+            "dark",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 10,
+        "def": 6,
+        "spd": 75,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/359.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/359.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/359.png",
+        "moves": [
+            "Dark"
+        ]
+    },
+    "wynaut": {
+        "name": "wynaut",
+        "type": [
+            "psychic",
+            "none"
+        ],
+        "hp": 45,
+        "currentHp": 45,
+        "atk": 2,
+        "def": 4,
+        "spd": 23,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/360.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/360.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/360.png",
+        "moves": [
+            "Psychic"
+        ]
+    },
+    "snorunt": {
+        "name": "snorunt",
+        "type": [
+            "ice",
+            "none"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 5,
+        "def": 5,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/361.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/361.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/361.png",
+        "moves": [
+            "Ice"
+        ]
+    },
+    "glalie": {
+        "name": "glalie",
+        "type": [
+            "ice",
+            "none"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 8,
+        "def": 8,
+        "spd": 80,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/362.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/362.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/362.png",
+        "moves": [
+            "Ice"
+        ]
+    },
+    "spheal": {
+        "name": "spheal",
+        "type": [
+            "ice",
+            "water"
+        ],
+        "hp": 35,
+        "currentHp": 35,
+        "atk": 4,
+        "def": 5,
+        "spd": 25,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/363.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/363.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/363.png",
+        "moves": [
+            "Ice",
+            "Water"
+        ]
+    },
+    "sealeo": {
+        "name": "sealeo",
+        "type": [
+            "ice",
+            "water"
+        ],
+        "hp": 45,
+        "currentHp": 45,
+        "atk": 6,
+        "def": 7,
+        "spd": 45,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/364.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/364.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/364.png",
+        "moves": [
+            "Ice",
+            "Water"
+        ]
+    },
+    "walrein": {
+        "name": "walrein",
+        "type": [
+            "ice",
+            "water"
+        ],
+        "hp": 55,
+        "currentHp": 55,
+        "atk": 8,
+        "def": 9,
+        "spd": 65,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/365.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/365.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/365.png",
+        "moves": [
+            "Ice",
+            "Water"
+        ]
+    },
+    "clamperl": {
+        "name": "clamperl",
+        "type": [
+            "water",
+            "none"
+        ],
+        "hp": 15,
+        "currentHp": 15,
+        "atk": 6,
+        "def": 6,
+        "spd": 32,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/366.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/366.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/366.png",
+        "moves": [
+            "Water"
+        ]
+    },
+    "huntail": {
+        "name": "huntail",
+        "type": [
+            "water",
+            "none"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 9,
+        "def": 8,
+        "spd": 52,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/367.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/367.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/367.png",
+        "moves": [
+            "Water"
+        ]
+    },
+    "gorebyss": {
+        "name": "gorebyss",
+        "type": [
+            "water",
+            "none"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 9,
+        "def": 8,
+        "spd": 52,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/368.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/368.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/368.png",
+        "moves": [
+            "Water"
+        ]
+    },
+    "relicanth": {
+        "name": "relicanth",
+        "type": [
+            "water",
+            "rock"
+        ],
+        "hp": 50,
+        "currentHp": 50,
+        "atk": 6,
+        "def": 9,
+        "spd": 55,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/369.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/369.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/369.png",
+        "moves": [
+            "Water",
+            "Rock"
+        ]
+    },
+    "luvdisc": {
+        "name": "luvdisc",
+        "type": [
+            "water",
+            "none"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 3,
+        "def": 5,
+        "spd": 97,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/370.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/370.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/370.png",
+        "moves": [
+            "Water"
+        ]
+    },
+    "bagon": {
+        "name": "bagon",
+        "type": [
+            "dragon",
+            "none"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 5,
+        "def": 4,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/371.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/371.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/371.png",
+        "moves": [
+            "Dragon"
+        ]
+    },
+    "shelgon": {
+        "name": "shelgon",
+        "type": [
+            "dragon",
+            "none"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 7,
+        "def": 7,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/372.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/372.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/372.png",
+        "moves": [
+            "Dragon"
+        ]
+    },
+    "salamence": {
+        "name": "salamence",
+        "type": [
+            "dragon",
+            "flying"
+        ],
+        "hp": 45,
+        "currentHp": 45,
+        "atk": 12,
+        "def": 8,
+        "spd": 100,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/373.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/373.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/373.png",
+        "moves": [
+            "Dragon",
+            "Flying"
+        ]
+    },
+    "beldum": {
+        "name": "beldum",
+        "type": [
+            "steel",
+            "psychic"
+        ],
+        "hp": 20,
+        "currentHp": 20,
+        "atk": 4,
+        "def": 7,
+        "spd": 30,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/374.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/374.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/374.png",
+        "moves": [
+            "Steel",
+            "Psychic"
+        ]
+    },
+    "metang": {
+        "name": "metang",
+        "type": [
+            "steel",
+            "psychic"
+        ],
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 6,
+        "def": 9,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/375.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/375.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/375.png",
+        "moves": [
+            "Steel",
+            "Psychic"
+        ]
+    },
+    "metagross": {
+        "name": "metagross",
+        "type": [
+            "steel",
+            "psychic"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 11,
+        "def": 11,
+        "spd": 70,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/376.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/376.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/376.png",
+        "moves": [
+            "Steel",
+            "Psychic"
+        ]
+    },
+    "regirock": {
+        "name": "regirock",
+        "type": [
+            "rock",
+            "none"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 7,
+        "def": 15,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/377.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/377.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/377.png",
+        "moves": [
+            "Rock"
+        ]
+    },
+    "regice": {
+        "name": "regice",
+        "type": [
+            "ice",
+            "none"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 7,
+        "def": 15,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/378.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/378.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/378.png",
+        "moves": [
+            "Ice"
+        ]
+    },
+    "registeel": {
+        "name": "registeel",
+        "type": [
+            "steel",
+            "none"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 7,
+        "def": 15,
+        "spd": 50,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/379.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/379.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/379.png",
+        "moves": [
+            "Steel"
+        ]
+    },
+    "latias": {
+        "name": "latias",
+        "type": [
+            "dragon",
+            "psychic"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 9,
+        "def": 11,
+        "spd": 110,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/380.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/380.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/380.png",
+        "moves": [
+            "Dragon",
+            "Psychic"
+        ]
+    },
+    "latios": {
+        "name": "latios",
+        "type": [
+            "dragon",
+            "psychic"
+        ],
+        "hp": 40,
+        "currentHp": 40,
+        "atk": 11,
+        "def": 9,
+        "spd": 110,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/381.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/381.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/381.png",
+        "moves": [
+            "Dragon",
+            "Psychic"
+        ]
+    },
+    "kyogre": {
+        "name": "kyogre",
+        "type": [
+            "water",
+            "none"
+        ],
+        "hp": 50,
+        "currentHp": 50,
+        "atk": 12,
+        "def": 11,
+        "spd": 90,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/382.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/382.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/382.png",
+        "moves": [
+            "Water"
+        ]
+    },
+    "groudon": {
+        "name": "groudon",
+        "type": [
+            "ground",
+            "none"
+        ],
+        "hp": 50,
+        "currentHp": 50,
+        "atk": 12,
+        "def": 11,
+        "spd": 90,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/383.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/383.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/383.png",
+        "moves": [
+            "Ground"
+        ]
+    },
+    "rayquaza": {
+        "name": "rayquaza",
+        "type": [
+            "dragon",
+            "flying"
+        ],
+        "hp": 50,
+        "currentHp": 50,
+        "atk": 15,
+        "def": 9,
+        "spd": 95,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/384.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/384.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/384.png",
+        "moves": [
+            "Dragon",
+            "Flying"
+        ]
+    },
+    "jirachi": {
+        "name": "jirachi",
+        "type": [
+            "steel",
+            "psychic"
+        ],
+        "hp": 50,
+        "currentHp": 50,
+        "atk": 10,
+        "def": 10,
+        "spd": 100,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/385.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/385.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/385.png",
+        "moves": [
+            "Steel",
+            "Psychic"
+        ]
+    },
+    "deoxys": {
+        "name": "deoxys",
+        "type": [
+            "psychic",
+            "none"
+        ],
+        "hp": 25,
+        "currentHp": 25,
+        "atk": 15,
+        "def": 5,
+        "spd": 150,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/386.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/386.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/386.png",
+        "moves": [
+            "Psychic"
+        ]
+    }
+}

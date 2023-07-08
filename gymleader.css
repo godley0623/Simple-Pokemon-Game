@@ -1,0 +1,48 @@
+#gym-details h2, #e4-details h2{
+    color: white;
+    text-align: center;
+}
+
+.gymleader-footer, .e4-footer{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 1fr;
+    position: absolute;
+    bottom: 0;
+    width: 80vw;
+}
+.badges{
+    color: white;
+
+}
+.go-back, .e4-go-back{
+    justify-self: end;
+}
+
+#gym-details h2 img, #e4-details h2 img{
+    transform: scale(1.25);
+}
+
+.gymleader-container, .e4-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+
+    width: 100%;
+    height: 480px;
+}
+.gymleader, .e4 {
+    transform: scale(2);
+}
+
+@media only screen and (max-width: 999px) {
+    .gymleader, .e4 {
+        transform: scale(1.25);
+    }
+    .badges {
+        font-size: 10px;
+    }
+}
