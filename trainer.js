@@ -1,8 +1,9 @@
 import genOnePkmn from './data/genone_pkmn.json' assert {type: 'json'}
 import genTwoPkmn from './data/gentwo_pkmn.json' assert {type: 'json'}
 import genThreePkmn from './data/genthree_pkmn.json' assert {type: 'json'}
+import e4Pkmn from './data/elitefour_pkmn.json' assert {type: 'json'}
 
-const allPkmn = { ...genOnePkmn, ...genTwoPkmn, ...genThreePkmn };
+const allPkmn = { ...genOnePkmn, ...genTwoPkmn, ...genThreePkmn, ...e4Pkmn };
 
 function addMoves(pkmn, types = []) {
     if (types.length === 0) {
@@ -96,6 +97,9 @@ export class EliteFour {
         let e4Str = e4Beaten.join(' ');
         if (!e4Str.includes(this.name)) {
             e4Beaten.push(this.name);
+        }
+        if (e4Beaten.length >= 4) {
+            localStorage.setItem('game', 'completed');
         }
     }
 }

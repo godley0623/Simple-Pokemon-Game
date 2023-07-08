@@ -206,6 +206,7 @@
         background-color: white;
         border-radius: 10px;
         height: 150px;
+        width: 60vw;
     }
 
     .health-bar-player {
@@ -540,7 +541,7 @@
 
         font-size: 14px;
     }
-    .bt-wild {
+    .bt-wild, .bt-e4 {
         grid-column: 1/1;
         grid-row: 5/5;
 

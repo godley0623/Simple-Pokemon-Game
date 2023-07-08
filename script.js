@@ -17,6 +17,17 @@ if (gymBadges === null) {
     gymBadges = [];
 }
 
+let e4Beaten = localStorage.getItem('e4Beaten');
+try {
+    e4Beaten = JSON.parse(e4Beaten);
+}
+catch {
+    e4Beaten = null;
+}
+if (e4Beaten === null) {
+    e4Beaten = [];
+}
+
 let gameState;
 if (pkmnParty.length > 0) {
     gameState = 'main menu';
@@ -24,7 +35,6 @@ if (pkmnParty.length > 0) {
     gameState = 'choose starter';
 }
 
-let e4Beaten = [];
 let playerHp;
 let oppHp;
 let oppPkmn;
@@ -153,9 +163,9 @@ const loreleiTeam = [
     ['jynx', 'Water', 'Fighting'],
     ['dewgong', 'Poison', 'Psychic'],
     ['slowking', 'Fire', 'Ground'],
-    ['walrein', 'Dark', 'Flying'],
     ['cloyster', 'Grass', 'Fire'],
-    ['lapras', 'Psychic', 'Ground']
+    ['walrein-lorelei', 'Dark', 'Flying'],
+    ['lapras-lorelei', 'Psychic', 'Ground']
 ];
 const e4Lorelei = new EliteFour('Lorelei', 'lorelei.png', loreleiTeam)
 
@@ -163,9 +173,9 @@ const brunoTeam = [
     ['steelix', 'Water', 'Flying'],
     ['hitmonchan', 'Ice', 'Ghost'],
     ['hitmonlee', 'Electric', 'Dark'],
-    ['hariyama', 'Bug', 'Rock'],
     ['poliwrath', 'Ice', 'Grass'],
-    ['machamp', 'Rock', 'Dark']
+    ['hariyama-bruno', 'Bug', 'Rock'],
+    ['machamp-bruno', 'Rock', 'Dark']
 ];
 const e4Bruno = new EliteFour('Bruno', 'bruno.png', brunoTeam)
 
@@ -174,8 +184,8 @@ const agathaTeam = [
     ['muk', 'Ice', 'Ghost'],
     ['gengar', 'Fighting', 'Water'],
     ['dusclops', 'Bug', 'Rock'],
-    ['crobat', 'Ground', 'Ghost'],
-    ['gengar', 'Ice', 'Fairy']
+    ['crobat-agatha', 'Ground', 'Ghost'],
+    ['gengar-agatha', 'Ice', 'Fairy']
 ];
 const e4Agatha = new EliteFour('Agatha', 'agatha.png', agathaTeam)
 
@@ -183,9 +193,9 @@ const lanceTeam = [
     ['flygon', 'Steel', 'Flying'],
     ['aerodactyl', 'Ground', 'Grass'],
     ['dragonite', 'Rock', 'Ice'],
-    ['gyarados', 'Gorund', 'Dark'],
     ['salamence', 'Steel', 'Bug'],
-    ['dragonite', 'Steel', 'Ice']
+    ['gyarados-lance', 'Gorund', 'Dark'],
+    ['dragonite-lance', 'Steel', 'Ice']
 ];
 const e4Lance = new EliteFour('Lance', 'lance.png', lanceTeam)
 
@@ -255,8 +265,8 @@ function switchPkmn(gameState, targetIdx, trainer) {
     let switchIn;
     let gymDiv;
     gymDiv = document.querySelector('.gym-container');
-    if (!gymDiv) {
-        gymDiv = document.querySelector('.e4-container');
+    if (!gymTeam) {
+        gymDiv = document.querySelector('.gym-container');
         team = e4Team;
         placeholder = e4PlaceHolder;
         name = e4Name;
@@ -279,14 +289,15 @@ function switchPkmn(gameState, targetIdx, trainer) {
         if (team.length === 0) {
             if (gameState === 'gym leader battle') {
                 stopAudio(gymLeaderFinalMp3);
-                victoryMp3.play()
+                victoryMp3.play();
                 showBattleText(placeholder.badgeMessage);
                 placeholder.giveBadge(gymBadges);
                 canSwitch = false;
                 return;
             } else if (gameState === 'e4 battle') {
                 stopAudio(gymLeaderFinalMp3);
-                victoryMp3.play()
+                victoryMp3.play();
+                showBattleText(placeholder.badgeMessage);
                 placeholder.eliteFourBeaten(e4Beaten);
                 canSwitch = false;
                 return;                
@@ -869,16 +880,33 @@ function renderEliteFourSelection() {
     </div>
     `;
     gameContainer.append(eliteFourDiv);
+    const brunoEl = document.querySelector('#bruno');
+    const agathaEl = document.querySelector('#agatha');
+    const lanceEl = document.querySelector('#lance');
+
+    function e4MemberCheck(e4, winsNeeded) {
+        const gameCheck = localStorage.getItem('game');
+        if (gameCheck) return false;
+
+        const e4Wins = e4Beaten.length;
+        if (e4Wins < winsNeeded) {
+            e4.classList.add('hidden');
+        }
+    }
+    e4MemberCheck(brunoEl, 1);
+    e4MemberCheck(agathaEl, 2);
+    e4MemberCheck(lanceEl, 3);
+
 }
 
 function renderEliteFourBattle() {
     oppPkmn = e4Team[0];
 
 
-    //Gym Battle Div Container
+    //Elite Four Div Container
     const e4Div = document.createElement('div');
     e4Div.classList.add('pkmn-battle-container');
-    e4Div.classList.add('e4-container');
+    e4Div.classList.add('gym-container');
     e4Div.innerHTML = `
      <div class="battle-container">
          <div class="your-health-container"></div>
@@ -1112,6 +1140,11 @@ addGlobalEventListener('click', '.moves-button', e => {
         }
         if (teamCheck()) {
             showBattleText("You're out of usable pokemon");
+            if (e4Name) {
+                e4Beaten = [];
+                let jsonArr = [];
+                localStorage.setItem('e4Beaten', jsonArr);
+            }
         }
     }, "3000");
 
@@ -1183,6 +1216,10 @@ addGlobalEventListener('click', '.e4-go-back', e => {
     removeElement(".e4-selection-container");
     renderMainMenu();
     gameState = 'main menu';
+
+    e4Beaten = [];
+    let jsonArr = [];
+    localStorage.setItem('e4Beaten', jsonArr);
 });
 
 //Wild Battle > Main Menu
@@ -1317,7 +1354,7 @@ addGlobalEventListener('click', '.e4-leave', e => {
             }
         }
     }
-    removeElement(".e4-container");
+    removeElement(".gym-container");
     gameState = 'e4 selection';
     healParty();
     renderEliteFourSelection();
@@ -1328,8 +1365,8 @@ addGlobalEventListener('click', '.e4-leave', e => {
     canSwitch = true;
 
     //Save Badges to the local Storage
-    let arr = JSON.stringify(gymBadges);
-    localStorage.setItem('gymBadges', arr);
+    let arr = JSON.stringify(e4Beaten);
+    localStorage.setItem('e4Beaten', arr);
 });
 
 //--Game State--

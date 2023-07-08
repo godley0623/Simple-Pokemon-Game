@@ -1,0 +1,168 @@
+{
+    "lapras-lorelei": {
+        "name": "lapras",
+        "type": [
+            "water",
+            "ice"
+        ],
+        "hp": 75,
+        "currentHp": 75,
+        "atk": 10,
+        "def": 12,
+        "spd": 80,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/131.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/131.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/131.png",
+        "moves": [
+            "Water",
+            "Ice"
+        ]
+    },
+    "walrein-lorelei": {
+        "name": "walrein",
+        "type": [
+            "ice",
+            "water"
+        ],
+        "hp": 60,
+        "currentHp": 60,
+        "atk": 13,
+        "def": 10,
+        "spd": 75,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/365.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/365.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/365.png",
+        "moves": [
+            "Ice",
+            "Water"
+        ]
+    },
+    "machamp-bruno": {
+        "name": "machamp",
+        "type": [
+            "fighting",
+            "none"
+        ],
+        "hp": 65,
+        "currentHp": 65,
+        "atk": 15,
+        "def": 8,
+        "spd": 90,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/68.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/68.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/68.png",
+        "moves": [
+            "Fighting"
+        ]
+    },
+    "hariyama-bruno": {
+        "name": "hariyama",
+        "type": [
+            "fighting",
+            "none"
+        ],
+        "hp": 80,
+        "currentHp": 80,
+        "atk": 9,
+        "def": 11,
+        "spd": 70,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/297.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/297.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/297.png",
+        "moves": [
+            "Fighting"
+        ]
+    },
+    "gengar-agatha": {
+        "name": "gengar",
+        "type": [
+            "ghost",
+            "poison"
+        ],
+        "hp": 60,
+        "currentHp": 60,
+        "atk": 12,
+        "def": 9,
+        "spd": 130,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/94.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/94.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/94.png",
+        "moves": [
+            "Ghost",
+            "Poison"
+        ]
+    },
+    "crobat-agatha": {
+        "name": "crobat",
+        "type": [
+            "poison",
+            "flying"
+        ],
+        "hp": 55,
+        "currentHp": 55,
+        "atk": 14,
+        "def": 8,
+        "spd": 180,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/169.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/169.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/169.png",
+        "moves": [
+            "Poison",
+            "Flying"
+        ]
+    },
+    "dragonite-lance": {
+        "name": "dragonite",
+        "type": [
+            "dragon",
+            "flying"
+        ],
+        "hp": 65,
+        "currentHp": 65,
+        "atk": 16,
+        "def": 10,
+        "spd": 120,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/149.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/149.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/149.png",
+        "moves": [
+            "Dragon",
+            "Flying"
+        ]
+    },
+    "gyarados-lance": {
+        "name": "gyarados",
+        "type": [
+            "water",
+            "flying"
+        ],
+        "hp": 60,
+        "currentHp": 60,
+        "atk": 13,
+        "def": 10,
+        "spd": 110,
+        "sprite": [
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/130.gif",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/130.gif"
+        ],
+        "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/130.png",
+        "moves": [
+            "Water",
+            "Flying"
+        ]
+    }
+}

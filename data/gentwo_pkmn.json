@@ -988,11 +988,11 @@
             "ghost",
             "none"
         ],
-        "hp": 30,
-        "currentHp": 30,
-        "atk": 7,
+        "hp": 50,
+        "currentHp": 50,
+        "atk": 10,
         "def": 7,
-        "spd": 85,
+        "spd": 105,
         "sprite": [
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/200.gif",
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/200.gif"

@@ -498,10 +498,10 @@
             "electric",
             "none"
         ],
-        "hp": 15,
-        "currentHp": 15,
-        "atk": 5,
-        "def": 4,
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 8,
+        "def": 5,
         "spd": 90,
         "sprite": [
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif",
@@ -518,10 +518,10 @@
             "electric",
             "none"
         ],
-        "hp": 30,
-        "currentHp": 30,
-        "atk": 9,
-        "def": 6,
+        "hp": 50,
+        "currentHp": 50,
+        "atk": 11,
+        "def": 8,
         "spd": 110,
         "sprite": [
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/26.gif",
@@ -1031,9 +1031,9 @@
             "ground",
             "none"
         ],
-        "hp": 15,
-        "currentHp": 15,
-        "atk": 7,
+        "hp": 30,
+        "currentHp": 30,
+        "atk": 10,
         "def": 6,
         "spd": 120,
         "sprite": [
@@ -1312,8 +1312,8 @@
             "psychic",
             "none"
         ],
-        "hp": 25,
-        "currentHp": 25,
+        "hp": 40,
+        "currentHp": 40,
         "atk": 9,
         "def": 6,
         "spd": 120,
@@ -1539,8 +1539,8 @@
             "rock",
             "ground"
         ],
-        "hp": 40,
-        "currentHp": 40,
+        "hp": 50,
+        "currentHp": 50,
         "atk": 8,
         "def": 9,
         "spd": 45,
@@ -1848,8 +1848,8 @@
             "water",
             "ice"
         ],
-        "hp": 25,
-        "currentHp": 25,
+        "hp": 40,
+        "currentHp": 40,
         "atk": 8,
         "def": 11,
         "spd": 70,
@@ -1911,8 +1911,8 @@
             "ghost",
             "poison"
         ],
-        "hp": 30,
-        "currentHp": 30,
+        "hp": 40,
+        "currentHp": 40,
         "atk": 9,
         "def": 6,
         "spd": 110,
@@ -2155,8 +2155,8 @@
             "fighting",
             "none"
         ],
-        "hp": 25,
-        "currentHp": 25,
+        "hp": 40,
+        "currentHp": 40,
         "atk": 7,
         "def": 8,
         "spd": 87,
@@ -2175,8 +2175,8 @@
             "fighting",
             "none"
         ],
-        "hp": 25,
-        "currentHp": 25,
+        "hp": 40,
+        "currentHp": 40,
         "atk": 6,
         "def": 9,
         "spd": 76,
