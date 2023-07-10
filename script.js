@@ -531,8 +531,12 @@ function renderStarterChoice() {
     //Starter Div Container
     const starterDiv = document.createElement('div');
     starterDiv.classList.add('starter-pkmn-container');
-    starterDiv.innerHTML = `<div class="starter-pkmn-text">Choose your starter Pokemon</div>`;
+    starterDiv.innerHTML = `
+    <div class="starter-pkmn-text">Choose your starter Pokemon</div>
+    <div class="starter-pokemon"></div>`;
     gameContainer.append(starterDiv);
+
+    const pkmnDiv = document.querySelector('.starter-pokemon');
 
     //Creating the starter pokemon
     const pkmnDiv1 = document.createElement('div');
@@ -541,7 +545,7 @@ function renderStarterChoice() {
     pkmnDiv1.innerHTML = `
     <img id="0" class="starter" src=${starterPkmn[0].sprite[0]}>
     `;
-    starterDiv.append(pkmnDiv1);
+    pkmnDiv.append(pkmnDiv1);
 
     const pkmnDiv2 = document.createElement('div');
     pkmnDiv2.setAttribute('class', 'starter-pkmn inline-block');
@@ -549,7 +553,7 @@ function renderStarterChoice() {
     pkmnDiv2.innerHTML = `
     <img id="1" class="starter" src=${starterPkmn[1].sprite[0]}>
     `;
-    starterDiv.append(pkmnDiv2);
+    pkmnDiv.append(pkmnDiv2);
 
     const pkmnDiv3 = document.createElement('div');
     pkmnDiv3.setAttribute('class', 'starter-pkmn inline-block');
@@ -557,7 +561,7 @@ function renderStarterChoice() {
     pkmnDiv3.innerHTML = `
     <img id="2" class="starter" src=${starterPkmn[2].sprite[0]}>
     `;
-    starterDiv.append(pkmnDiv3);
+    pkmnDiv.append(pkmnDiv3);
 }
 
 function renderMainMenu() {
