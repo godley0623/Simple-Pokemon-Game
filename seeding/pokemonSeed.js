@@ -75,4 +75,4 @@ async function savePkmnToJson(from, to, filename) {
     })
 }
 
-savePkmnToJson(252, 135, 'genthree_pkmn.json');
+savePkmnToJson(387, 494 - 387, 'genfour_pkmn.json');
