@@ -1,7 +1,12 @@
 # Project 1 - Simple-Pokemon-Game
 
-# Play Now
+# Play Now (OLD VERSION)
 https://simple-pokemon-game.netlify.app/
+
+# New Version
+GitHub Repo: https://github.com/godley0623/Pokemon-Simplified-Version
+
+Deployed Website: https://pokemon-simplified-version.netlify.app/ 
 
 # Project Description
 A simplified version of the Pokemon Games' battle system.
